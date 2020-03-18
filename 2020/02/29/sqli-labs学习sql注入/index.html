@@ -1,57 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://moMaxX.github.io').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.7.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
-
-  <meta name="description" content="sqli-labs的安装和配置下载sqli-labs和phpstudy(注意PHP study版本不能高于8.0，不然容易出错，本人就是PHP study版本高了，一直出错)下载完成后将sqli-labs解压放在PHP study的WWW文件夹下打开sqli-labs-master\sql-connections，在里面有一个db-creds.inc文档，打开编辑一般默认用户名、密码都是root，">
+  <meta charset="utf-8">
+  
+  <title>sqli-labs学习sql注入 | hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <meta name="description" content="sqli-labs的安装和配置在大佬的指导下进行了对sql注入的初步了解，特写博客来记录一下第一次时遇到的问题。下载sqli-labs和phpstudy(注意PHP study版本不能高于8.0，不然容易出错，本人就是PHP study版本高了，一直出错)下载完成后将sqli-labs解压放在PHP study的WWW文件夹下打开sqli-labs-master\sql-connections，在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sqli-labs学习sql注入">
 <meta property="og:url" content="http://momaxx.github.io/2020/02/29/sqli-labs%E5%AD%A6%E4%B9%A0sql%E6%B3%A8%E5%85%A5/index.html">
 <meta property="og:site_name" content="hexo">
-<meta property="og:description" content="sqli-labs的安装和配置下载sqli-labs和phpstudy(注意PHP study版本不能高于8.0，不然容易出错，本人就是PHP study版本高了，一直出错)下载完成后将sqli-labs解压放在PHP study的WWW文件夹下打开sqli-labs-master\sql-connections，在里面有一个db-creds.inc文档，打开编辑一般默认用户名、密码都是root，">
+<meta property="og:description" content="sqli-labs的安装和配置在大佬的指导下进行了对sql注入的初步了解，特写博客来记录一下第一次时遇到的问题。下载sqli-labs和phpstudy(注意PHP study版本不能高于8.0，不然容易出错，本人就是PHP study版本高了，一直出错)下载完成后将sqli-labs解压放在PHP study的WWW文件夹下打开sqli-labs-master\sql-connections，在">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200225152738529.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200225153013271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9iG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
@@ -67,161 +27,135 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200229194221881.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200229194455846.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-02-29T11:48:11.477Z">
-<meta property="article:modified_time" content="2020-02-29T11:47:33.040Z">
+<meta property="article:modified_time" content="2020-03-18T02:22:29.175Z">
 <meta property="article:author" content="moMaxX">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200225152738529.png">
-
-<link rel="canonical" href="http://momaxx.github.io/2020/02/29/sqli-labs%E5%AD%A6%E4%B9%A0sql%E6%B3%A8%E5%85%A5/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: true
-  };
-</script>
-
-  <title>sqli-labs学习sql注入 | hexo</title>
   
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">hexo</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
+    <link rel="icon" href="/images/icon.png">
   
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
+  
+<link rel="stylesheet" href="/css/index.css">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
-  </li>
-        <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+  <!-- 百度站長統計-->
+  
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f4e4f3d9d2532faa71e451f2ab41cbb6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
 
-  </li>
-  </ul>
+<div class="main height-100 flex flex-v">
+  <div class="phone-header">
+    <a to="/home" class="mobile-logo" > <img src="/images/logo.svg" /> </a>
+    <a class="menu iconfont icon-menu" onclick="toggleMenu()"></a>
+  </div>
+  <div class="main-top flex flex1">
+    <nuxt-link  to="/home" class="mobile-nav-btn iconfont icon-fenlei"></nuxt-link>
+    <!--主页上左部分-->
+    <div class="height-100 main-left  flex flex-v">
+      <div class="main-left-top flex1">
+        <a class="logo">
+          <img src="/images/logo.svg" />
+          <div class="sub-title">不疯魔不成佛</div>
+        </a>
+        <nav class="nav">
 
-</nav>
-</div>
-    </header>
-
+  
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/02/29/sqli-labs%E5%AD%A6%E4%B9%A0sql%E6%B3%A8%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          sqli-labs学习sql注入
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-02-29 19:48:11 / Modified: 19:47:33" itemprop="dateCreated datePublished" datetime="2020-02-29T19:48:11+08:00">2020-02-29</time>
-            </span>
-
-          
-
+      <a title="首页"  alt="首页"  v-for="(menu,index) in menus" href="/">
+        <div class="icon"><i class="iconfont icon-home"></i></div>
+        <div class="name">
+          <div class="cnname">首页</div>
+          <div class="enname">Home Page</div>
         </div>
-      </header>
+      </a>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+      <a title="归档"  alt="归档"  v-for="(menu,index) in menus" href="/archives">
+        <div class="icon"><i class="iconfont icon-archives"></i></div>
+        <div class="name">
+          <div class="cnname">归档</div>
+          <div class="enname">Archive Page</div>
+        </div>
+      </a>
 
-      
-        <h2 id="sqli-labs的安装和配置"><a href="#sqli-labs的安装和配置" class="headerlink" title="sqli-labs的安装和配置"></a>sqli-labs的安装和配置</h2><p>下载sqli-labs和phpstudy(注意PHP study版本不能高于8.0，不然容易出错，本人就是PHP study版本高了，一直出错)<br>下载完成后将sqli-labs解压放在PHP study的WWW文件夹下<br><img src="https://img-blog.csdnimg.cn/20200225152738529.png" alt="在这里插入图片描述"><br>打开sqli-labs-master\sql-connections，在里面有一个db-creds.inc文档，打开编辑<br><img src="https://img-blog.csdnimg.cn/20200225153013271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9iG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>一般默认用户名、密码都是root，更改过的话输入自己更改后的就行。接下来浏览器输入<a href="http://localhost/sqli-labs-master打开" target="_blank" rel="noopener">http://localhost/sqli-labs-master打开</a><br><img src="https://img-blog.csdnimg.cn/20200225153308153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>点击Setup/reset Database for labs<br><img src="https://img-blog.csdnimg.cn/20200225153517725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>出现这个就代表成功了。</p>
+    
+      <a title="关于我"  alt="关于我"  v-for="(menu,index) in menus" href="/about">
+        <div class="icon"><i class="iconfont icon-about"></i></div>
+        <div class="name">
+          <div class="cnname">关于我</div>
+          <div class="enname">About Me</div>
+        </div>
+      </a>
+
+    
+  
+
+  <!--<a href="/link/">
+    <div class="icon"><i class="iconfont icon-link"></i></div>
+    <div class="name">
+      <div class="cnname">友情链接</div>
+      <div class="enname">Friends Web Link</div>
+    </div>
+  </a>-->
+</nav>
+
+      </div>
+
+      <view class="website-msg">
+        <div class="beian"><a target="_blank" href="http://www.miitbeian.gov.cn/">粤ICP备15053557号</a></div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div class="beian"><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></div>
+        <div class="theme-drsc">PowerBy:<a href="https://hexo.io" target="_blank">Hexo</a> ThemeBy:<a href="" target="_blank">Soul</a></div>
+        <div class="copyright">Copyright &#169 <a href="mailto:d.guangying@foxmail.com">2019 CallMeSoul</a> </div>
+      </view>
+
+      <div class="social flex flex-align-center ">
+        
+          
+            
+              <a class="flex1 text-center" href="https://weibo.com/tellmesoul/home?wvr=5" target="_blank" title="weibo" alt="weibo">
+                <div class="icon relative">
+                  <i class="iconfont icon-weibo"></i>
+                </div>
+              </a>
+            
+          
+            
+              <a class="flex1 text-center" href="https://github.com/callmesoul" target="_blank" title="GitHub" alt="GitHub">
+                <div class="icon relative">
+                  <i class="iconfont icon-github"></i>
+                </div>
+              </a>
+            
+          
+            
+          
+        
+      </div>
+    </div>
+    <!--主页上右部分-->
+    <div class="main-right flex1 flex flex-v">
+    <div class="article-content flex1">
+        <div class="article-content-container">
+            <div class="article-title row">
+                <div class="title">sqli-labs学习sql注入</div>
+                <div class=" other">
+                    <!--<i class="iconfont icon-iconfontordinaryliulan"></i> 56--> <i
+                        class="iconfont icon-shijian"></i>· Feb 29, 2020 ·</div>
+            </div>
+            <div class="article-message markdown-body">
+                <article class="text" v-highlight>
+                    <h2 id="sqli-labs的安装和配置"><a href="#sqli-labs的安装和配置" class="headerlink" title="sqli-labs的安装和配置"></a>sqli-labs的安装和配置</h2><h2 id="在大佬的指导下进行了对sql注入的初步了解，特写博客来记录一下第一次时遇到的问题。"><a href="#在大佬的指导下进行了对sql注入的初步了解，特写博客来记录一下第一次时遇到的问题。" class="headerlink" title="在大佬的指导下进行了对sql注入的初步了解，特写博客来记录一下第一次时遇到的问题。"></a>在大佬的指导下进行了对sql注入的初步了解，特写博客来记录一下第一次时遇到的问题。</h2><p>下载sqli-labs和phpstudy(注意PHP study版本不能高于8.0，不然容易出错，本人就是PHP study版本高了，一直出错)<br>下载完成后将sqli-labs解压放在PHP study的WWW文件夹下<br><img src="https://img-blog.csdnimg.cn/20200225152738529.png" alt="在这里插入图片描述"><br>打开sqli-labs-master\sql-connections，在里面有一个db-creds.inc文档，打开编辑<br><img src="https://img-blog.csdnimg.cn/20200225153013271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9iG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>一般默认用户名、密码都是root，更改过的话输入自己更改后的就行。接下来浏览器输入<a href="http://localhost/sqli-labs-master打开" target="_blank" rel="noopener">http://localhost/sqli-labs-master打开</a><br><img src="https://img-blog.csdnimg.cn/20200225153308153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>点击Setup/reset Database for labs<br><img src="https://img-blog.csdnimg.cn/20200225153517725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>出现这个就代表成功了。</p>
 <h2 id="联合查询注入法"><a href="#联合查询注入法" class="headerlink" title="联合查询注入法"></a>联合查询注入法</h2><p><strong>在sql注入时应该记住的一些东西<br>information_schema库存放了所有库的信息<br>information_schema.columns包含了所有表的字段<br>table_name表名<br>table_schema数据库名<br>column_name列名<br>information_schema.tables包含所有库的表名<br>group_concat()函数能将相同的行组合起来，省老事了。</strong></p>
 <p><strong>联合查询注入的原理</strong><br>联合查询注入的前提就是要有显示位(通过查询从数据库返回到页面的内容)。<br>因本人为萌新一枚，在这里就以sqli-labs（一）为例子进行说明。<br>打开网站，进入Lesson 1<br><img src="https://img-blog.csdnimg.cn/20200228192549167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>1、判断注入点</strong><br>闭合符号一般是’、”或者没有闭合符号，而注释符号一般是”) 和 –+<br>在搜索框内输入?id=1’，发现提示错误。<br><img src="https://img-blog.csdnimg.cn/20200228193234290.png" alt="在这里插入图片描述"><br>用注释符号–+注释后发现正常</p>
 <p><img src="https://img-blog.csdnimg.cn/20200228193407902.png" alt="在这里插入图片描述"><br>说明注入点是单引号’<br><strong>2、判断列数</strong><br>在输入框内输入id=1,,2,3;时，均有不同的数据返回。然后输入</p>
@@ -238,188 +172,185 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//127.0.0.1/sqli-labs-master/Less-1/?id=0' union select 1,group_concat(username,0x3a,password),3 from users --+</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://img-blog.csdnimg.cn/20200229194455846.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样，值就被爆出来了！</p>
 
-    </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/02/28/HTML%E8%A1%A8%E5%8D%95/" rel="prev" title="HTML表单">
-      <i class="fa fa-chevron-left"></i> HTML表单
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/07/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%88%9D%E4%BD%93%E9%AA%8C/" rel="next" title="布尔盲注初体验">
-      布尔盲注初体验 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-  </div>
-
-
-          </div>
-          
-
+                </article>
+            </div>
+            <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<style>
+    .hljs {
+        display: block !important;
+        overflow-x: auto !important;
+        background: #2b2b2b !important;
+        color: #f8f8f2 !important;
+        padding: .5em !important;
+    }
+</style>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <script>
-  window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
+    var gitalk = new Gitalk({
+        clientID: '85810192d72d7f763a9a',
+        clientSecret: 'e9867192041e53ad9f4581db6e50bbe7373a090d',
+        repo: 'myblog',
+        owner: 'callmesoul',
+        admin: ['callmesoul'],
+        id: '', // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
 </script>
-
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sqli-labs的安装和配置"><span class="nav-number">1.</span> <span class="nav-text">sqli-labs的安装和配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联合查询注入法"><span class="nav-number">2.</span> <span class="nav-text">联合查询注入法</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">moMaxX</p>
-  <div class="site-description" itemprop="description"></div>
+    </div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">5</span>
-          <span class="site-state-item-name">posts</span>
+
+<link href="https://cdn.bootcss.com/highlight.js/9.15.7/styles/a11y-dark.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/highlight.js/9.15.9/highlight.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+  </div>
+  <div class="main-bottom">
+    <div class="music flex flex-pack-justify flex-align-center">
+      <div class="control">
+        <a onclick="preSong()"><span class="iconfont icon-shangyishou"></span></a>
+        <a onclick="playControl()"><span class="iconfont play-icon icon-kaishi1"></span></a>
+        <a onclick="nextSong()"><span class="iconfont icon-xiayishou-copy"></span></a>
+      </div>
+      <div class="msg">
+        <span class="time"></span>
+        <div class="line" ref="progress-line-warp">
+          <div class="song-msg">邓紫棋 - 差不多姑娘</div>
+          <!--<div class="current-line" ref="progress-line">
+            <a tag="a" class="target" v-on:mousedown.prevent="mousedown"></a>
+          </div>-->
+        </div>
+        <span class="all-time"></span>
+      </div>
+      <div class="right-control">
+        <a class="order-btn flex flex-align-center" onclick="toogleShowMusicList()">
+          <span class="iconfont icon-ttpodicon"></span>
+          <span class="number flex1">3</span>
         </a>
       </div>
-  </nav>
-</div>
-
-
-
-      </div>
-
+      <audio id="audio" class="mian-audio" src="https://music.163.com/#/song?id=1379444316">
+        Your browser does not support the audio element.
+      </audio>
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">moMaxX</span>
+  </div>
+  <div class="music-list">
+    <div id="musiclist">
+      
+        <a class="music-item flex flex-align-center" data-name="邓紫棋 - 差不多姑娘" data-url="https://music.163.com/#/song?id=1379444316" onclick="changePlayIndex(0)" >
+          <span class="iconfont" class="icon-kaishi"></span>
+          <span class="title flex1">差不多姑娘 - 邓紫棋</span>
+        </a>
+      
+        <a class="music-item flex flex-align-center" data-name="周杰伦 - 爱在西元前" data-url="https://callmesoul-blog.oss-cn-shenzhen.aliyuncs.com/music/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E7%88%B1%E5%9C%A8%E8%A5%BF%E5%85%83%E5%89%8D%20%5Bmqms2%5D.mp3" onclick="changePlayIndex(1)" >
+          <span class="iconfont" class="icon-kaishi"></span>
+          <span class="title flex1">爱在西元前 - 周杰伦</span>
+        </a>
+      
+        <a class="music-item flex flex-align-center" data-name="周杰伦 - 龙拳" data-url="https://callmesoul-blog.oss-cn-shenzhen.aliyuncs.com/music/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E9%BE%99%E6%8B%B3%20%5Bmqms2%5D.mp3" onclick="changePlayIndex(2)" >
+          <span class="iconfont" class="icon-kaishi"></span>
+          <span class="title flex1">龙拳 - 周杰伦</span>
+        </a>
+      
+    </div>
+  </div>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.1
-  </div>
 
-        
+<script>
+  var playIndex = localStorage.getItem('playIndex') ? parseInt(localStorage.getItem('playIndex')) : 0
+  let musics = $('.music-item')
+  musics.eq(playIndex).addClass('active')
+  var audio = document.getElementById("audio");
 
-
-
-
+  $('.song-msg').html(musics[playIndex].dataset.name)
+  audio.src = musics[playIndex].dataset.url
 
 
+  var playbtn = document.getElementsByClassName("play-icon")[0];
+  var playing = false;
+  audio.loop = false;
+  audio.addEventListener('ended', function () {
+    playbtn.classList.remove("icon-kaishi")
+    playbtn.classList.add("icon-kaishi1")
+    playing = false
+  }, false);
+  audio.addEventListener('play', function () {
+    playbtn.classList.remove("icon-kaishi1")
+    playbtn.classList.add("icon-kaishi")
+    playing= true
+  }, false);
+  audio.addEventListener('pause', function () {
+    playbtn.classList.remove("icon-kaishi")
+    playbtn.classList.add("icon-kaishi1")
+    playing = false
+  }, false);
+  function toogleShowMusicList() {
+    var musiclist = document.getElementsByClassName("music-list")[0];
+    if(musiclist.className.indexOf("active") === -1){
+      musiclist.classList.add("active")
+    }else{
+      musiclist.classList.remove("active");
+    }
+  }
 
+  function playControl() {
+    if(playing){
+      audio.pause()
+    }else{
+      audio.play()
+    }
+  }
 
-      </div>
-    </footer>
-  </div>
+  function changePlayIndex(index) {
+    if(playIndex !== index){
+      localStorage.setItem('playIndex',index)
+      playIndex = index
+      musics.removeClass('active')
+      musics.eq(playIndex).addClass('active')
+      $('.song-msg').html(musics[playIndex].dataset.name)
+      audio.src = musics[playIndex].dataset.url
+      audio.play()
+    }else{
+      playControl()
+    }
+  }
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  function preSong() {
+    var index
+    if(playIndex === 0){
+      index = musics.length - 1
+    }else{
+      index = playIndex - 1
+    }
+    changePlayIndex(index)
+  }
 
-<script src="/js/utils.js"></script>
+  function nextSong() {
+    var index
+    if(playIndex === musics.length - 1){
+      index = 0
+    }else{
+      index = playIndex + 1
+    }
+    changePlayIndex(index)
+  }
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-</body>
-</html>
+  function toggleMenu() {
+    var mainLeft = $('.main-left')
+    if(mainLeft.hasClass('active')){
+      mainLeft.removeClass('active')
+      $('.menu').removeClass('icon-close')
+      $('.menu').addClass('icon-menu')
+    }else{
+      mainLeft.addClass('active')
+      $('.menu').removeClass('icon-menu')
+      $('.menu').addClass('icon-close')
+    }
+  }
+</script>
