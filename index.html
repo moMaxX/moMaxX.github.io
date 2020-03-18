@@ -188,10 +188,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-03-07 20:42:02 / Modified: 20:42:32" itemprop="dateCreated datePublished" datetime="2020-03-07T20:42:02+08:00">2020-03-07</time>
+              <time title="Created: 2020-03-07 20:42:02" itemprop="dateCreated datePublished" datetime="2020-03-07T20:42:02+08:00">2020-03-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-18 10:13:25" itemprop="dateModified" datetime="2020-03-18T10:13:25+08:00">2020-03-18</time>
+              </span>
 
           
 
@@ -204,7 +210,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="了解布尔盲注"><a href="#了解布尔盲注" class="headerlink" title="了解布尔盲注"></a>了解布尔盲注</h2><p><strong>布尔盲注的条件</strong><br>布尔盲注在注入时不会显示具体的信息，即没有显示位，只会返回对或者错误。<br><strong>布尔盲注需要用到的几个函数</strong></p>
+          <h2 id="上次进行了联合查询注入学习，这次进入了布尔盲注的学习，继续加油吧！"><a href="#上次进行了联合查询注入学习，这次进入了布尔盲注的学习，继续加油吧！" class="headerlink" title="上次进行了联合查询注入学习，这次进入了布尔盲注的学习，继续加油吧！"></a>上次进行了联合查询注入学习，这次进入了布尔盲注的学习，继续加油吧！</h2><h2 id="了解布尔盲注"><a href="#了解布尔盲注" class="headerlink" title="了解布尔盲注"></a>了解布尔盲注</h2><p><strong>布尔盲注的条件</strong><br>布尔盲注在注入时不会显示具体的信息，即没有显示位，只会返回对或者错误。<br><strong>布尔盲注需要用到的几个函数</strong></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">length</span>()函数可返回字符串的长度</span><br><span class="line"><span class="selector-tag">substring</span>()函数可以截取字符串，可指定开始的位置和截取的长度</span><br><span class="line"><span class="selector-tag">ord</span>()函数可以返回单个字符的<span class="selector-tag">ASCII</span>码</span><br><span class="line"><span class="selector-tag">char</span>()函数可将<span class="selector-tag">ASCII</span>码转换为对应的字符</span><br></pre></td></tr></table></figure>
 <p>在上面ord()也可以用ascii()来代替，效果一样。</p>
 <h2 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h2><p><strong>1、判断注入点</strong><br><img src="https://img-blog.csdnimg.cn/20200307194458832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>输入” or 1=1#时显示正确，删除”时出现错误，说明闭合符号是 “ 。<br><strong>判断数据库长度</strong></p>
