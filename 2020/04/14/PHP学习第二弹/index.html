@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="moMaxX">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="PHP学习第二弹"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="Momax&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://moMaxX.github.io"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Momax&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Momax's blog</title>
+
+  <!-- Bootstrap CSS -->
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  
+  
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+  	<!-- 雪花特效 --> 
+  
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">PHP学习第二弹</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MomaxX" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:194038819@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By moMaxX</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-04-14</span>
+            <span class="time">00:12:17</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>@<a href="php学习总结">TOC</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre><code>上次对于PHP的变量进行了学习，这一周就针对常量进行了简单的学习，顺便记录一下，并且补充一下上周有关变量的一些东西。</code></pre><h2 id="变量的补充"><a href="#变量的补充" class="headerlink" title="变量的补充"></a>变量的补充</h2><p>上周学习了变量的基本种类，以及几个作用域，但是关于变量的类型以及赋值，输出没有写到，补充回来。<br><strong>变量的类型</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">整数</span><br><span class="line">浮点数</span><br><span class="line">逻辑（布尔类型）</span><br><span class="line">字符串</span><br><span class="line">数组</span><br><span class="line">对象</span><br><span class="line">资源</span><br><span class="line">null值</span><br></pre></td></tr></table></figure>
+<p>前面几个不用说，和其他语言差不多，先看一个例子<br><img src="https://img-blog.csdnimg.cn/2020040818035174.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在上面图片中，运用了<strong>var_dump()</strong> 来显示变量的类型以及变量的值。<strong>unset()</strong> 用于删除变量。<br><strong>字符串的赋值</strong><br>字符串赋值有几种方法：</p>
+<blockquote>
+<p>1、单引号  如： $a=’hello!’<br>2、双引号  如： $a=”hello!”</p>
+<p>3、&lt;&lt;&lt;变量名   变量值  变量名； 如：$a=&lt;&lt;&lt;max  666  max;</p>
+</blockquote>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>常量本人感觉和变量差别不大，只是定义方式不一样。<br>不同的是，常量一经定义，值无法发生改变，变量可以。</p>
+<h3 id="常量的定义"><a href="#常量的定义" class="headerlink" title="常量的定义"></a>常量的定义</h3><p>常量的定义与变量不同，变量直接<strong>$变量名字</strong>来定义，常量的定义格式为：<br><strong>define(‘常量名字’，常量值)</strong>或者<strong>define(“常量名字”，常量值)</strong>两种格式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">define(<span class="string">'MY_NAME'</span>,<span class="string">'张三'</span>);</span><br><span class="line"><span class="keyword">echo</span> MY_NAME;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>需要注意，在对于常量的输出时，不能在常量名字上加上引号。</p>
+<h3 id="常量对于变量的区别"><a href="#常量对于变量的区别" class="headerlink" title="常量对于变量的区别"></a>常量对于变量的区别</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">常量不用<span class="variable">$</span>来定义，而用define()来定义</span><br><span class="line">常量可以在全局使用，而不用局限于变量的作用规则</span><br><span class="line">常量一经定义无法重新定义</span><br><span class="line">常量的数据类型只能是 布尔型，整型，浮点型，字符串</span><br></pre></td></tr></table></figure>
+<h3 id="常量的命名规则"><a href="#常量的命名规则" class="headerlink" title="常量的命名规则"></a>常量的命名规则</h3><p>与变量一样，只能由字母，数字，下划线构成，且不能用数字开头。<br>在常量命名中，按照习惯都是大写字母，但是用小写字母不会报错。<br><img src="https://img-blog.csdnimg.cn/2020040818275222.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="预定义常量"><a href="#预定义常量" class="headerlink" title="预定义常量"></a>预定义常量</h3><p>在PHP中，存在许多内核定义过的常量名字，交做预定义常量。<br>可以通过一个函数<strong>print_r(get_defined_constants())</strong>来查看。<br><img src="https://img-blog.csdnimg.cn/20200408183205873.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="魔术常量"><a href="#魔术常量" class="headerlink" title="魔术常量"></a>魔术常量</h4><p>常见的魔术常量：<a href="https://www.php.net/manual/zh/language.constants.predefined.php" target="_blank" rel="noopener">在这里</a><br>里面有具体的说法，在这里，我就简单的记录一下。<br><strong><strong>FILE</strong></strong><br>展示当前的文件路径和文件名<br><img src="https://img-blog.csdnimg.cn/20200408183819886.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong><strong>LINE</strong></strong><br>展示当前的行数。<br><img src="https://img-blog.csdnimg.cn/20200408184003454.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>在这里要注意，预定义常量名字是不区分大小写的。</strong></p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>在这里就简单的写了这两种基本的魔术变量。<br>下次来学习运算符方面的知识</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+
+<script src="/js/highlight.pack.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
