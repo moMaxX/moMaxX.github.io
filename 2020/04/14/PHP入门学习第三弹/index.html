@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="moMaxX">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="PHP入门学习第三弹"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="Momax&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://moMaxX.github.io"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Momax&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Momax's blog</title>
+
+  <!-- Bootstrap CSS -->
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  
+  
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+  	<!-- 雪花特效 --> 
+  
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">PHP入门学习第三弹</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MomaxX" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:194038819@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By moMaxX</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-04-14</span>
+            <span class="time">00:10:40</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>@<a href="这里写目录标题">TOC</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次学习了PHP语言的常量内容，并对之前的变量内容进行了补充，这次来说一下运算符以及一些语句</p>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>运算符就是对于数据进行运算处理的符号。</p>
+<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>算术运算符有：<strong>“+”</strong>、<strong>“-”</strong>、<strong>“*”</strong>、<strong>“/”</strong>、<strong>“%”</strong>、<strong>“++”</strong>、<strong>“–”</strong>这几类</p>
+<h4 id=""><a href="#" class="headerlink" title="+"></a>+</h4><p><strong>“+”</strong>就单纯的是个加号，表示两个数据相加的结果<br><img src="https://img-blog.csdnimg.cn/20200413180056745.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>在这里我其实有一个疑问，就是为什么字符串在单纯的就是这样一个＋号表达式里会被认为是0处理？</strong><br>关于这个，我在网上进行了查找，找到了问题的答案，就是说字符串在与整数相加时，有着如下的转换规律：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">'1aaa' =&gt; 1</span><br><span class="line">'11aaa' =&gt; 11</span><br><span class="line">'222asdsa' =&gt; 222</span><br><span class="line">'aaaaa1'=&gt;0</span><br></pre></td></tr></table></figure>
+<p>就是说字符串开头没有数值的话，会按0处理，而有数值的话会转换成相应的数值，即：<br><img src="https://img-blog.csdnimg.cn/20200413181104441.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="-1"><a href="#-1" class="headerlink" title="-"></a>-</h4><p><strong>“-”</strong>其实和上面说的一样。这里不进行过多的记录了就。<br><img src="https://img-blog.csdnimg.cn/20200413181303700.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>不过<strong>“-”</strong> 还有一个意思，就是取反<br><img src="https://img-blog.csdnimg.cn/20200413223853706.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="-2"><a href="#-2" class="headerlink" title="*"></a>*</h4><p><img src="https://img-blog.csdnimg.cn/20200413181432238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="-3"><a href="#-3" class="headerlink" title="/"></a>/</h4><p><img src="https://img-blog.csdnimg.cn/2020041318160076.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="-4"><a href="#-4" class="headerlink" title="%"></a>%</h4><p><strong>“%”</strong> 和别的语言其实一样，就是取余。<br><img src="https://img-blog.csdnimg.cn/20200413181712681.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="-5"><a href="#-5" class="headerlink" title="++"></a>++</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="comment">//echo $a++;</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> ++$a;</span><br></pre></td></tr></table></figure>
+<p>对于这两种方法，输出的结果是不一样的。前加加表示先加，后加加表示后加，因此结果不一样，不过如果在前面先加加，在输出的话值是一样的。<br>不过如果上面的代码不把第三行注释掉的话，输出的结果就会变成  1    3。因为在<code>$a++</code>这一句中输出了a的值，再对a进行加加。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="comment">#$a++;</span></span><br><span class="line">++$a;</span><br><span class="line"><span class="keyword">echo</span> $a;</span><br></pre></td></tr></table></figure>
+<p>这样子输出的结果是一样的。<br>总的来说，就是前加加是先加，后返回；后加加是先返回后加。</p>
+<h4 id="–"><a href="#–" class="headerlink" title="–"></a>–</h4><p><strong>“–”</strong> 和<strong>“++”</strong> 效果一样，就不多说了。<br><strong>注意：++和–是对于变量而言的</strong></p>
+<h3 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h3><p>字符串运算符是一个<strong>“.”</strong>，用于连接字符串。<br><img src="https://img-blog.csdnimg.cn/20200413223625893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><h4 id="分类-1"><a href="#分类-1" class="headerlink" title="分类"></a>分类</h4><p>有<strong>“=”</strong>、<strong>“-”</strong>、<strong>“+=”</strong>、<strong>“-=”</strong>、<strong>“*=”</strong>、<strong>“/=”</strong>、<strong>“.=”</strong>、<strong>“%=”</strong> 几类。</p>
+<h5 id="-6"><a href="#-6" class="headerlink" title="="></a>=</h5><p>可以把它看成是一个数学中的等于号，只不过叫做赋值，<br>比如：<code>$a=1</code>，就是指把 <strong>“1”</strong> 的值赋给 <strong>“变量a”</strong>。</p>
+<h5 id="-7"><a href="#-7" class="headerlink" title="-"></a>-</h5><p>在上面说过了，就是指取相反数。</p>
+<h5 id="、-、-、-、-、"><a href="#、-、-、-、-、" class="headerlink" title="+=、-=、*=、/=、.=、%="></a>+=、-=、*=、/=、.=、%=</h5><p>这几种的意思其实是一样的。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$a+=<span class="number">1</span>;<span class="comment">//$a=$a+1</span></span><br><span class="line">$a-=<span class="number">1</span>;<span class="comment">//$a=$a-1</span></span><br><span class="line">$a*=<span class="number">1</span>;<span class="comment">//$a=$a*1</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><h4 id="分类-2"><a href="#分类-2" class="headerlink" title="分类"></a>分类</h4><p><strong>==（等于）</strong>、<strong>===（全等）</strong>、<strong>！=（不等于）&lt;&gt;</strong>、<strong>！===（不全等）</strong>、<strong>&gt;</strong>、<strong>&lt;</strong>、<strong>&gt;=</strong>、<strong>&lt;=</strong>。</p>
+<h5 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line">$b=<span class="string">'1'</span>;</span><br><span class="line">var_dump($a==$b)<span class="comment">//输出blooen true</span></span><br><span class="line">var_dump($a===$b)<span class="comment">//输出blooen false</span></span><br><span class="line">var_dump($a!=$b)<span class="comment">//输出blooen false</span></span><br><span class="line">var_dump($a&lt;&gt;$b)<span class="comment">//输出blooen false</span></span><br><span class="line">var_dump($a!==$b)<span class="comment">//输出blooen true</span></span><br><span class="line">var_dump($a&gt;$b)<span class="comment">//输出blooen false</span></span><br><span class="line">var_dump($a&gt;=$b)<span class="comment">//输出blooen true</span></span><br><span class="line">var_dump($a&lt;=$b)<span class="comment">//输出blooen true</span></span><br><span class="line">var_dump($a&lt;$b)<span class="comment">//输出blooen false</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="规定"><a href="#规定" class="headerlink" title="规定"></a>规定</h5><p>在对数据数进行比较操作时，输出的都是布尔类型数据。<br>在PHP中用<code>echo</code>输出布尔类型数据时，</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="keyword">true</span>;<span class="comment">//输出1</span></span><br><span class="line"><span class="keyword">echo</span> <span class="keyword">false</span><span class="comment">//无输出</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以用上面说过的<code>var_dump()</code>来输出。</p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><h4 id="分类-3"><a href="#分类-3" class="headerlink" title="分类"></a>分类</h4><p>就是几种<strong>与、或、非、异或</strong>。</p>
+<h5 id="逻辑运算规则"><a href="#逻辑运算规则" class="headerlink" title="逻辑运算规则"></a>逻辑运算规则</h5><p>运算的数值都是布尔类型，如果不是会自动转换为布尔类型，再进行运算。输出的也是布尔类型。</p>
+<h6 id="认为是布尔类型是false的值"><a href="#认为是布尔类型是false的值" class="headerlink" title="认为是布尔类型是false的值"></a>认为是布尔类型是false的值</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、布尔值false</span><br><span class="line"><span class="number">2</span>、<span class="number">0</span></span><br><span class="line"><span class="number">3</span>、浮点型<span class="number">0.0</span></span><br><span class="line"><span class="number">4</span>、空白字符串和字符串<span class="number">0</span></span><br><span class="line"><span class="number">5</span>、没有成员的数组</span><br><span class="line"><span class="number">6</span>、NULL</span><br></pre></td></tr></table></figure>
+<h5 id="逻辑运算符的使用"><a href="#逻辑运算符的使用" class="headerlink" title="逻辑运算符的使用"></a>逻辑运算符的使用</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="keyword">true</span>;</span><br><span class="line">$b=<span class="keyword">false</span>;</span><br><span class="line">var_dump($a &amp;&amp; $b)<span class="comment">//与运算 输出false</span></span><br><span class="line">var_dump($a <span class="keyword">and</span> $b)<span class="comment">//与运算 输出false</span></span><br><span class="line">var_dump($a <span class="keyword">or</span> $b)<span class="comment">//或运算 输出true</span></span><br><span class="line">var_dump($a || $b)<span class="comment">//或运算 输出true</span></span><br><span class="line">var_dump(!$b)<span class="comment">//非运算 输出true</span></span><br><span class="line">var_dump($a <span class="keyword">xor</span> $b)<span class="comment">//异或运算 输出true</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><p>对操作数中的每一个二进制位进行运算。</p>
+<h3 id="其他运算符"><a href="#其他运算符" class="headerlink" title="其他运算符"></a>其他运算符</h3><h4 id="-8"><a href="#-8" class="headerlink" title="?:"></a>?:</h4><p>三元运算符<br>使用格式：<code>表达式1 ? 表达式2 : 表达式3；</code><br>运算规则：<br><strong>如果表达式1为true，那么执行表达式2，否则执行表达式3</strong>。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="keyword">true</span> ? <span class="number">20</span> : <span class="number">10</span></span><br><span class="line"><span class="keyword">echo</span> $a;<span class="comment">//输出20</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="-9"><a href="#-9" class="headerlink" title="``"></a>``</h4><p>用途：<strong>可以将系统的命令放在代码里执行</strong><br>但是由于跨平台原因，很少用到，（个人感觉还有涉及到安全问题）。</p>
+<h4 id="-10"><a href="#-10" class="headerlink" title="@"></a>@</h4><p>用途： <strong>屏蔽表达式可能出现的错误</strong><br>注意是表达式。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> $a;<span class="comment">//因为没有对变量a赋值，因此会报错</span></span><br><span class="line">@<span class="keyword">echo</span> $a;<span class="comment">//echo不是表达式，会报错</span></span><br><span class="line"><span class="keyword">echo</span> @$a;<span class="comment">//输出null</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="gt-、-gt-、instanceof"><a href="#gt-、-gt-、instanceof" class="headerlink" title="=&gt; 、-&gt; 、instanceof"></a>=&gt; 、-&gt; 、instanceof</h4><p>三种运算符还没有接触，之后往后面深入学习之后，会补充回来。</p>
+<h1 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h1><h2 id="while循环语句"><a href="#while循环语句" class="headerlink" title="while循环语句"></a>while循环语句</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>($i&lt;=<span class="number">10</span>)&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"while循环语句"</span>.&lt;br /&gt;<span class="comment">//输出十次“while循环语句”，换行输出</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="do-while-循环语句"><a href="#do-while-循环语句" class="headerlink" title="do while 循环语句"></a>do while 循环语句</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"do while循环语句"</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"\n"</span></span><br><span class="line">  $i++;</span><br><span class="line">&#125;<span class="keyword">while</span>($i&lt;=<span class="number">10</span>)<span class="comment">//换行输出十次“do while循环语句”</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="for-循环语句"><a href="#for-循环语句" class="headerlink" title="for 循环语句"></a>for 循环语句</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">for</span>($a=<span class="number">1</span>; $a&lt;=<span class="number">10</span>; $a++)&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"for循环语句"</span>.&lt;br /&gt;<span class="comment">//换行输出十次“for循环语句”</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://img-blog.csdnimg.cn/2020041400063849.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>第三弹大概就学了这么多，等下次再总结其他的，<strong>加油！！！</strong></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+
+<script src="/js/highlight.pack.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
