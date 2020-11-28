@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="moMaxX">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="buu学习之旅（一）"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="Momax&#39;s blog"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://moMaxX.github.io"/>
+  
+    <link rel="alternate" href="/atom.xml" title="Momax&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Momax's blog</title>
+
+  <!-- Bootstrap CSS -->
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  
+  
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+  	<!-- 雪花特效 --> 
+  
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">buu学习之旅（一）</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/MomaxX" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:194038819@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By moMaxX</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-11-29</span>
+            <span class="time">00:45:47</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>@<a href="buu学习之旅">TOC</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>许久没刷buu的题了，这次的我又双叒叕来了！（别问为什么来了，问就是水题来了）</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="自闭一-upload1"><a href="#自闭一-upload1" class="headerlink" title="自闭一 upload1"></a>自闭一 upload1</h2><p>打开题目<br><img src="https://img-blog.csdnimg.cn/20201123204056410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目场景"><br>然后一看这不是有手就行吗？自己想了一下他的目录，猜测是<code>upload</code>，因为在源码里看到了类似的东西。所以尝试了一下，结果还真的对了。<img src="https://img-blog.csdnimg.cn/20201123204215432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="upload目录"><br>接下来就是上传后门文件了。所以首先尝试正常的来了一个<br><img src="https://img-blog.csdnimg.cn/20201123204357622.png#pic_center" alt="第一次"><br>发现结果提示<img src="https://img-blog.csdnimg.cn/2020112320443029.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="第一次提示"><br>然后该文件格式，接着尝试发现不对<img src="https://img-blog.csdnimg.cn/20201123204521965.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="第二次尝试结果"><br>所以，这是过滤了字符？<br>于是就直接改了一下，变为<img src="https://img-blog.csdnimg.cn/20201123204611479.png#pic_center" alt="第一次修改之后"><br>接着上传<img src="https://img-blog.csdnimg.cn/20201123204648360.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="结果"><br>然后就是想了一下，结合网上的一些大师傅的经验（也就是类似提醒的wp），知道了一种新的文件上传的方式，叫做<code>文件幻术头</code>，也就是在你写的一句话前面加上一个图片类型的文件头，然后接着百度发现只需要在前面加一个<code>GIF89a</code>就可以，所以进行尝试<br><img src="https://img-blog.csdnimg.cn/2020112320494427.png#pic_center" alt="GIF文件头"><br><img src="https://img-blog.csdnimg.cn/20201123205643614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="上传结果"><br>上传成功。<br>然后路径就是upload后面跟文件名。<br>接下来就bp抓包<img src="https://img-blog.csdnimg.cn/20201123205742557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="结果"><br>修改文件后缀为<code>phtml</code>，（至于为什么不选择php等，在我尝试后发现会报错，应该存在过滤的）接着蚁剑连接，搜索flag得到结果<br><img src="https://img-blog.csdnimg.cn/20201123205918872.png#pic_center" alt="flag"></p>
+<h2 id="自闭二-HTTP"><a href="#自闭二-HTTP" class="headerlink" title="自闭二 HTTP"></a>自闭二 HTTP</h2><p>打开题目，<img src="https://img-blog.csdnimg.cn/20201124200145250.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目样式"><br>看到这里直接鼠标右键查看源码，发现了一个<code>.php</code>文件，<br><img src="https://img-blog.csdnimg.cn/20201124200247169.png#pic_center" alt=".php文件"><br>访问之后发现<img src="https://img-blog.csdnimg.cn/20201124200311740.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="访问之后"><br>花里胡哨的一大堆没用，看到提示意思是说这个请求不是<code>https://www.Sycsecret.com</code>发出的。所以就直接抓包，修改头信息。<br><img src="https://img-blog.csdnimg.cn/20201124200507265.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="修改第一次"><br>添加<code>referer</code>信息<br><img src="https://img-blog.csdnimg.cn/20201124200538239.png#pic_center" alt="修改第二次"><br>这里提示使用<code>Syclover</code>进行浏览，所以再次修改<img src="https://img-blog.csdnimg.cn/20201124200622810.png#pic_center" alt="第三次"><br>得到<br><img src="https://img-blog.csdnimg.cn/20201124200639533.png#pic_center" alt="第三次结果"><br>提示只能本地访问，所以<code>xff</code>信息改为：<code>127.0.0.1</code>，访问得到flag<br><img src="https://img-blog.csdnimg.cn/20201124200736709.png#pic_center" alt="flag"></p>
+<h2 id="自闭三-admin"><a href="#自闭三-admin" class="headerlink" title="自闭三 admin"></a>自闭三 admin</h2><p>打开题目，上面提示<img src="https://img-blog.csdnimg.cn/20201124202003787.png#pic_center" alt="提示"><br>给我吓了一跳，就打开吧，然后进去<img src="https://img-blog.csdnimg.cn/20201124202039297.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目"><br>因为题目名字是admin，所以我就尝试了一下admin+123登录，结果，就很，<img src="https://img-blog.csdnimg.cn/20201124202125919.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="flag "><br>WHAT?!!!!我还没开始就已经结束了？这，果然是最快的男人(tui)，既然这样就按照正常步骤解一下吧，刚开始想着会不会是密码蛮力爆破，然后没尝试，因为buu存在请求次数。所以就换了一个思路。<br>正常注册了一个账号，然后进入修改密码的页面(因为之前在登陆页面找了没有，就来到了密码修改页面)，发现了注释的网页链接<code>&lt;!-- https://github.com/woadsl1234/hctf_flask/ --&gt;</code>，所以百度该链接,直接得到了这个题目的源码，然后找到这个东西<img src="https://img-blog.csdnimg.cn/20201124203828263.png#pic_center" alt="发现"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">       name = strlower(form.username.data)</span><br></pre></td></tr></table></figure>
+<p>进行了名字的小写转换，也就是说注册的是大写会自动转换成小写，所以就无法通过注册大写admin来操作了。接着在登录，注册，修改页面都发现了这个函数。但是这个函数并不是python自带的，而是作者自己定义的，看一下作者定义这个函数的地方。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strlower</span><span class="params">(username)</span>:</span></span><br><span class="line">    username = nodeprep.prepare(username)</span><br><span class="line">    <span class="keyword">return</span> username</span><br></pre></td></tr></table></figure>
+<p>使用的是 <code>nodeprep.prepare函数</code>，这个函数是用<code>Twisted</code>模块导入，而且查看项目时发现这个项目的<code>Twisted版本</code>相对于当时题目发布的时间是落后的，所以这里肯定有问题。<br>就利用Unicode编码转换。<br><a href="https://unicode-table.com/en/1D2E/" target="_blank" rel="noopener">这里有一个在线网站</a><br>可以自动生成需要的字符。<br>也就是说这个自定义函数的工作流程就是</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ᴬdmin-&gt;Admin-&gt;admin</span><br></pre></td></tr></table></figure>
+<p>所以注册之后，修改密码，直接用a<code>dmin+修改之后的密码</code>进行登录，得到flag。<br>然后看了大师傅的博客之后发现还有另外两种解题方法。</p>
+<h3 id="session伪造"><a href="#session伪造" class="headerlink" title="session伪造"></a>session伪造</h3><p>这方面由于自身并不强，所以没办法进行详细的解释。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">由于这个题现在知道了是利用flask，所以就直接百度了解了一下flask的一些原理，</span><br><span class="line">知道了flask是把session存在客户端的，而且只经过base64编码和用密钥签名，虽然没有签名不可以伪造session，但是有很多信息我们可以直接从session解码找出来。</span><br></pre></td></tr></table></figure>
+<p>然后就随便注册了一个账户登录接着利用bp抓包，</p>
+<p><img src="https://img-blog.csdnimg.cn/20201124205938923.png#pic_center" alt="登录抓包"><br>发现session值，利用了base64加密。<br>然后就利用脚本解密，得到<img src="https://img-blog.csdnimg.cn/20201129002633908.png" alt="解密"><br>然后就把其中的name项修改为admin再进行加密。得到<br><img src="https://img-blog.csdnimg.cn/202011290030193.png" alt="加密"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.eJw9kEGLwjAQhf_KMmcPtraXggclWlyYlCypJbmI2mqSdtylKlsj_vfNuounYd6Dj_feHTaHvjkbyC79tRnBxtaQ3eFtBxlwtja8Kr<span class="number">-1</span>w0j5WaQZppy9W0281bTulBRDIeeOs9VEu9oUOUYFK1N0xqhKxEX<span class="number">-0</span>SppLNK_zpadll2LFe_QL0lRmWCsLSecFLK22i0JpUgxFgPPy1jL2cDlPkaHN12VN6yC7rVBf0y4rA33q_AvEuXVFB4j2J_7w-by2TanV4UQ-YZMjNGrMWdluHPCfE0hPqGbW52LKKAT7n4rqFTTIsHZ9ImztD02L1KTf9md-HNOWwoGbGuyJxjB9dz0z90gGsPjB_2NbJ4.X8J7Cg.NQcbminT5MN3zUM9NApKSNakd58</span><br></pre></td></tr></table></figure>
+<p>然后用这个替换掉抓包时的cookie值<img src="https://img-blog.csdnimg.cn/20201129003207759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="得到flag"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>初次了解到<code>session伪造</code>，感觉就很神奇，有点那种csrf漏洞攻击的味道，同样是利用cookie而不是进行攻击。等下次研究一下<code>flask</code>再详细的记录下来</p>
+<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>博客水完了，但是在水的同时同样感受到了自己知识上的不足，已经对于做题方面的不老到，这些有待于提高。</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+
+<script src="/js/highlight.pack.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
