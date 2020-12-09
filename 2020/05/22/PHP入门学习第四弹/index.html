@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://moMaxX.github.io').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="@TOC 前言上次对运算符以及循环语句进行了学习方面的总结，这次就进入函数和数组的学习了。 switch语句、if else语句个人感觉没啥好总结的，和其他语言上的用法差不多。 switch1234567891011121314&lt;?php$a&#x3D;1;switch($a)&amp;#123;   case 1:      echo &quot;您给变量a赋值1！&quot;；      break;   case 2:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP入门学习第四弹">
+<meta property="og:url" content="http://momaxx.github.io/2020/05/22/PHP%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E5%9B%9B%E5%BC%B9/index.html">
+<meta property="og:site_name" content="Momax&#39;s blog">
+<meta property="og:description" content="@TOC 前言上次对运算符以及循环语句进行了学习方面的总结，这次就进入函数和数组的学习了。 switch语句、if else语句个人感觉没啥好总结的，和其他语言上的用法差不多。 switch1234567891011121314&lt;?php$a&#x3D;1;switch($a)&amp;#123;   case 1:      echo &quot;您给变量a赋值1！&quot;；      break;   case 2:">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200521215510896.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200521220124990.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200521234733324.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200521220650108.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200521235940327.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200522001416804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-05-21T16:49:29.017Z">
+<meta property="article:modified_time" content="2020-05-21T16:49:36.229Z">
+<meta property="article:author" content="moMaxX">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200521215510896.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+
+<link rel="canonical" href="http://momaxx.github.io/2020/05/22/PHP%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E5%9B%9B%E5%BC%B9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>PHP入门学习第四弹 | Momax's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Momax's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/05/22/PHP%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E5%9B%9B%E5%BC%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="moMaxX">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Momax's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP入门学习第四弹
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-05-22 00:49:29 / Modified: 00:49:36" itemprop="dateCreated datePublished" datetime="2020-05-22T00:49:29+08:00">2020-05-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>@<a href="入门学习第四弹">TOC</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次对运算符以及循环语句进行了学习方面的总结，这次就进入函数和数组的学习了。</p>
+<h1 id="switch语句、if-else语句"><a href="#switch语句、if-else语句" class="headerlink" title="switch语句、if else语句"></a>switch语句、if else语句</h1><p>个人感觉没啥好总结的，和其他语言上的用法差不多。</p>
+<h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">switch</span>($a)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"您给变量a赋值1！"</span>；</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"您给变量a赋值2！"</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">default</span> :</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"未检测到您赋值操作!!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>($a&gt;<span class="number">0</span>)&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"变量a的值大于0！"</span>;</span><br><span class="line">&#125;<span class="keyword">elseif</span>($a=<span class="number">0</span>)&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"变量a的值等于0！"</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"变量a的值小于0！"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h2><p>在PHP中，函数是用<code>function</code>来定义的。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">($a,$b)</span></span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> $a+$b;</span><br><span class="line">   <span class="comment">//return ...</span></span><br><span class="line">&#125;</span><br><span class="line">add(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面的<code>return</code>可以不写，也可以写。return是一个返回值，如果把函数中的<code>echo</code>改成<code>return</code>就无法输出，因为函数只是返回了这个值而不进行输出。</p>
+<h2 id="变量范围"><a href="#变量范围" class="headerlink" title="变量范围"></a>变量范围</h2><blockquote>
+<p>变量范围即它定义的上下文背景（也就是它的生效范围）。</p>
+</blockquote>
+<p>PHP的变量范围有<strong>局部变量、全局变量以及静态变量</strong>。</p>
+<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><p>局部变量就是在函数中定义的变量，在函数的外部无法使用。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">	$a=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> $a;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>输出的结果会提示错误。<br><strong>执行完毕后函数内部的动态变量都将被释放。</strong><br>也就是说在执行过后函数外部也可以定义一个同样名字的变量。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">	$a=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">echo</span> $a;</span><br><span class="line">&#125;</span><br><span class="line">$a=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">echo</span> $a;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个就不会报错。</p>
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><p>全局变量就是在函数外定义的变量称为全局变量，作用域范围在定义变量开始到本程序文件的末尾。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	$b=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">echo</span> $a+$b;</span><br><span class="line">&#125;</span><br><span class="line">a();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>不过这样直接在函数中引用全局变量会报错，需要用<code>global</code>关键字声明一下。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">global</span> $a;</span><br><span class="line">	$b=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">echo</span> $a+$b;</span><br><span class="line">&#125;</span><br><span class="line">a();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>在常量方面可以直接使用而不用像变量一样需要声明。</strong></p>
+<h3 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h3><p>静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值并不丢失。<br>在我理解就是，静态变量就是可以时刻刷新的变量。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">	$a=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">echo</span> ++$a;</span><br><span class="line">&#125;</span><br><span class="line">a();</span><br><span class="line">a();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在这个代码中，会输出两次1。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> $a=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">echo</span> ++$a;</span><br><span class="line">&#125;</span><br><span class="line">a();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">a();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这次用<code>static</code>关键字声明之后，输出的结果就会变为<strong>2 3</strong> 。</p>
+<h2 id="参数传递、可变函数"><a href="#参数传递、可变函数" class="headerlink" title="参数传递、可变函数"></a>参数传递、可变函数</h2><h3 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、按值传参</span><br><span class="line"><span class="number">2</span>、引用传参</span><br><span class="line"><span class="number">3</span>、可变长度参数</span><br><span class="line"><span class="number">4</span>、函数的默认值</span><br></pre></td></tr></table></figure>
+<h4 id="按值传参"><a href="#按值传参" class="headerlink" title="按值传参"></a>按值传参</h4><p>在PHP语言中，若不声明传参方式，默认使用的就是这个方式。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">($a)</span></span>&#123;</span><br><span class="line">     $a=<span class="string">"这个是"</span>.$a;</span><br><span class="line">     <span class="keyword">echo</span> $a;</span><br><span class="line">&#125;</span><br><span class="line">$i=<span class="string">"按值传参"</span>;</span><br><span class="line">test($i);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;/ br&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> $i;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200521215510896.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样子做，不会影响变量<strong>i</strong>的值</p>
+<h4 id="按引用传参"><a href="#按引用传参" class="headerlink" title="按引用传参"></a>按引用传参</h4><p>总结就是按引用传参会改变变量的值</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">model</span><span class="params">(&amp;$a)</span></span>&#123;</span><br><span class="line">  <span class="keyword">echo</span> ++$a;</span><br><span class="line">&#125;</span><br><span class="line">$i=<span class="number">1</span>;</span><br><span class="line">model($i);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;br /&gt;'</span>.$i;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200521220124990.png" alt="在这里插入图片描述"></p>
+<h4 id="可变长度参数"><a href="#可变长度参数" class="headerlink" title="可变长度参数"></a>可变长度参数</h4><p>是PHP提供给我们的可以直接使用的，主要有三个</p>
+<blockquote>
+<p>func_get_args();<br>func_get_arg();<br>func_num_args();</p>
+</blockquote>
+<p><strong>func_get_args()</strong> 是获取参数，个人理解是返回的是数组类型，<br><strong>func_get_args()</strong> 可以理解为获取数组中的某一个数值，需要加一个数字，<br><strong>func_num_args()</strong> 是返回的函数传入的参数的个数<br>在函数中直接调用输出的话目前学的是无法显示出来，可以用前面说的<strong>var_dump</strong>来查看</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">model</span><span class="params">()</span></span>&#123;</span><br><span class="line">   var_dump(func_get_args());</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">   var_dump(func_get_arg(<span class="number">1</span>));</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">   var_dump(func_num_args());</span><br><span class="line">&#125;</span><br><span class="line">model(<span class="number">10</span>,<span class="string">"可变长度参数"</span>,<span class="number">12</span>,<span class="number">666</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200521234733324.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="函数的默认值"><a href="#函数的默认值" class="headerlink" title="函数的默认值"></a>函数的默认值</h4><p>函数默认值就是在创建函数时就给函数里的变量赋予了一个值。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">model</span><span class="params">($a=<span class="string">"函数的默认值"</span>)</span></span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> $a.<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line">model();</span><br><span class="line">model(<span class="number">20</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200521220650108.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>在加默认值时，多个变量的话应该是从右往左加！！！</strong></p>
+<h3 id="可变函数"><a href="#可变函数" class="headerlink" title="可变函数"></a>可变函数</h3><blockquote>
+<p>可变函数不能用于例如echo、print、unset()、isset()、empty()、include、require以及类似的语言结构，需要使用自己的包装函数来将这些结构用作可变函数。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">model</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"这是一个函数！！"</span>;</span><br><span class="line">&#125;</span><br><span class="line">$i=<span class="string">'model'</span>;</span><br><span class="line">$i();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200521235940327.png" alt="在这里插入图片描述"><br>可变函数使用，加上引号（单引号，双引号都可以）。</p>
+<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><p>递归函数就是在函数里面再调用一次自身函数，简称无形套娃。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">model</span><span class="params">($a)</span></span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> $a.<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">   <span class="keyword">if</span>($a&gt;<span class="number">0</span>)&#123;</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"这是递归函数"</span>.<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">      model($a<span class="number">-1</span>);</span><br><span class="line">   &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"函数结束"</span>.<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">echo</span> $a.<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line">model(<span class="number">5</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200522001416804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>使用递归函数需要有适当的循环结束条件，避免占用内存过大。</strong></p>
+<h2 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><blockquote>
+<p>PHP 的真正威力源自于它的函数。 在 PHP 中，提供了超过 1000 个内建的函数</p>
+</blockquote>
+<p>可以自己了解，比较多，慢慢在学习使用过程中会了解到。</p>
+<blockquote>
+<p>boolval    获取变量的布尔值<br>debug_zval_dump    查看一个变量在zend引擎中的引用计数、类型信息<br>doubleval    floatval 的别名<br>empty    检查一个变量是否为空<br>floatval    获取变量的浮点值<br>get_defined_vars    返回由所有已定义变量所组成的数组<br>get_resource_type    返回资源（resource）类型<br>gettype    获取变量的类型<br>import_request_variables    将 GET／POST／Cookie 变量导入到全局作用域中<br>intval    获取变量的整数值<br>is_array    检测变量是否是数组<br>is_bool    检测变量是否是布尔型<br>is_callable    检测参数是否为合法的可调用结构<br>is_double    is_float 的别名<br>is_float    检测变量是否是浮点型<br>is_int    检测变量是否是整数<br>is_integer    is_int 的别名<br>is_iterable    检测变量的内容是否是一个可迭代的值<br>is_long    is_int 的别名<br>is_null    检测变量是否为 NULL<br>is_numeric    检测变量是否为数字或数字字符串<br>is_object    检测变量是否是一个对象<br>is_real    is_float 的别名<br>is_resource    检测变量是否为资源类型<br>is_scalar    检测变量是否是一个标量<br>is_string    检测变量是否是字符串<br>isset    检测变量是否已设置并且非 NULL<br>print_r    打印变量，输出易于阅读的信息。<br>serialize    序列化对象<br>settype    设置变量的类型<br>strval    获取变量的字符串值<br>unserialize    从已存储的表示中创建 PHP 的值<br>unset    释放给定的变量<br>var_dump    打印变量的相关信息<br>var_export    输出或返回一个变量，以字符串形式表示</p>
+</blockquote>
+<p>简单的罗列出了一点函数。<br>详细的请看<a href="https://www.php.net/manual/zh/functions.internal.php" target="_blank" rel="noopener">PHP手册</a>。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/14/PHP%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E5%BC%B9/" rel="prev" title="PHP学习第二弹">
+      <i class="fa fa-chevron-left"></i> PHP学习第二弹
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/18/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%AD%A6%E4%B9%A0%E5%81%9A%E9%A2%98%E5%B0%8F%E7%BB%93%EF%BC%88%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E5%85%A5%E9%97%A8%EF%BC%89/" rel="next" title="第一周学习做题小结（攻防世界web入门）">
+      第一周学习做题小结（攻防世界web入门） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#switch语句、if-else语句"><span class="nav-number">2.</span> <span class="nav-text">switch语句、if else语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#switch"><span class="nav-number">2.1.</span> <span class="nav-text">switch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if-else"><span class="nav-number">2.2.</span> <span class="nav-text">if else</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">3.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义函数"><span class="nav-number">3.1.</span> <span class="nav-text">自定义函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量范围"><span class="nav-number">3.2.</span> <span class="nav-text">变量范围</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局部变量"><span class="nav-number">3.2.1.</span> <span class="nav-text">局部变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量"><span class="nav-number">3.2.2.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态变量"><span class="nav-number">3.2.3.</span> <span class="nav-text">静态变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数传递、可变函数"><span class="nav-number">3.3.</span> <span class="nav-text">参数传递、可变函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数传递"><span class="nav-number">3.3.1.</span> <span class="nav-text">参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#按值传参"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">按值传参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按引用传参"><span class="nav-number">3.3.1.2.</span> <span class="nav-text">按引用传参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可变长度参数"><span class="nav-number">3.3.1.3.</span> <span class="nav-text">可变长度参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的默认值"><span class="nav-number">3.3.1.4.</span> <span class="nav-text">函数的默认值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可变函数"><span class="nav-number">3.3.2.</span> <span class="nav-text">可变函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归函数"><span class="nav-number">3.4.</span> <span class="nav-text">递归函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内置函数"><span class="nav-number">3.5.</span> <span class="nav-text">内置函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">3.5.1.</span> <span class="nav-text">介绍</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">moMaxX</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">moMaxX</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

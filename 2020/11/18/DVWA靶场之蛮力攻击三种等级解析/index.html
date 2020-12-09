@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://moMaxX.github.io').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="@TOC 前言闲来无事，刷各大平台的题刷的有点头昏，就来换了个菜，这才发现我是真的菜！！！ DVWA简介DVWA是一款渗透平台，类似于网络安全员的渗透小游戏DVWA是一个Web应用程序，需要安装在Web服务器上，并需要MySQL数据库支持 DVWA搭建这里用的是phpstudy集成环境启动软件，打开MySQL和apache。 准备工具这里是在Windows环境下配置安装的DVWA。用了phpst">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DVWA靶场之蛮力攻击三种等级解析">
+<meta property="og:url" content="http://momaxx.github.io/2020/11/18/DVWA%E9%9D%B6%E5%9C%BA%E4%B9%8B%E8%9B%AE%E5%8A%9B%E6%94%BB%E5%87%BB%E4%B8%89%E7%A7%8D%E7%AD%89%E7%BA%A7%E8%A7%A3%E6%9E%90/index.html">
+<meta property="og:site_name" content="Momax&#39;s blog">
+<meta property="og:description" content="@TOC 前言闲来无事，刷各大平台的题刷的有点头昏，就来换了个菜，这才发现我是真的菜！！！ DVWA简介DVWA是一款渗透平台，类似于网络安全员的渗透小游戏DVWA是一个Web应用程序，需要安装在Web服务器上，并需要MySQL数据库支持 DVWA搭建这里用的是phpstudy集成环境启动软件，打开MySQL和apache。 准备工具这里是在Windows环境下配置安装的DVWA。用了phpst">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201018141156221.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201018142721382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201018143218142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020101814385969.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201018144104788.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201018144153228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201018155256356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020101816270580.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201018163030975.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201018163347805.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201018165311220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020101816533645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020101817531128.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201018175417951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020101817590788.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201018175730659.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201018180026870.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2020-11-18T15:08:12.582Z">
+<meta property="article:modified_time" content="2020-11-18T15:07:41.247Z">
+<meta property="article:author" content="moMaxX">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201018141156221.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
+
+<link rel="canonical" href="http://momaxx.github.io/2020/11/18/DVWA%E9%9D%B6%E5%9C%BA%E4%B9%8B%E8%9B%AE%E5%8A%9B%E6%94%BB%E5%87%BB%E4%B8%89%E7%A7%8D%E7%AD%89%E7%BA%A7%E8%A7%A3%E6%9E%90/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>DVWA靶场之蛮力攻击三种等级解析 | Momax's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Momax's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/11/18/DVWA%E9%9D%B6%E5%9C%BA%E4%B9%8B%E8%9B%AE%E5%8A%9B%E6%94%BB%E5%87%BB%E4%B8%89%E7%A7%8D%E7%AD%89%E7%BA%A7%E8%A7%A3%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="moMaxX">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Momax's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DVWA靶场之蛮力攻击三种等级解析
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-11-18 23:08:12 / Modified: 23:07:41" itemprop="dateCreated datePublished" datetime="2020-11-18T23:08:12+08:00">2020-11-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p> @<a href="DVWA">TOC</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>闲来无事，刷各大平台的题刷的有点头昏，就来换了个菜，这才发现我是真的菜！！！</p>
+<h1 id="DVWA简介"><a href="#DVWA简介" class="headerlink" title="DVWA简介"></a>DVWA简介</h1><p>DVWA是一款渗透平台，类似于网络安全员的渗透小游戏<br>DVWA是一个Web应用程序，需要安装在Web服务器上，并需要MySQL数据库支持</p>
+<h1 id="DVWA搭建"><a href="#DVWA搭建" class="headerlink" title="DVWA搭建"></a>DVWA搭建</h1><p>这里用的是phpstudy集成环境<br>启动软件，打开MySQL和apache。<img src="https://img-blog.csdnimg.cn/20201018141156221.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><p>这里是在Windows环境下配置安装的DVWA。用了phpstudy集成环境</p>
+<h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2><p>一、官网下载DVWA：<code>http://www.dvwa.co.uk/</code><br>下载zip压缩包，解压到<strong>phpstudy</strong>的<code>WWW</code>的文件目录下。<br>二、然后找到文件<code>config.inc.php.dist</code>重命名为<code>config.inc.php</code>，然后打开编辑，找到图示位置，修改账号密码。<br><img src="https://img-blog.csdnimg.cn/20201018142721382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>默认账号密码是root。<br>三、浏览器搜索打开<code>http://127.0.0.1/DVWA/setup.php</code>，进行DVWA的安装。<br><img src="https://img-blog.csdnimg.cn/20201018143218142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后点击最下方的按钮。<br>四、跳转到登录界面。默认账号密码是<code>admin、password</code>。登录进去<br><img src="https://img-blog.csdnimg.cn/2020101814385969.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="安装配置成功"></p>
+<h1 id="做题（一）漏洞-蛮力"><a href="#做题（一）漏洞-蛮力" class="headerlink" title="做题（一）漏洞 蛮力"></a>做题（一）漏洞 蛮力</h1><p>打开页面只有一个登录框<br><img src="https://img-blog.csdnimg.cn/20201018144104788.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="low"><a href="#low" class="headerlink" title="low"></a>low</h2><p>然后就直接用原始的账号密码进行登录<img src="https://img-blog.csdnimg.cn/20201018144153228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后就出现了这个，目测估计是成功了，然后就开始找做题方法。<br>当时就直接想到了brupsuit抓包处理。<br>但是抓包爆破了好久没结果，整的毫无头绪的时候，就去查看了一下这道题low难度的源码，发现：<br><img src="https://img-blog.csdnimg.cn/20201018155256356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_GET[ <span class="string">'Login'</span> ] ) ) &#123;</span><br><span class="line">	<span class="comment">// Get username</span></span><br><span class="line">	$user = $_GET[ <span class="string">'username'</span> ];</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Get password</span></span><br><span class="line">	$pass = $_GET[ <span class="string">'password'</span> ];</span><br><span class="line">	$pass = md5( $pass );</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Check the database</span></span><br><span class="line">	$query  = <span class="string">"SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';"</span>;</span><br><span class="line">	$result = mysqli_query($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $query ) <span class="keyword">or</span> <span class="keyword">die</span>( <span class="string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="keyword">false</span>)) . <span class="string">'&lt;/pre&gt;'</span> );</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>( $result &amp;&amp; mysqli_num_rows( $result ) == <span class="number">1</span> ) &#123;</span><br><span class="line">		<span class="comment">// Get users details</span></span><br><span class="line">		$row    = mysqli_fetch_assoc( $result );</span><br><span class="line">		$avatar = $row[<span class="string">"avatar"</span>];</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Login successful</span></span><br><span class="line">		$html .= <span class="string">"&lt;p&gt;Welcome to the password protected area &#123;$user&#125;&lt;/p&gt;"</span>;</span><br><span class="line">		$html .= <span class="string">"&lt;img src=\"&#123;$avatar&#125;\" /&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// Login failed</span></span><br><span class="line">		$html .= <span class="string">"&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	((is_null($___mysqli_res = mysqli_close($GLOBALS[<span class="string">"___mysqli_ston"</span>]))) ? <span class="keyword">false</span> : $___mysqli_res);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后是get方式，我再去看brupsuit抓的是post方式，才知道，做错难度了。改正之后low难度的就直接抓包爆破成功得到<code>admin、password</code>。<img src="https://img-blog.csdnimg.cn/2020101816270580.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="medium"><a href="#medium" class="headerlink" title="medium"></a>medium</h2><p>这个难度加一的上来就直接先来一手查看源码，反手一个超级加倍</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_GET[ <span class="string">'Login'</span> ] ) ) &#123;</span><br><span class="line">	<span class="comment">// Sanitise username input</span></span><br><span class="line">	$user = $_GET[ <span class="string">'username'</span> ];</span><br><span class="line">	$user = ((<span class="keyword">isset</span>($GLOBALS[<span class="string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $user ) : ((trigger_error(<span class="string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="string">""</span> : <span class="string">""</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Sanitise password input</span></span><br><span class="line">	$pass = $_GET[ <span class="string">'password'</span> ];</span><br><span class="line">	$pass = ((<span class="keyword">isset</span>($GLOBALS[<span class="string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $pass ) : ((trigger_error(<span class="string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="string">""</span> : <span class="string">""</span>));</span><br><span class="line">	$pass = md5( $pass );</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Check the database</span></span><br><span class="line">	$query  = <span class="string">"SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';"</span>;</span><br><span class="line">	$result = mysqli_query($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $query ) <span class="keyword">or</span> <span class="keyword">die</span>( <span class="string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="keyword">false</span>)) . <span class="string">'&lt;/pre&gt;'</span> );</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>( $result &amp;&amp; mysqli_num_rows( $result ) == <span class="number">1</span> ) &#123;</span><br><span class="line">		<span class="comment">// Get users details</span></span><br><span class="line">		$row    = mysqli_fetch_assoc( $result );</span><br><span class="line">		$avatar = $row[<span class="string">"avatar"</span>];</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Login successful</span></span><br><span class="line">		$html .= <span class="string">"&lt;p&gt;Welcome to the password protected area &#123;$user&#125;&lt;/p&gt;"</span>;</span><br><span class="line">		$html .= <span class="string">"&lt;img src=\"&#123;$avatar&#125;\" /&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// Login failed</span></span><br><span class="line">		sleep( <span class="number">2</span> );</span><br><span class="line">		$html .= <span class="string">"&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	((is_null($___mysqli_res = mysqli_close($GLOBALS[<span class="string">"___mysqli_ston"</span>]))) ? <span class="keyword">false</span> : $___mysqli_res);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>审计了源码之后发现，这个难度就是在上面那个low基础上增加了一个登录错误的情况下的时间停顿，增加了爆破的成本，但是还是可以直接爆破出来的。<br><img src="https://img-blog.csdnimg.cn/20201018163030975.png#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sleep(<span class="number">2</span>)<span class="comment">//登录信息错误停顿两秒</span></span><br></pre></td></tr></table></figure>
+<p>所以直接就是还是刚刚的方法，字典都一样，就爆破出来了。<br><img src="https://img-blog.csdnimg.cn/20201018163347805.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>一样的结果。</p>
+<h2 id="high"><a href="#high" class="headerlink" title="high"></a>high</h2><p>上面的两个过于简单，给了我一点莫名的自信，于是在自信的驱使下来到了第三个high难度的。<br>老规矩，来波源码查看（毕竟要稳中求胜）。然后发现比起前两个多了一段源码。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">checkToken( $_REQUEST[ <span class="string">'user_token'</span> ], $_SESSION[ <span class="string">'session_token'</span> ], <span class="string">'index.php'</span> );</span><br></pre></td></tr></table></figure>
+<p>然后就是<code>checkToken 函数的意思就是说实现表单的重复提交，就是说用户的账号密码随机码按照一定的加密方式生成一个字符串用作token，然后每次用户登陆操作时就会和已保存的token进行对比，错误则返回false</code>。<br>然后经过抓包实验发现，每次的<code>user_token</code>会在下一次的响应包里发送给浏览器。<br><img src="https://img-blog.csdnimg.cn/20201018165311220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="第一次抓包"><br><img src="https://img-blog.csdnimg.cn/2020101816533645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="第二次抓包"><br>源码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_GET[ <span class="string">'Login'</span> ] ) ) &#123;</span><br><span class="line">	<span class="comment">// Check Anti-CSRF token</span></span><br><span class="line">	checkToken( $_REQUEST[ <span class="string">'user_token'</span> ], $_SESSION[ <span class="string">'session_token'</span> ], <span class="string">'index.php'</span> );</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Sanitise username input</span></span><br><span class="line">	$user = $_GET[ <span class="string">'username'</span> ];</span><br><span class="line">	$user = stripslashes( $user );</span><br><span class="line">	$user = ((<span class="keyword">isset</span>($GLOBALS[<span class="string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $user ) : ((trigger_error(<span class="string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="string">""</span> : <span class="string">""</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Sanitise password input</span></span><br><span class="line">	$pass = $_GET[ <span class="string">'password'</span> ];</span><br><span class="line">	$pass = stripslashes( $pass );</span><br><span class="line">	$pass = ((<span class="keyword">isset</span>($GLOBALS[<span class="string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $pass ) : ((trigger_error(<span class="string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="string">""</span> : <span class="string">""</span>));</span><br><span class="line">	$pass = md5( $pass );</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Check database</span></span><br><span class="line">	$query  = <span class="string">"SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';"</span>;</span><br><span class="line">	$result = mysqli_query($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $query ) <span class="keyword">or</span> <span class="keyword">die</span>( <span class="string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="keyword">false</span>)) . <span class="string">'&lt;/pre&gt;'</span> );</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>( $result &amp;&amp; mysqli_num_rows( $result ) == <span class="number">1</span> ) &#123;</span><br><span class="line">		<span class="comment">// Get users details</span></span><br><span class="line">		$row    = mysqli_fetch_assoc( $result );</span><br><span class="line">		$avatar = $row[<span class="string">"avatar"</span>];</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Login successful</span></span><br><span class="line">		$html .= <span class="string">"&lt;p&gt;Welcome to the password protected area &#123;$user&#125;&lt;/p&gt;"</span>;</span><br><span class="line">		$html .= <span class="string">"&lt;img src=\"&#123;$avatar&#125;\" /&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// Login failed</span></span><br><span class="line">		sleep( rand( <span class="number">0</span>, <span class="number">3</span> ) );</span><br><span class="line">		$html .= <span class="string">"&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	((is_null($___mysqli_res = mysqli_close($GLOBALS[<span class="string">"___mysqli_ston"</span>]))) ? <span class="keyword">false</span> : $___mysqli_res);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Generate Anti-CSRF token</span></span><br><span class="line">generateSessionToken();</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>发现源码中加入了两个函数：<code>stripslashes();
+mysql_real_escape_string();</code></p>
+<blockquote>
+<p>stripslashes（去除字符串中的反斜线字符,如果有两个连续的反斜线,则只去掉一个）、 mysql_real_escape_string对参数username、password进行过滤、转义，进一步抵御sql注入</p>
+</blockquote>
+<p>顺便发现大佬说的无法<strong>csrf</strong>攻击，这我也不知道，所以就百度了一下<a href="https://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html" target="_blank" rel="noopener">什么是CSRF攻击</a></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">看了之后给我的理解说就是，用户在访问一个受信任的网站时生成了一个本地的cookie，然后在cookie未过期之前访问了另外一个危险网站，然后危险网站会发出一个request请求，同时安全的网站不知道这个操作是用户发出的还是攻击者发出的，就会进行处理，从而达到了模仿用户进行操作的目标。</span><br></pre></td></tr></table></figure>
+<p>然后上面抓包发现整个输入信息验证以及响应的过程总共就只有四个get型参数。<code>username、password、login以及user_token</code>。<br>然后这个题我就放弃了brupsuit抓包，因为我懒，听说脚本挺方便的。<br>但是，这，，，，这涉及到我的知识盲区了啊这个，得加紧练习脚本能力了。<br>所以这里就贴了一个大佬的脚本，自己单纯的去运行了一下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">header=&#123; <span class="string">'Host'</span>: <span class="string">'192.168.xxx.xxx'</span>, //目标主机（DVWA）的ip</span><br><span class="line"><span class="string">'Cache-Control'</span>: <span class="string">'max-age=0'</span>,</span><br><span class="line"><span class="string">'If-None-Match'</span>: <span class="string">"307-52156c6a290c0"</span>,</span><br><span class="line"><span class="string">'If-Modified-Since'</span>: <span class="string">'Mon, 05 Oct 2015 07:51:07 GMT'</span>,</span><br><span class="line"><span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36'</span>,</span><br><span class="line"><span class="string">'Accept'</span>: <span class="string">'*/*'</span>,</span><br><span class="line"><span class="string">'Referer'</span>: <span class="string">'http://192.168.xxx.xxx/dvwa/vulnerabilities/brute/index.php'</span>,</span><br><span class="line"><span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate, sdch'</span>,</span><br><span class="line"><span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.8'</span>,</span><br><span class="line"><span class="string">'Cookie'</span>: <span class="string">'security=high; PHPSESSID=5re92j36t4f2k1gvnqdf958bi2'</span>&#125;</span><br><span class="line">requrl = <span class="string">"http://192.168.xxx.xxx/dvwa/vulnerabilities/brute/"</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_token</span><span class="params">(requrl,header)</span>:</span></span><br><span class="line">req = urllib2.Request(url=requrl,headers=header)</span><br><span class="line">response = urllib2.urlopen(req)</span><br><span class="line"><span class="keyword">print</span> response.getcode(),</span><br><span class="line">the_page = response.read()</span><br><span class="line"><span class="keyword">print</span> len(the_page)</span><br><span class="line">soup = BeautifulSoup(the_page,<span class="string">"html.parser"</span>)</span><br><span class="line">user_token = soup.form.input.input.input.input[<span class="string">"value"</span>] <span class="comment">#get the user_token</span></span><br><span class="line"><span class="keyword">return</span> user_token</span><br><span class="line"> </span><br><span class="line">user_token = get_token(requrl,header)</span><br><span class="line">i=<span class="number">0</span><span class="keyword">for</span> line <span class="keyword">in</span> open(<span class="string">"rkolin.txt"</span>):</span><br><span class="line">requrl = <span class="string">"http://192.168.xxx.xxx/dvwa/vulnerabilities/brute/"</span>+<span class="string">"?username=admin&amp;password="</span>+line.strip()+<span class="string">"&amp;Login=Login&amp;user_token="</span>+user_token</span><br><span class="line">i = i+<span class="number">1</span></span><br><span class="line"><span class="keyword">print</span> i,<span class="string">'admin'</span>,line.strip(),</span><br><span class="line">user_token = get_token(requrl,header)</span><br><span class="line"><span class="keyword">if</span> (i == <span class="number">10</span>):</span><br><span class="line"><span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>进行一些简单的修改之后就可以运行了。<br>然后我发现超菜的我连白拿脚本都不配，好吧好吧，还是转brupsuit爆破吧。<br>打开抓包，发送到爆破那里，设置三个参数，<code>username、password和user_token</code>，模式采用第三个。<br>然后打开<code>options</code>，线程设为1，<img src="https://img-blog.csdnimg.cn/2020101817531128.png#pic_center" alt="在这里插入图片描述"><br>在图示模块里点击add，<img src="https://img-blog.csdnimg.cn/20201018175417951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020101817590788.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>最下面设置为always。<br>打开之后点击<code>Refetch response</code> ，找到<code>value</code>，记住选中<code>value</code>，图中部分。然后在设置字典界面添加字典。<br><img src="https://img-blog.csdnimg.cn/20201018175730659.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后token变量部分设置为图中所示，将刚刚复制的一串字符串value值粘过来。开始爆破。<br><img src="https://img-blog.csdnimg.cn/20201018180026870.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>得到结果，验证正确。<br>等以后脚本能力提升了，我再回来补回来脚本这一部分的解法。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/18/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982020%E5%B9%B4%E9%83%A8%E5%88%86wp/" rel="prev" title="极客大挑战2020年部分wp">
+      <i class="fa fa-chevron-left"></i> 极客大挑战2020年部分wp
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/28/%E5%88%A9%E7%94%A8shift%E8%BF%9E%E7%82%B9%E4%BA%94%E6%AC%A1%E8%BF%9B%E5%85%A5%E7%94%B5%E8%84%91/" rel="next" title="利用shift连点五次进入电脑">
+      利用shift连点五次进入电脑 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DVWA简介"><span class="nav-number">2.</span> <span class="nav-text">DVWA简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DVWA搭建"><span class="nav-number">3.</span> <span class="nav-text">DVWA搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工具"><span class="nav-number">3.1.</span> <span class="nav-text">准备工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始搭建"><span class="nav-number">3.2.</span> <span class="nav-text">开始搭建</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#做题（一）漏洞-蛮力"><span class="nav-number">4.</span> <span class="nav-text">做题（一）漏洞 蛮力</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#low"><span class="nav-number">4.1.</span> <span class="nav-text">low</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#medium"><span class="nav-number">4.2.</span> <span class="nav-text">medium</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#high"><span class="nav-number">4.3.</span> <span class="nav-text">high</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">moMaxX</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">moMaxX</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

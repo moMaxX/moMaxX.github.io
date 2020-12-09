@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://moMaxX.github.io').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="@TOC 前言上次学习了PHP语言的常量内容，并对之前的变量内容进行了补充，这次来说一下运算符以及一些语句 运算符概念运算符就是对于数据进行运算处理的符号。 算数运算符分类算术运算符有：“+”、“-”、“*”、“&#x2F;”、“%”、“++”、“–”这几类 +“+”就单纯的是个加号，表示两个数据相加的结果在这里我其实有一个疑问，就是为什么字符串在单纯的就是这样一个＋号表达式里会被认为是0处理？关于这个，我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP入门学习第三弹">
+<meta property="og:url" content="http://momaxx.github.io/2020/04/14/PHP%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%89%E5%BC%B9/index.html">
+<meta property="og:site_name" content="Momax&#39;s blog">
+<meta property="og:description" content="@TOC 前言上次学习了PHP语言的常量内容，并对之前的变量内容进行了补充，这次来说一下运算符以及一些语句 运算符概念运算符就是对于数据进行运算处理的符号。 算数运算符分类算术运算符有：“+”、“-”、“*”、“&#x2F;”、“%”、“++”、“–”这几类 +“+”就单纯的是个加号，表示两个数据相加的结果在这里我其实有一个疑问，就是为什么字符串在单纯的就是这样一个＋号表达式里会被认为是0处理？关于这个，我">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200413180056745.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200413181104441.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200413181303700.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200413223853706.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200413181432238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020041318160076.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200413181712681.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200413223625893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020041400063849.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-04-13T16:07:48.377Z">
+<meta property="article:modified_time" content="2020-04-13T16:07:55.589Z">
+<meta property="article:author" content="moMaxX">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200413180056745.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
+
+<link rel="canonical" href="http://momaxx.github.io/2020/04/14/PHP%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%89%E5%BC%B9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>PHP入门学习第三弹 | Momax's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Momax's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/04/14/PHP%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%89%E5%BC%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="moMaxX">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Momax's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP入门学习第三弹
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-04-14 00:07:48 / Modified: 00:07:55" itemprop="dateCreated datePublished" datetime="2020-04-14T00:07:48+08:00">2020-04-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>@<a href="这里写目录标题">TOC</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次学习了PHP语言的常量内容，并对之前的变量内容进行了补充，这次来说一下运算符以及一些语句</p>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>运算符就是对于数据进行运算处理的符号。</p>
+<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>算术运算符有：<strong>“+”</strong>、<strong>“-”</strong>、<strong>“*”</strong>、<strong>“/”</strong>、<strong>“%”</strong>、<strong>“++”</strong>、<strong>“–”</strong>这几类</p>
+<h4 id=""><a href="#" class="headerlink" title="+"></a>+</h4><p><strong>“+”</strong>就单纯的是个加号，表示两个数据相加的结果<br><img src="https://img-blog.csdnimg.cn/20200413180056745.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>在这里我其实有一个疑问，就是为什么字符串在单纯的就是这样一个＋号表达式里会被认为是0处理？</strong><br>关于这个，我在网上进行了查找，找到了问题的答案，就是说字符串在与整数相加时，有着如下的转换规律：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">'1aaa' =&gt; 1</span><br><span class="line">'11aaa' =&gt; 11</span><br><span class="line">'222asdsa' =&gt; 222</span><br><span class="line">'aaaaa1'=&gt;0</span><br></pre></td></tr></table></figure>
+<p>就是说字符串开头没有数值的话，会按0处理，而有数值的话会转换成相应的数值，即：<br><img src="https://img-blog.csdnimg.cn/20200413181104441.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="-1"><a href="#-1" class="headerlink" title="-"></a>-</h4><p><strong>“-”</strong>其实和上面说的一样。这里不进行过多的记录了就。<br><img src="https://img-blog.csdnimg.cn/20200413181303700.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>不过<strong>“-”</strong> 还有一个意思，就是取反<br><img src="https://img-blog.csdnimg.cn/20200413223853706.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="-2"><a href="#-2" class="headerlink" title="*"></a>*</h4><p><img src="https://img-blog.csdnimg.cn/20200413181432238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="-3"><a href="#-3" class="headerlink" title="/"></a>/</h4><p><img src="https://img-blog.csdnimg.cn/2020041318160076.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="-4"><a href="#-4" class="headerlink" title="%"></a>%</h4><p><strong>“%”</strong> 和别的语言其实一样，就是取余。<br><img src="https://img-blog.csdnimg.cn/20200413181712681.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="-5"><a href="#-5" class="headerlink" title="++"></a>++</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="comment">//echo $a++;</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> ++$a;</span><br></pre></td></tr></table></figure>
+<p>对于这两种方法，输出的结果是不一样的。前加加表示先加，后加加表示后加，因此结果不一样，不过如果在前面先加加，在输出的话值是一样的。<br>不过如果上面的代码不把第三行注释掉的话，输出的结果就会变成  1    3。因为在<code>$a++</code>这一句中输出了a的值，再对a进行加加。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="comment">#$a++;</span></span><br><span class="line">++$a;</span><br><span class="line"><span class="keyword">echo</span> $a;</span><br></pre></td></tr></table></figure>
+<p>这样子输出的结果是一样的。<br>总的来说，就是前加加是先加，后返回；后加加是先返回后加。</p>
+<h4 id="–"><a href="#–" class="headerlink" title="–"></a>–</h4><p><strong>“–”</strong> 和<strong>“++”</strong> 效果一样，就不多说了。<br><strong>注意：++和–是对于变量而言的</strong></p>
+<h3 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h3><p>字符串运算符是一个<strong>“.”</strong>，用于连接字符串。<br><img src="https://img-blog.csdnimg.cn/20200413223625893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><h4 id="分类-1"><a href="#分类-1" class="headerlink" title="分类"></a>分类</h4><p>有<strong>“=”</strong>、<strong>“-”</strong>、<strong>“+=”</strong>、<strong>“-=”</strong>、<strong>“*=”</strong>、<strong>“/=”</strong>、<strong>“.=”</strong>、<strong>“%=”</strong> 几类。</p>
+<h5 id="-6"><a href="#-6" class="headerlink" title="="></a>=</h5><p>可以把它看成是一个数学中的等于号，只不过叫做赋值，<br>比如：<code>$a=1</code>，就是指把 <strong>“1”</strong> 的值赋给 <strong>“变量a”</strong>。</p>
+<h5 id="-7"><a href="#-7" class="headerlink" title="-"></a>-</h5><p>在上面说过了，就是指取相反数。</p>
+<h5 id="、-、-、-、-、"><a href="#、-、-、-、-、" class="headerlink" title="+=、-=、*=、/=、.=、%="></a>+=、-=、*=、/=、.=、%=</h5><p>这几种的意思其实是一样的。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$a+=<span class="number">1</span>;<span class="comment">//$a=$a+1</span></span><br><span class="line">$a-=<span class="number">1</span>;<span class="comment">//$a=$a-1</span></span><br><span class="line">$a*=<span class="number">1</span>;<span class="comment">//$a=$a*1</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><h4 id="分类-2"><a href="#分类-2" class="headerlink" title="分类"></a>分类</h4><p><strong>==（等于）</strong>、<strong>===（全等）</strong>、<strong>！=（不等于）&lt;&gt;</strong>、<strong>！===（不全等）</strong>、<strong>&gt;</strong>、<strong>&lt;</strong>、<strong>&gt;=</strong>、<strong>&lt;=</strong>。</p>
+<h5 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line">$b=<span class="string">'1'</span>;</span><br><span class="line">var_dump($a==$b)<span class="comment">//输出blooen true</span></span><br><span class="line">var_dump($a===$b)<span class="comment">//输出blooen false</span></span><br><span class="line">var_dump($a!=$b)<span class="comment">//输出blooen false</span></span><br><span class="line">var_dump($a&lt;&gt;$b)<span class="comment">//输出blooen false</span></span><br><span class="line">var_dump($a!==$b)<span class="comment">//输出blooen true</span></span><br><span class="line">var_dump($a&gt;$b)<span class="comment">//输出blooen false</span></span><br><span class="line">var_dump($a&gt;=$b)<span class="comment">//输出blooen true</span></span><br><span class="line">var_dump($a&lt;=$b)<span class="comment">//输出blooen true</span></span><br><span class="line">var_dump($a&lt;$b)<span class="comment">//输出blooen false</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="规定"><a href="#规定" class="headerlink" title="规定"></a>规定</h5><p>在对数据数进行比较操作时，输出的都是布尔类型数据。<br>在PHP中用<code>echo</code>输出布尔类型数据时，</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="keyword">true</span>;<span class="comment">//输出1</span></span><br><span class="line"><span class="keyword">echo</span> <span class="keyword">false</span><span class="comment">//无输出</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以用上面说过的<code>var_dump()</code>来输出。</p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><h4 id="分类-3"><a href="#分类-3" class="headerlink" title="分类"></a>分类</h4><p>就是几种<strong>与、或、非、异或</strong>。</p>
+<h5 id="逻辑运算规则"><a href="#逻辑运算规则" class="headerlink" title="逻辑运算规则"></a>逻辑运算规则</h5><p>运算的数值都是布尔类型，如果不是会自动转换为布尔类型，再进行运算。输出的也是布尔类型。</p>
+<h6 id="认为是布尔类型是false的值"><a href="#认为是布尔类型是false的值" class="headerlink" title="认为是布尔类型是false的值"></a>认为是布尔类型是false的值</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、布尔值false</span><br><span class="line"><span class="number">2</span>、<span class="number">0</span></span><br><span class="line"><span class="number">3</span>、浮点型<span class="number">0.0</span></span><br><span class="line"><span class="number">4</span>、空白字符串和字符串<span class="number">0</span></span><br><span class="line"><span class="number">5</span>、没有成员的数组</span><br><span class="line"><span class="number">6</span>、NULL</span><br></pre></td></tr></table></figure>
+<h5 id="逻辑运算符的使用"><a href="#逻辑运算符的使用" class="headerlink" title="逻辑运算符的使用"></a>逻辑运算符的使用</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="keyword">true</span>;</span><br><span class="line">$b=<span class="keyword">false</span>;</span><br><span class="line">var_dump($a &amp;&amp; $b)<span class="comment">//与运算 输出false</span></span><br><span class="line">var_dump($a <span class="keyword">and</span> $b)<span class="comment">//与运算 输出false</span></span><br><span class="line">var_dump($a <span class="keyword">or</span> $b)<span class="comment">//或运算 输出true</span></span><br><span class="line">var_dump($a || $b)<span class="comment">//或运算 输出true</span></span><br><span class="line">var_dump(!$b)<span class="comment">//非运算 输出true</span></span><br><span class="line">var_dump($a <span class="keyword">xor</span> $b)<span class="comment">//异或运算 输出true</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><p>对操作数中的每一个二进制位进行运算。</p>
+<h3 id="其他运算符"><a href="#其他运算符" class="headerlink" title="其他运算符"></a>其他运算符</h3><h4 id="-8"><a href="#-8" class="headerlink" title="?:"></a>?:</h4><p>三元运算符<br>使用格式：<code>表达式1 ? 表达式2 : 表达式3；</code><br>运算规则：<br><strong>如果表达式1为true，那么执行表达式2，否则执行表达式3</strong>。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="keyword">true</span> ? <span class="number">20</span> : <span class="number">10</span></span><br><span class="line"><span class="keyword">echo</span> $a;<span class="comment">//输出20</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="-9"><a href="#-9" class="headerlink" title="``"></a>``</h4><p>用途：<strong>可以将系统的命令放在代码里执行</strong><br>但是由于跨平台原因，很少用到，（个人感觉还有涉及到安全问题）。</p>
+<h4 id="-10"><a href="#-10" class="headerlink" title="@"></a>@</h4><p>用途： <strong>屏蔽表达式可能出现的错误</strong><br>注意是表达式。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> $a;<span class="comment">//因为没有对变量a赋值，因此会报错</span></span><br><span class="line">@<span class="keyword">echo</span> $a;<span class="comment">//echo不是表达式，会报错</span></span><br><span class="line"><span class="keyword">echo</span> @$a;<span class="comment">//输出null</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="gt-、-gt-、instanceof"><a href="#gt-、-gt-、instanceof" class="headerlink" title="=&gt; 、-&gt; 、instanceof"></a>=&gt; 、-&gt; 、instanceof</h4><p>三种运算符还没有接触，之后往后面深入学习之后，会补充回来。</p>
+<h1 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h1><h2 id="while循环语句"><a href="#while循环语句" class="headerlink" title="while循环语句"></a>while循环语句</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>($i&lt;=<span class="number">10</span>)&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"while循环语句"</span>.&lt;br /&gt;<span class="comment">//输出十次“while循环语句”，换行输出</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="do-while-循环语句"><a href="#do-while-循环语句" class="headerlink" title="do while 循环语句"></a>do while 循环语句</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"do while循环语句"</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"\n"</span></span><br><span class="line">  $i++;</span><br><span class="line">&#125;<span class="keyword">while</span>($i&lt;=<span class="number">10</span>)<span class="comment">//换行输出十次“do while循环语句”</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="for-循环语句"><a href="#for-循环语句" class="headerlink" title="for 循环语句"></a>for 循环语句</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">for</span>($a=<span class="number">1</span>; $a&lt;=<span class="number">10</span>; $a++)&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"for循环语句"</span>.&lt;br /&gt;<span class="comment">//换行输出十次“for循环语句”</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://img-blog.csdnimg.cn/2020041400063849.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>第三弹大概就学了这么多，等下次再总结其他的，<strong>加油！！！</strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/27/PHP%E5%9F%BA%E6%9C%AC%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/" rel="prev" title="PHP基本入门学习">
+      <i class="fa fa-chevron-left"></i> PHP基本入门学习
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/14/PHP%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E5%BC%B9/" rel="next" title="PHP学习第二弹">
+      PHP学习第二弹 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运算符"><span class="nav-number">2.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">2.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算数运算符"><span class="nav-number">2.2.</span> <span class="nav-text">算数运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分类"><span class="nav-number">2.2.1.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">+</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-1"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">-</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-2"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">*</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-3"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">&#x2F;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-4"><span class="nav-number">2.2.1.5.</span> <span class="nav-text">%</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-5"><span class="nav-number">2.2.1.6.</span> <span class="nav-text">++</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–"><span class="nav-number">2.2.1.7.</span> <span class="nav-text">–</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串运算符"><span class="nav-number">2.2.2.</span> <span class="nav-text">字符串运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值运算符"><span class="nav-number">2.2.3.</span> <span class="nav-text">赋值运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类-1"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#-6"><span class="nav-number">2.2.3.1.1.</span> <span class="nav-text">&#x3D;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#-7"><span class="nav-number">2.2.3.1.2.</span> <span class="nav-text">-</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#、-、-、-、-、"><span class="nav-number">2.2.3.1.3.</span> <span class="nav-text">+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D;、.&#x3D;、%&#x3D;</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较运算符"><span class="nav-number">2.2.4.</span> <span class="nav-text">比较运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类-2"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#用法"><span class="nav-number">2.2.4.1.1.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#规定"><span class="nav-number">2.2.4.1.2.</span> <span class="nav-text">规定</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">2.2.5.</span> <span class="nav-text">逻辑运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类-3"><span class="nav-number">2.2.5.1.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#逻辑运算规则"><span class="nav-number">2.2.5.1.1.</span> <span class="nav-text">逻辑运算规则</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#认为是布尔类型是false的值"><span class="nav-number">2.2.5.1.1.1.</span> <span class="nav-text">认为是布尔类型是false的值</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#逻辑运算符的使用"><span class="nav-number">2.2.5.1.2.</span> <span class="nav-text">逻辑运算符的使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位运算符"><span class="nav-number">2.2.6.</span> <span class="nav-text">位运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念-1"><span class="nav-number">2.2.6.1.</span> <span class="nav-text">概念</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他运算符"><span class="nav-number">2.2.7.</span> <span class="nav-text">其他运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#-8"><span class="nav-number">2.2.7.1.</span> <span class="nav-text">?:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-9"><span class="nav-number">2.2.7.2.</span> <span class="nav-text">&#96;&#96;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-10"><span class="nav-number">2.2.7.3.</span> <span class="nav-text">@</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gt-、-gt-、instanceof"><span class="nav-number">2.2.7.4.</span> <span class="nav-text">&#x3D;&gt; 、-&gt; 、instanceof</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#循环语句"><span class="nav-number">3.</span> <span class="nav-text">循环语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#while循环语句"><span class="nav-number">3.1.</span> <span class="nav-text">while循环语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#do-while-循环语句"><span class="nav-number">3.2.</span> <span class="nav-text">do while 循环语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#for-循环语句"><span class="nav-number">3.2.1.</span> <span class="nav-text">for 循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果图"><span class="nav-number">3.2.2.</span> <span class="nav-text">效果图</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结尾"><span class="nav-number">4.</span> <span class="nav-text">结尾</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">moMaxX</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">moMaxX</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
