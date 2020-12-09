@@ -1,436 +1,202 @@
-<!DOCTYPE html>
+
+
+
+
+
+
+<!doctype html>
 <html lang="en">
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" 
+src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href=  "/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://moMaxX.github.io').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.7.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
-
-  <meta name="description" content="前言：最近开始学习PHP语言了，而学习这种语言需要apache、编译器、php环境这三个条件。一个phpstudy集成环境就很好的解决了这个问题。俗话说工欲善其事必先利其器，而我的电脑上刚好还有PHP study和sublime这两个强大的工具，何不利用一下？ PHP语言先说个无关的，从我的理解方面来介绍一下PHP语言。PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。PHP 是一种创建">
-<meta property="og:type" content="article">
-<meta property="og:title" content="利用phpstudy集成环境＋sublime创建PHP编译环境">
-<meta property="og:url" content="http://momaxx.github.io/2020/03/27/%E5%88%A9%E7%94%A8phpstudy%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83%EF%BC%8Bsublime%E5%88%9B%E5%BB%BAPHP%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/index.html">
-<meta property="og:site_name" content="Momax&#39;s blog">
-<meta property="og:description" content="前言：最近开始学习PHP语言了，而学习这种语言需要apache、编译器、php环境这三个条件。一个phpstudy集成环境就很好的解决了这个问题。俗话说工欲善其事必先利其器，而我的电脑上刚好还有PHP study和sublime这两个强大的工具，何不利用一下？ PHP语言先说个无关的，从我的理解方面来介绍一下PHP语言。PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。PHP 是一种创建">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200327091855186.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200327092308511.png#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200327092407736.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200327092936675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200327100901583.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200327101125398.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-03-27T15:19:53.880Z">
-<meta property="article:modified_time" content="2020-03-27T15:20:01.159Z">
-<meta property="article:author" content="moMaxX">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200327091855186.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center">
-
-<link rel="canonical" href="http://momaxx.github.io/2020/03/27/%E5%88%A9%E7%94%A8phpstudy%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83%EF%BC%8Bsublime%E5%88%9B%E5%BB%BAPHP%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: true
-  };
-</script>
-
-  <title>利用phpstudy集成环境＋sublime创建PHP编译环境 | Momax's blog</title>
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
   
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
 
+<body id="body-x">
+<div id="layout-content">
+  <div id="menu-outer-x">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Momax's blog
+    </div>
+    
 
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
+     
     <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Momax's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
-        </a>
-      </li>
-  </ul>
-
-</nav>
-  <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
-  </div>
-</div>
-    </header>
-
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
       
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/03/27/%E5%88%A9%E7%94%A8phpstudy%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83%EF%BC%8Bsublime%E5%88%9B%E5%BB%BAPHP%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          利用phpstudy集成环境＋sublime创建PHP编译环境
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-27 23:19:53 / Modified: 23:20:01" itemprop="dateCreated datePublished" datetime="2020-03-27T23:19:53+08:00">2020-03-27</time>
-            </span>
-
-          
-
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
+    </div>
+  </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article class="markdown-body">
+    <h2 id="post-title">利用phpstudy集成环境＋sublime创建PHP编译环境
+       
+        <div id="post-time" datetime="2020-03-27T15:19:53.880Z">
+          2020-03-27
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-        <p>前言：最近开始学习PHP语言了，而学习这种语言需要apache、编译器、php环境这三个条件。一个phpstudy集成环境就很好的解决了这个问题。俗话说工欲善其事必先利其器，而我的电脑上刚好还有PHP study和sublime这两个强大的工具，何不利用一下？</p>
+    </h2>
+    <p>前言：最近开始学习PHP语言了，而学习这种语言需要apache、编译器、php环境这三个条件。一个phpstudy集成环境就很好的解决了这个问题。俗话说工欲善其事必先利其器，而我的电脑上刚好还有PHP study和sublime这两个强大的工具，何不利用一下？</p>
 <h2 id="PHP语言"><a href="#PHP语言" class="headerlink" title="PHP语言"></a>PHP语言</h2><p>先说个无关的，从我的理解方面来介绍一下PHP语言。<br><strong>PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。</strong><br><strong>PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。</strong><br><strong>PHP 脚本在服务器上执行。<br>   PHP 可免费下载使用。</strong><br><strong>PHP语言可以用来制作一些动态网页</strong><br>所谓动态网页，就是说网页的内容可以随着时间，环境或者数据库的操作来进行变化。</p>
 <h2 id="PHP-study的设置"><a href="#PHP-study的设置" class="headerlink" title="PHP study的设置"></a>PHP study的设置</h2><p><img src="https://img-blog.csdnimg.cn/20200327091855186.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>打开软件，更改一下版本，我选择的是图中的版本，其他版本的应该也可以的。<br><strong>添加环境变量</strong><br>在phpstudy文件夹里找到你的这个版本的文件夹，然后在计算机环境变量里面添加，要注意变量是添加到下面的path变量里。<br><img src="https://img-blog.csdnimg.cn/20200327092308511.png#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200327092407736.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>将你刚才复制的路径添加进去，然后就是确定，确定，确定。<br>设置完成，如果不放心，可以验证一下。打开DOS命令窗口，输入php -v。<br>出现的版本号是你之前选的那个就可以了。<br><strong>Sublime的使用</strong><br>首先打开sublime。按图所示进行创建。<br><img src="https://img-blog.csdnimg.cn/20200327092936675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>创建完成后，文件里会出现一些东西，然后全部删除，输入下面的代码（从某位大佬里复制过来的）</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;   </span><br><span class="line">    <span class="string">"cmd"</span>: [<span class="string">"php"</span>, <span class="string">"$file"</span>],  </span><br><span class="line">    <span class="string">"file_regex"</span>: <span class="string">"php$"</span>,   </span><br><span class="line">    <span class="string">"selector"</span>: <span class="string">"source.php"</span>   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>完成之后保存，文件名为php.sublime-build<br>之后重启软件，选择PHP。如图<br><img src="https://img-blog.csdnimg.cn/20200327100901583.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>接着就可以进行编写了。在软件右下角有一个Plain Text，点击更换为php就行了。<br>然后输入你的php代码，ctrl+B测试一下就可以了。<br><img src="https://img-blog.csdnimg.cn/20200327101125398.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样就可以了。</p>
 
-    </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/03/25/%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8%E7%9A%84%E5%AD%A6%E4%B9%A0/" rel="prev" title="时间盲注的学习">
-      <i class="fa fa-chevron-left"></i> 时间盲注的学习
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/27/PHP%E5%9F%BA%E6%9C%AC%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/" rel="next" title="PHP基本入门学习">
-      PHP基本入门学习 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
   </article>
-  
-  
-  
 
-  </div>
+  
+    
+    
+      <div id="page-prev-next">
+        
+        
+          <a id="page-prev-a" href="/2020/03/27/PHP%E5%9F%BA%E6%9C%AC%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/"> ← PHP基本入门学习 </a>
+        
 
-
-          </div>
-          
+        
+        
+          <a id="page-next-a" href="/2020/03/25/%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8%E7%9A%84%E5%AD%A6%E4%B9%A0/"> 时间盲注的学习 → </a>
+        
+      </div>
+    
+    
+    
+    
+      
+      <div id="play-button"  style="background-color: #6d5aca; border: solid 2px #6d5aca;">
+  <img id="play-img" src="/images/playback_play.png"></img>
+</div>
+<audio id="bgaudio" loop="loop" preload="none"> 
+  <source src=http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715 type="audio/mpeg">
+</audio>
 
 <script>
-  window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
+$(document).ready(function(){
+  //播放按钮点击
+  var audio = $("#bgaudio")[0];
+  var img = $("#play-img")[0];
+  $("#play-button").click(function(){ 
+    if (audio.paused || audio.ended) {
+      audio.play();
+      img.src = "/images/playback_pause.png";
+    } else {
+      audio.pause();
+      img.src = "/images/playback_play.png";
     }
   });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
+});
 </script>
+    
 
+    
+    
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div id="reward_comment">文章对我有帮助，打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="moMaxX WeChat Pay"/>
+          <p>微信</p>
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="moMaxX Alipay"/>
+          <p>支付宝</p>
+        </div> 
+      
+    </div>
   </div>
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP语言"><span class="nav-number">1.</span> <span class="nav-text">PHP语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-study的设置"><span class="nav-number">2.</span> <span class="nav-text">PHP study的设置</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">moMaxX</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">16</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </div>
+  
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">moMaxX</span>
+  </div>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+
+
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTI2MS81ODI5">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    moMaxX 
+    ©2020 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
   </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.1
-  </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src=/images/rss.png height="18" width="18">
+      
+</div> 
 
 
   
-
-
-
-
   
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <script src="/js/legend.js"></script>
   
 
-  
 
 </body>
 </html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+

