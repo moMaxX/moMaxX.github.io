@@ -1,0 +1,398 @@
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" 
+src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href=  "/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+  
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body id="body-x">
+<div id="layout-content">
+  <div id="menu-outer-x">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Momax's blog
+    </div>
+    
+
+     
+    <div>
+    
+      
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
+    </div>
+  </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article class="markdown-body">
+    <h2 id="post-title">volatility使用
+       
+        <div id="post-time" datetime="2021-08-08T15:20:11.682Z">
+          2021-08-08
+        </div>
+      
+    </h2>
+    <h1 id="volatility"><a href="#volatility" class="headerlink" title="volatility"></a>volatility</h1><p>volatility是一个开源的Windows，Linux，MaC，Android的内存取证分析工具，由python编写成，命令行操作。<br>在一个大师傅播客里看到对于volatility使用进行了详细的介绍，这里进行一下转载。大师傅<a href="https://blog.csdn.net/qq_38626043/article/details/108883112" target="_blank" rel="noopener">博客地址</a></p>
+<h1 id="volatility命令格式及常用参数"><a href="#volatility命令格式及常用参数" class="headerlink" title="volatility命令格式及常用参数"></a>volatility命令格式及常用参数</h1><blockquote>
+<p>volatility 使用：<br>volatility -f &lt;文件名&gt; -–profile=&lt;配置文件&gt; &lt;插件&gt; [插件参数]<br>通过volatility –info获取工具所支持的profile，Address Spaces，Scanner Checks，Plugins</p>
+</blockquote>
+<blockquote>
+<p>常用插件：<br>imageinfo：显示目标镜像的摘要信息，知道镜像的操作系统后，就可以在 –profile 中带上对应的操作系统<br>pslist：该插件列举出系统进程，但它不能检测到隐藏或者解链的进程，psscan可以<br>psscan：可以找到先前已终止(不活动)的进程以及被rootkit隐藏或解链的进程<br>pstree：以树的形式查看进程列表，和pslist一样，也无法检测隐藏或解链的进程<br>mendump：提取出指定进程，常用foremost 来分离里面的文件<br>filescan：扫描所有的文件列表<br>hashdump：查看当前操作系统中的 password hash，例如 Windows 的 SAM 文件内容<br>svcscan：扫描 Windows 的服务<br>connscan：查看网络连接</p>
+</blockquote>
+<h1 id="参数大全"><a href="#参数大全" class="headerlink" title="参数大全"></a>参数大全</h1><pre><code class="livecodeserver">Supported Plugin Commands:
+
+amcache         Print AmCache information        //打印AmCache信息
+apihooks        Detect API hooks in process and kernel memory        //检测进程和内核内存中的API挂钩
+atoms           Print session and window station atom tables        //打印会话和窗口站atom表
+atomscan        Pool scanner for atom tables        //用于atom表的池扫描程序
+auditpol        Prints out the Audit Policies from HKLM\SECURITY\Policy\PolAdtEv        //auditpol从HKLM \ SECURITY \ Policy \ PolAdtEv中打印出审核策略
+bigpools        Dump the big page pools using BigPagePoolScanner        // bigpools使用BigPagePoolScanner转储大页面池
+bioskbd         Reads the keyboard buffer from Real Mode memory            // bioskbd从实模式内存中读取键盘缓冲区
+cachedump       Dumps cached domain hashes from memory                    //从内存中转储缓存的域哈希
+callbacks       Print system-wide notification routines                    //回调打印系统范围的通知例程
+clipboard       Extract the contents of the windows clipboard            //剪贴板提取Windows剪贴板的内容
+cmdline         Display process command-line arguments                    //显示进程命令行参数
+cmdscan         Extract command history by scanning for _COMMAND_HISTORY        //通过扫描_COMMAND_HISTORY提取命令历史记录    
+connections     Print list of open connections [Windows XP and 2003 Only]        //列印已开启的连接[只适用于windowsxp及2003]
+connscan        Pool scanner for tcp connections        //用于tcp连接的池扫描程序
+consoles        Extract command history by scanning for _CONSOLE_INFORMATION        通过扫描_CONSOLE_INFORMATION提取命令历史记录
+crashinfo       Dump crash-dump information            //转储崩溃转储信息
+deskscan        Poolscaner for tagDESKTOP (desktops)        //用于tagDESKTOP的Poolscaner（桌面）
+devicetree      Show device tree        //显示设备树
+dlldump         Dump DLLs from a process address space            //从进程地址空间中转储DLL
+dlllist         Print list of loaded dlls for each process        //打印每个进程已加载的dll的列表
+driverirp       Driver IRP hook detection            //驱动程序IRP挂钩检测
+drivermodule    Associate driver objects to kernel modules            //将驱动程序对象与内核模块相关联
+driverscan      Pool scanner for driver objects            //池扫描程序中的驱动程序对象
+dumpcerts       Dump RSA private and public SSL keys            //转储RSA专用和公用SSL密钥
+dumpfiles       Extract memory mapped and cached files            //取内存映射和缓存的文件
+dumpregistry    Dumps registry files out to disk                 //将注册表文件转储到磁盘
+editbox         Displays information about Edit controls. (Listbox experimental.)            //显示有关“编辑”控件的信息。 （实验性的列表框。）
+envars          Display process environment variables            //显示流程环境变量
+eventhooks      Print details on windows event hooks            //在Windows事件挂钩上打印详细信息
+evtlogs         Extract Windows Event Logs (XP/2003 only)        //提取Windows事件日志（仅适用于XP / 2003）
+filescan        Pool scanner for file objects            //池扫描程序中的文件对象
+gahti           Dump the USER handle type information            //转储USER句柄类型信息                gditimers       Print installed GDI timers and callbacks        //打印已安装的GDI计时器和回调
+gdt             Display Global Descriptor Table            //显示全局描述符表
+getservicesids  Get the names of services in the Registry and return Calculated SID            //获取注册表中的服务名称，并返回计算出的SID
+getsids         Print the SIDs owning each process                //打印拥有每个进程的SID
+handles         Print list of open handles for each process        //打印每个进程的打开句柄列表
+hashdump        Dumps passwords hashes (LM/NTLM) from memory        //从内存中转储密码散列(LM/NTLM
+hibinfo         Dump hibernation file information            //转储休眠文件信息
+hivedump        Prints out a hive            //打印一个配置单元
+hivelist        Print list of registry hives.        //打印注册表配置单元列表。
+hivescan        Pool scanner for registry hives            //注册表配置单元的池扫描程序
+hpakextract     Extract physical memory from an HPAK file            //从HPAK文件提取物理内存
+hpakinfo        Info on an HPAK file            //有关HPAK文件的信息
+idt             Display Interrupt Descriptor Table            //显示中断描述符表
+iehistory       Reconstruct Internet Explorer cache / history        //重建Internet Explorer缓存/历史记录
+imagecopy       Copies a physical address space out as a raw DD image            //将物理地址空间复制为原始DD图像
+imageinfo       Identify information for the image             //标识图像信息
+impscan         Scan for calls to imported functions        //扫描对导入功能的调用
+joblinks        Print process job link information            //打印过程作业链接信息
+kdbgscan        Search for and dump potential KDBG values            //搜索并转储潜在的KDBG值
+kpcrscan        Search for and dump potential KPCR values            //搜索和转储潜在的KPCR值
+ldrmodules      Detect unlinked DLLs            //检测链接dll
+lsadump         Dump (decrypted) LSA secrets from the registry            //从注册表转储(解密的)LSA机密
+machoinfo       Dump Mach-O file format information            //转储Mach-O文件格式信息
+malfind         Find hidden and injected code            //找到隐藏的和注入的代码
+mbrparser       Scans for and parses potential Master Boot Records (MBRs)             //扫描和解析潜在主引导记录(mbr)
+memdump         Dump the addressable memory for a process            //转储进程的可寻址内存
+memmap          Print the memory map            //打印内存映射
+messagehooks    List desktop and thread window message hooks        //列出桌面和线程窗口消息挂钩
+mftparser       Scans for and parses potential MFT entries             //扫描和解析潜在的MFT条目
+moddump         Dump a kernel driver to an executable file sample            //将内核驱动程序转储到可执行文件示例
+modscan         Pool scanner for kernel modules                //内核模块的池扫描程序
+modules         Print list of loaded modules                //打印加载模块的列表
+multiscan       Scan for various objects at once            //一次扫描各种物体
+mutantscan      Pool scanner for mutex objects                //池扫描互斥对象
+notepad         List currently displayed notepad text        //列表当前显示的记事本文本
+objtypescan     Scan for Windows object type objects        //扫描Windows对象类型的对象
+patcher         Patches memory based on page scans            //基于页面扫描的内存补丁
+poolpeek        Configurable pool scanner plugin            //可配置的池扫描器插件
+printkey        Print a registry key, and its subkeys and values            //打印注册表项及其子项和值
+privs           Display process privileges            //显示过程的特权
+procdump        Dump a process to an executable file sample            //将进程转储到可执行文件示例
+pslist          Print all running processes by following the EPROCESS lists             //按照EPROCESS列表打印所有正在运行的进程
+psscan          Pool scanner for process objects            //进程对象的池扫描程序
+pstree          Print process list as a tree            //以树的形式打印过程列表
+psxview         Find hidden processes with various process listings            //使用各种进程列表查找隐藏的进程
+qemuinfo        Dump Qemu information            //转储Qemu信息
+raw2dmp         Converts a physical memory sample to a windbg crash dump            //将物理内存示例转换为windbg崩溃转储
+screenshot      Save a pseudo-screenshot based on GDI windows            //保存一个基于GDI窗口的伪截图
+servicediff     List Windows services (ala Plugx)            //列出Windows服务(ala Plugx)
+sessions        List details on _MM_SESSION_SPACE (user logon sessions)                //列出关于_MM_SESSION_SPACE(用户登录会话)的详细信息
+shellbags       Prints ShellBags info            //打印ShellBags信息
+shimcache       Parses the Application Compatibility Shim Cache registry key        //解析应用程序兼容性垫片缓存注册表项
+shutdowntime    Print ShutdownTime of machine from registry            //从注册表打印停机时间的机器
+sockets         Print list of open sockets            //打印打开的套接字列表
+sockscan        Pool scanner for tcp socket objects            //用于tcp套接字对象的池扫描程序
+ssdt            Display SSDT entries            //SSDT条目显示
+strings         Match physical offsets to virtual addresses (may take a while, VERY verbose)            //将物理偏移量匹配到虚拟地址(可能需要一段时间，非常冗长)
+svcscan         Scan for Windows services            //扫描Windows服务
+symlinkscan     Pool scanner for symlink objects            //符号链接对象的池扫描程序
+thrdscan        Pool scanner for thread objects                //线程对象的池扫描程序
+threads         Investigate _ETHREAD and _KTHREADs
+timeliner       Creates a timeline from various artifacts in memory             //从内存中的各种工件创建时间线
+timers          Print kernel timers and associated module DPCs            //打印内核计时器和相关模块DPCs
+truecryptmaster Recover TrueCrypt 7.1a Master Keys            //恢复TrueCrypt 7.1a主密钥
+truecryptpassphrase     TrueCrypt Cached Passphrase Finder            //TrueCrypt缓存了密码短语查找器
+truecryptsummary        TrueCrypt Summary            //TrueCrypt总结
+unloadedmodules Print list of unloaded modules            //打印已卸载模块列表
+userassist      Print userassist registry keys and information            //打印userassist注册表项和信息
+userhandles     Dump the USER handle tables            //转储用户句柄表
+vaddump         Dumps out the vad sections to a file        //将vad节转储到一个文件中
+vadinfo         Dump the VAD info            //转储VAD信息
+vadtree         Walk the VAD tree and display in tree format            //遍历VAD树并以树格式显示
+vadwalk         Walk the VAD tree            //走在树下
+vboxinfo        Dump virtualbox information            //转储virtualbox信息
+verinfo         Prints out the version information from PE images            //从PE图像打印出版本信息
+vmwareinfo      Dump VMware VMSS/VMSN information                //转储VMware VMSS/VMSN信息
+volshell        Shell in the memory image            //贝壳在记忆中的形象
+windows         Print Desktop Windows (verbose details)                //打印桌面窗口(详细信息)
+wintree         Print Z-Order Desktop Windows Tree            //打印z顺序桌面Windows树
+wndscan         Pool scanner for window stations            //池扫描窗口站
+yarascan        Scan process or kernel memory with Yara signatures            //用Yara签名扫描进程或内核内存</code></pre>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><pre><code class="javascript">linux_apihooks             - 检查用户名apihooks
+linux_arp                  - 打印ARP表
+linux_aslr_shift           - 自动检测Linux aslr改变
+linux_banner               - 打印Linux Banner信息
+linux_bash                 - 从bash进程内存中恢复bash历史记录
+linux_bash_env             - 恢复一个进程的动态环境变量
+linux_bash_hash            - 从bash进程内存中恢复bash哈希表
+linux_check_afinfo         - 验证网络协议的操作函数指针
+linux_check_creds          - 检查是否有任何进程正在共享凭证结构
+linux_check_evt_arm        - 检查异常向量表以查找系统调用表钩子
+linux_check_fop            - 检查rootkit修改的文件操作结构
+linux_check_idt            - 检查IDT是否被更改
+linux_check_inline_kernel  - 检查内联内核挂钩
+linux_check_modules        - 将模块列表与sysfs信息进行比较
+linux_check_syscall        - 检查系统调用表是否已被更改
+linux_check_tty            - 检查tty的钩子
+linux_cpuinfo              - 打印有关每个活动处理器的信息
+linux_dentry_cache         - 从dentry缓存收集文件
+linux_dmesg                - 收集dmesg buffer
+linux_dump_map             - 将选定的内存映射写入到磁盘
+linux_dynamic_env          - 恢复进程的动态环境变量
+linux_elfs                 - 在进程映射中找ELF二进制文件
+linux_enumerate_files      - 列出文件系统缓存引用的文件
+linux_find_file            - 列出并从内存中恢复文件
+linux_getcwd               - 列出每个进程的当前工作目录
+linux_hidden_modules       - Carves内存寻找隐藏的内核模块
+linux_ifconfig             - 收集活动接口
+linux_info_regs            - GDB中的“info寄存器”。它打印出所有的输出
+linux_iomem                - 提供与/proc/iomem相似的输出
+linux_kernel_opened_files  - 列出从内核中打开的文件
+linux_keyboard_notifiers   - 解析键盘通知调用链
+linux_ldrmodules           - 将proc映射的输出与libdl中的库列表进行比较
+linux_library_list         - 将库加载到一个进程中
+linux_librarydump          - 将进程内存中的共享库转储到磁盘
+linux_list_raw             - 列出应用程序与混杂的套接字
+linux_lsmod                - 收集加载内核模块
+linux_lsof                 - 列出文件描述符及其路径
+linux_malfind              - 查找可疑的过程映射
+linux_memmap               - 转储用于linux任务的内存映射
+linux_moddump              - 提取加载内核模块
+linux_mount                - 收集挂载的fs/devices 
+linux_mount_cache          - 收集从kmem_cache安装的fs/设备。
+linux_netfilter            - 列出Netfilter钩子
+linux_netscan              - 刻画网络连接结构
+linux_netstat              - 列表打开的套接字
+linux_pidhashtable         - 通过PID哈希表枚举进程
+linux_pkt_queues           - 将每个进程的数据包队列写入磁盘
+linux_plthook              - 扫描ELF二进制文件&#39; PLT hooks
+linux_proc_maps            - 收集进程内存映射
+linux_proc_maps_rb         - 通过映射红黑树收集linux的进程映射
+linux_procdump             - 将进程的可执行映像转储到磁盘
+linux_process_hollow       - 检查是否有进程被挖空的迹象
+linux_psaux                - 收集进程和完整的命令行和开始时间
+linux_psenv                - 收集进程及其静态环境变量
+linux_pslist               - 收集活动任务通过task_struct-&gt;task list
+linux_pslist_cache         - 从kmem_cache中收集计划任务
+linux_psscan               - 扫描进程的物理内存
+linux_pstree               - 显示进程之间的父/子关系
+linux_psxview              - 查找隐藏进程与各种各样的进程列表
+linux_recover_filesystem   - 从内存中恢复整个缓存的文件系统
+linux_route_cache          - 从内存中恢复路由缓存
+linux_sk_buff_cache        - 从sk_buff kmem_cache中恢复数据包
+linux_slabinfo             - 在一台正在运行的机器上模拟/proc/slabinfo。
+linux_strings              - 将物理偏移量匹配到虚拟地址(可能需要一段时间，非常详细)
+linux_threads              - 打印进程的线程
+linux_tmpfs                - 从内存中恢复tmpfs文件系统。
+linux_truecrypt_passphrase - 恢复缓存Truecrypt口令
+linux_vma_cache            - 从vm_area_struct 缓存中收集VMAs
+linux_volshell             - 内存映像中的shell 
+linux_yarascan             - Linux内存映像中的一个shell
+</code></pre>
+<h1 id="常见windows工具进程名"><a href="#常见windows工具进程名" class="headerlink" title="常见windows工具进程名"></a>常见windows工具进程名</h1><pre><code class="stylus">TrueCrypt.exe 磁盘加密工具
+notepad.exe 自带记事本
+mspaint.exe 自带画图工具
+iexplore.exe IE浏览器
+DumpIt.exe 内存镜像提取工具</code></pre>
+<h1 id="部分命令使用"><a href="#部分命令使用" class="headerlink" title="部分命令使用"></a>部分命令使用</h1><pre><code class="javascript">volatility -f [文件名] imageinfo
+volatility -f [文件名] --profile=xxx pslist //查看进程信息熟悉常见进程，查看启动时间，大小等信息
+volatility -f [文件名] --profile=xxx cmdscan //通过扫描_COMMAND_HISTORY提取命令历史记录
+volatility -f [文件名] --profile=xxx filescan | grep flag//扫描地址池里的flag字段
+volatility -f [文件名] --profile=xxx printkey//输出注册表
+volatility -f [文件名] --profile=xxx prontkey -f //输出注册表子项目
+volatility -f [文件名] --profile=xxx hivelist //打印注册表hives的列表
+volatility -f [文件名] --profile=xxx hashdump -y //获取指定sha内容
+volatility -f [文件名] --profile=xxx printkey -k &#39;Microsoft\Security Center\Svc&#39;//打印HKEY_LOCAL_MACHINE \ Microsoft \ Security Center \ Svc密钥
+volatility -f [文件名] --profile=xxx lsadump //输出lsa解码信息
+    &gt;$ MACHINE.ACC：域身份验证Microsoft。
+    &gt;DefaultPassword：启用自动登录后用于登录Windows的密码。
+    &gt;NL $ KM：用于加密缓存的域密码的密钥解密LSA密钥。
+    &gt;L $ RTMTIMEBOMB_ *：时间戳记提供未激活的Windows副本停止工作的日期。
+    &gt;L $ HYDRAENCKEY_ *：用于远程桌面协议（RDP）的私钥。如果您还从受RDP攻击的系统中捕获了数据包，则可以从数据包捕获中提取客户端的公钥，并从内存中提取服务器的私钥。然后解密流量。
+volatility -f [文件名] --profile=xxx filescan |grep &quot;Desktop&quot;//扫描桌面文件
+volatility -f [文件名] --profile=xxx filescan | grep verinfo//扫描系统信息
+volatility -f [文件名] --profile=xxx -p [PID] -D [dump 出的文件保存的目录]//将内存中的某个进程数据以 dmp 的格式保存出来
+volatility -f name --profile=WinXPSP2x86 cmdscan//提取内存中保留的 cmd 命令使用情况
+volatility -f name --profile=WinXPSP2x86 netscan//获取到当时的网络连接情况
+volatility -f name --profile=WinXPSP2x86 iehistory//获取 IE 浏览器的使用情况 
+#获取内存中的系统密码
+volatility -f name --profile=WinXPSP2x86 hashdump -y （注册表 system 的 virtual 地址 ）-s （SAM 的 virtual 地址） volatility -f name --profile=WinXPSP2x86 hashdump -y 0xe1035b60 -s 0xe16aab60
+volatility -f name --profile=WinXPSP2x86 timeliner
+#对文件查找及dumo提取某个进程：
+volatility -f name --profile=Win7SP1x64 memdump -D . -p 2872
+strings -e l ./2872.dmp | grep flag
+volatility -f name --profile=Win7SP1x64 dumpfiles -Q 0x000000007e410890 -n --dump-dir=./
+#HASH匹配用户账户名密码
+Hash, 然后使用john filename --format=NT破解
+#安全进程扫描
+volatility -f [文件名] --profile=xxx psscan
+#查找图片
+volatility -f [文件名] --profile=xxx filescan | grep -E &#39;jpg|png|jpeg|bmp|gif
+volatility -f [文件名] --profile=xxx netscan
+#注册表解析
+volatility -f [文件名] --profile=xxx hivelist
+volatility -f [文件名] --profile=xxx -o 0xfffff8a000024010 printkey -K &quot;ControlSet001\Control;&quot; 
+#复制、剪切板
+volatility -f name --profile=Win7SP1x64 clipboard
+volatility -f name --profile=Win7SP1x64 dlllist -p 3820
+#dump所有进程
+volatility -f name --profile=Win7SP1x64 memdump -n chrome -D .
+#利用字符串查找download
+volatility -f name --profile=Win7SP1x86 shimcache
+#svcscan查看服务
+volatility -f name --profile=Win7SP1x86 svcscan
+</code></pre>
+
+  </article>
+
+  
+    
+    
+      <div id="page-prev-next">
+        
+        
+          <div></div> 
+        
+
+        
+        
+          <a id="page-next-a" href="/2021/06/05/%E5%8F%8D%E5%BC%B9shell/"> 反弹shell → </a>
+        
+      </div>
+    
+    
+    
+    
+
+    
+    
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div id="reward_comment">文章对我有帮助，打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="moMaxX WeChat Pay"/>
+          <p>微信</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="moMaxX Alipay"/>
+          <p>支付宝</p>
+        </div> 
+      
+    </div>
+  </div>
+
+
+  
+
+    </div>
+  </div>
+</div>
+
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    moMaxX 
+    ©2021 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
+  </div>
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src=/images/rss.png height="18" width="18">
+      
+</div> 
+
+
+  
+  
+    <script src="/js/legend.js"></script>
+  
+
+
+</body>
+</html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+
